@@ -232,7 +232,8 @@
       "add_property": "Eigenschap toevoegen",
       "group_by": "Groeperen op"
     },
-    "hours_value": "{value} u"
+    "hours_value": "{value} u",
+    "count": "Aantal"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Project} other {Projecten}}",

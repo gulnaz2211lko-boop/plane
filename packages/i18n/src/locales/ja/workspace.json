@@ -232,7 +232,8 @@
       "add_property": "プロパティを追加",
       "group_by": "グループ化"
     },
-    "hours_value": "{value}時間"
+    "hours_value": "{value}時間",
+    "count": "件数"
   },
   "workspace_projects": {
     "label": "{count, plural, one {プロジェクト} other {プロジェクト}}",

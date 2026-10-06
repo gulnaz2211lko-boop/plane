@@ -232,7 +232,8 @@
       "add_property": "Thêm thuộc tính",
       "group_by": "Nhóm theo"
     },
-    "hours_value": "{value} giờ"
+    "hours_value": "{value} giờ",
+    "count": "Số lượng"
   },
   "workspace_projects": {
     "label": "{count, plural, one {dự án} other {dự án}}",

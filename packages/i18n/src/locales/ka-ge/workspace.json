@@ -232,7 +232,8 @@
       "add_property": "თვისების დამატება",
       "group_by": "დაჯგუფება"
     },
-    "hours_value": "{value} სთ"
+    "hours_value": "{value} სთ",
+    "count": "რაოდენობა"
   },
   "workspace_projects": {
     "label": "{count, plural, one {პროექტი} other {პროექტები}}",

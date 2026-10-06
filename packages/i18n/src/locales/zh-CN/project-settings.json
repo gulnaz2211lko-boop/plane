@@ -178,7 +178,8 @@
       },
       "switch": "切换估算系统",
       "current": "当前估算系统",
-      "select": "选择估算系统"
+      "select": "选择估算系统",
+      "no_estimate_found": "未找到估算"
     },
     "automations": {
       "label": "自动化",
@@ -432,7 +433,8 @@
         "loading": "正在更新项目功能...",
         "success": "项目功能更新成功。",
         "error": "更新项目功能时出现错误。请重试。"
-      }
+      },
+      "pro_feature": "Pro 功能"
     },
     "project_updates": {
       "heading": "项目更新",

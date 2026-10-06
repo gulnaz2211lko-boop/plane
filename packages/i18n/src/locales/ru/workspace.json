@@ -232,7 +232,8 @@
       "add_property": "Добавить свойство",
       "group_by": "Группировать по"
     },
-    "hours_value": "{value} ч"
+    "hours_value": "{value} ч",
+    "count": "Количество"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Проект} other {Проекты}}",

@@ -232,7 +232,8 @@
       "add_property": "新增屬性",
       "group_by": "分組依據"
     },
-    "hours_value": "{value} 小時"
+    "hours_value": "{value} 小時",
+    "count": "數量"
   },
   "workspace_projects": {
     "label": "{count, plural, one {專案} other {專案}}",

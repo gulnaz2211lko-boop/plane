@@ -232,7 +232,8 @@
       "add_property": "Añadir propiedad",
       "group_by": "Agrupar por"
     },
-    "hours_value": "{value} h"
+    "hours_value": "{value} h",
+    "count": "Cantidad"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Proyecto} other {Proyectos}}",

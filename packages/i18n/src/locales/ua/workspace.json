@@ -232,7 +232,8 @@
       "add_property": "Додати властивість",
       "group_by": "Групувати за"
     },
-    "hours_value": "{value} год"
+    "hours_value": "{value} год",
+    "count": "Кількість"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Проєкт} few {Проєкти} other {Проєктів}}",

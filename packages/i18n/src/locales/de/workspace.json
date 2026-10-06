@@ -232,7 +232,8 @@
       "add_property": "Eigenschaft hinzufügen",
       "group_by": "Gruppieren nach"
     },
-    "hours_value": "{value} Std."
+    "hours_value": "{value} Std.",
+    "count": "Anzahl"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Projekt} few {Projekte} other {Projekte}}",

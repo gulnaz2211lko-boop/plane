@@ -232,7 +232,8 @@
       "add_property": "Tambah properti",
       "group_by": "Kelompokkan berdasarkan"
     },
-    "hours_value": "{value} j"
+    "hours_value": "{value} j",
+    "count": "Jumlah"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Proyek} other {Proyek}}",

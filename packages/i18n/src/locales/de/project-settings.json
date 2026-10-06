@@ -178,7 +178,8 @@
       },
       "switch": "Schätzsystem wechseln",
       "current": "Aktuelles Schätzsystem",
-      "select": "Wählen Sie ein Schätzsystem"
+      "select": "Wählen Sie ein Schätzsystem",
+      "no_estimate_found": "Keine Schätzung gefunden"
     },
     "automations": {
       "label": "Automatisierungen",
@@ -432,7 +433,8 @@
         "loading": "Projektfunktion wird aktualisiert...",
         "success": "Projektfunktion erfolgreich aktualisiert.",
         "error": "Beim Aktualisieren der Projektfunktion ist etwas schiefgelaufen. Bitte versuchen Sie es erneut."
-      }
+      },
+      "pro_feature": "Pro-Funktion"
     },
     "project_updates": {
       "heading": "Projektaktualisierungen",

@@ -232,7 +232,8 @@
       "add_property": "Dodaj właściwość",
       "group_by": "Grupuj według"
     },
-    "hours_value": "{value} godz."
+    "hours_value": "{value} godz.",
+    "count": "Liczba"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Projekt} few {Projekty} other {Projektów}}",

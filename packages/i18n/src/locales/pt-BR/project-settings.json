@@ -178,7 +178,8 @@
       },
       "switch": "Alternar sistema de estimativas",
       "current": "Sistema de estimativas atual",
-      "select": "Selecione um sistema de estimativas"
+      "select": "Selecione um sistema de estimativas",
+      "no_estimate_found": "Nenhuma estimativa encontrada"
     },
     "automations": {
       "label": "Automações",
@@ -432,7 +433,8 @@
         "loading": "Atualizando recurso do projeto...",
         "success": "Recurso do projeto atualizado com sucesso.",
         "error": "Algo deu errado ao atualizar o recurso do projeto. Por favor, tente novamente."
-      }
+      },
+      "pro_feature": "Recurso Pro"
     },
     "project_updates": {
       "heading": "Atualizações do projeto",

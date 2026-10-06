@@ -178,7 +178,8 @@
       },
       "switch": "Schimbă sistemul de estimări",
       "current": "Sistemul de estimări curent",
-      "select": "Selectează un sistem de estimări"
+      "select": "Selectează un sistem de estimări",
+      "no_estimate_found": "Nicio estimare găsită"
     },
     "automations": {
       "label": "Automatizări",
@@ -432,7 +433,8 @@
         "loading": "Se actualizează funcționalitatea proiectului...",
         "success": "Funcționalitatea proiectului a fost actualizată cu succes.",
         "error": "Ceva a mers greșit la actualizarea funcționalității proiectului. Vă rugăm să încercați din nou."
-      }
+      },
+      "pro_feature": "Funcționalitate Pro"
     },
     "project_updates": {
       "heading": "Actualizări proiect",

@@ -232,7 +232,8 @@
       "add_property": "Adaugă proprietate",
       "group_by": "Grupează după"
     },
-    "hours_value": "{value} h"
+    "hours_value": "{value} h",
+    "count": "Număr"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Proiect} other {Proiecte}}",

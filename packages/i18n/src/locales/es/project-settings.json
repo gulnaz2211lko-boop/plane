@@ -178,7 +178,8 @@
       },
       "switch": "Cambiar sistema de estimaciones",
       "current": "Sistema de estimaciones actual",
-      "select": "Seleccionar un sistema de estimaciones"
+      "select": "Seleccionar un sistema de estimaciones",
+      "no_estimate_found": "No se encontró ninguna estimación"
     },
     "automations": {
       "label": "Automatizaciones",
@@ -432,7 +433,8 @@
         "loading": "Actualizando función del proyecto...",
         "success": "Función del proyecto actualizada correctamente.",
         "error": "Algo salió mal al actualizar la función del proyecto. Por favor, inténtalo de nuevo."
-      }
+      },
+      "pro_feature": "Función Pro"
     },
     "project_updates": {
       "heading": "Actualizaciones del proyecto",

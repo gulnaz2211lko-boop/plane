@@ -232,7 +232,8 @@
       "add_property": "Aggiungi proprietà",
       "group_by": "Raggruppa per"
     },
-    "hours_value": "{value} h"
+    "hours_value": "{value} h",
+    "count": "Conteggio"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Progetto} other {Progetti}}",

@@ -232,7 +232,8 @@
       "add_property": "Özellik ekle",
       "group_by": "Gruplandır"
     },
-    "hours_value": "{value} sa"
+    "hours_value": "{value} sa",
+    "count": "Sayı"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Proje} other {Projeler}}",

@@ -232,7 +232,8 @@
       "add_property": "속성 추가",
       "group_by": "그룹화 기준"
     },
-    "hours_value": "{value}시간"
+    "hours_value": "{value}시간",
+    "count": "개수"
   },
   "workspace_projects": {
     "label": "{count, plural, one {프로젝트} other {프로젝트}}",

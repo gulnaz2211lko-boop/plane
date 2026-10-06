@@ -88,7 +88,7 @@ const PriorityChart = observer(function PriorityChart(props: Props) {
       parsedBars = [
         {
           key: "count",
-          label: "Count",
+          label: t("workspace_analytics.count"),
           stackId: "bar-one",
           fill: (payload) => generateBarColor(payload.key, { x_axis, y_axis, group_by }, baseColors, workspaceStates),
           textClassName: "",
@@ -130,7 +130,7 @@ const PriorityChart = observer(function PriorityChart(props: Props) {
       parsedBars = [];
     }
     return parsedBars;
-  }, [chart_model, group_by, parsedData, resolvedTheme, workspaceStates, x_axis, y_axis]);
+  }, [chart_model, group_by, parsedData, resolvedTheme, t, workspaceStates, x_axis, y_axis]);
 
   const yAxisLabel = useMemo(() => {
     const option = ANALYTICS_Y_AXIS_VALUES.find((item) => item.value === props.y_axis);
@@ -156,18 +156,18 @@ const PriorityChart = observer(function PriorityChart(props: Props) {
       },
       {
         accessorKey: "count",
-        header: () => <div className="text-right">Count</div>,
+        header: () => <div className="text-right">{t("workspace_analytics.count")}</div>,
         cell: ({ row }) => <div className="text-right">{row.original.count}</div>,
         meta: {
           export: {
-            key: "Count",
+            key: t("workspace_analytics.count"),
             value: (row) => row.original.count,
-            label: "Count",
+            label: t("workspace_analytics.count"),
           },
         },
       },
     ],
-    [xAxisLabel]
+    [xAxisLabel, t]
   );
 
   const columns: ColumnDef<TChartDatum>[] = useMemo(

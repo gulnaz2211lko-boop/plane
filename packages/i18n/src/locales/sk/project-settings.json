@@ -178,7 +178,8 @@
       },
       "switch": "Prepnúť systém odhadov",
       "current": "Aktuálny systém odhadov",
-      "select": "Vyberte systém odhadov"
+      "select": "Vyberte systém odhadov",
+      "no_estimate_found": "Nenašiel sa žiadny odhad"
     },
     "automations": {
       "label": "Automatizácie",
@@ -432,7 +433,8 @@
         "loading": "Aktualizácia funkcie projektu...",
         "success": "Funkcia projektu bola úspešne aktualizovaná.",
         "error": "Pri aktualizácii funkcie projektu sa niečo pokazilo. Skúste to prosím znova."
-      }
+      },
+      "pro_feature": "Funkcia Pro"
     },
     "project_updates": {
       "heading": "Aktualizácie projektu",

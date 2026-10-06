@@ -232,7 +232,8 @@
       "add_property": "添加属性",
       "group_by": "分组方式"
     },
-    "hours_value": "{value} 小时"
+    "hours_value": "{value} 小时",
+    "count": "数量"
   },
   "workspace_projects": {
     "label": "{count, plural, one {项目} other {项目}}",

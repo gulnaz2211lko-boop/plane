@@ -232,7 +232,8 @@
       "add_property": "Přidat vlastnost",
       "group_by": "Seskupit podle"
     },
-    "hours_value": "{value} h"
+    "hours_value": "{value} h",
+    "count": "Počet"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Projekt} few {Projekty} other {Projektů}}",
