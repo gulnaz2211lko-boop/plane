@@ -15,7 +15,7 @@
 #   docker compose -f docker-compose-test.yml down -v
 #
 # Notes:
-# - Postgres / Valkey / RabbitMQ / MinIO start with health checks; the test
+# - Postgres / Valkey / RabbitMQ / S3 mock (Moto) start with health checks; the test
 #   runner only starts once each dependency is healthy.
 # - Data dirs are tmpfs so every run begins from a clean state.
 # - Env vars come from apps/api/.env (the same file the local stack uses); tests
@@ -33,6 +33,9 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-plane}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-plane}
       POSTGRES_DB: ${POSTGRES_DB:-plane}
+    # Parallel query workers allocate from /dev/shm; Docker's 64MB default runs out under concurrent
+    # analytical queries ("could not resize shared memory segment").
+    shm_size: 512mb
     tmpfs:
       - /var/lib/postgresql/data
     healthcheck:
@@ -71,31 +74,51 @@ services:
       timeout: 10s
       retries: 10
 
-  test-minio:
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+  # S3-compatible object storage. Moto's standalone server is a purpose-built S3 mock published on
+  # Docker Hub with versioned tags; the MinIO community images this stack used to pin are no longer
+  # pullable. Access keys are not checked, so whatever apps/api/.env provides works.
+  test-storage:
+    image: motoserver/moto:5.2.3
     networks:
       - test_env
     env_file:
       - ./apps/api/.env
     environment:
-      MINIO_ROOT_USER: ${AWS_ACCESS_KEY_ID:-access-key}
-      MINIO_ROOT_PASSWORD: ${AWS_SECRET_ACCESS_KEY:-secret-key}
-    entrypoint: >
-      /bin/sh -c "
-      mkdir -p /export/${AWS_S3_BUCKET_NAME:-uploads} &&
-      minio server /export --console-address ':9090' &
-      sleep 3 &&
-      mc alias set local http://localhost:9000 ${AWS_ACCESS_KEY_ID:-access-key} ${AWS_SECRET_ACCESS_KEY:-secret-key} &&
-      mc mb local/${AWS_S3_BUCKET_NAME:-uploads} -p || true &&
-      tail -f /dev/null
-      "
-    tmpfs:
-      - /export
+      BUCKET_NAME: ${AWS_S3_BUCKET_NAME:-uploads}
+    # Start the server, wait until it answers, create the default bucket, then stay in the foreground.
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        moto_server -H 0.0.0.0 -p 9000 &
+        python - <<'PY'
+        import os, time, urllib.request
+        import boto3
+        for _ in range(60):
+            try:
+                urllib.request.urlopen("http://localhost:9000/moto-api/", timeout=2)
+                break
+            except Exception:
+                time.sleep(0.5)
+        boto3.client(
+            "s3",
+            endpoint_url="http://localhost:9000",
+            aws_access_key_id="test",
+            aws_secret_access_key="test",
+            region_name="us-east-1",
+        ).create_bucket(Bucket=os.environ["BUCKET_NAME"])
+        PY
+        wait
     healthcheck:
-      test: ["CMD", "mc", "ready", "local"]
-      interval: 10s
+      # Healthy once the default bucket exists (HEAD-equivalent GET on the bucket returns 200).
+      test:
+        - CMD
+        - python
+        - -c
+        - import os, urllib.request; urllib.request.urlopen("http://localhost:9000/" + os.environ["BUCKET_NAME"], timeout=3)
+      interval: 5s
       timeout: 5s
-      retries: 10
+      retries: 12
 
   api-tests:
     build:
@@ -115,7 +138,7 @@ services:
       REDIS_HOST: test-redis
       REDIS_URL: redis://test-redis:6379/
       RABBITMQ_HOST: test-mq
-      AWS_S3_ENDPOINT_URL: http://test-minio:9000
+      AWS_S3_ENDPOINT_URL: http://test-storage:9000
       # Magic-link tests mock the celery delay but the view first checks that
       # EMAIL_HOST is configured. Set a placeholder so the check passes.
       EMAIL_HOST: test-smtp.invalid
@@ -129,7 +152,7 @@ services:
         condition: service_healthy
       test-mq:
         condition: service_healthy
-      test-minio:
+      test-storage:
         condition: service_healthy
     # Install test-only requirements (not in local.txt) then exec pytest.
     # Any args passed via `docker compose run api-tests <args>` replace the default command.
