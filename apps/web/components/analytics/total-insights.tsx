@@ -60,22 +60,11 @@ const TotalInsights = observer(function TotalInsights({
   const params = useParams();
   const workspaceSlug = params.workspaceSlug.toString();
   const { t } = useTranslation();
-  const { selectedDuration, selectedProjects, selectedCycle, selectedModule, isPeekView, isEpic } = useAnalytics();
+  const { filterParams, filtersKey, isPeekView, isEpic } = useAnalytics();
   const { data: totalInsightsData, isLoading } = useSWR(
-    `total-insights-${analyticsType}-${selectedDuration}-${selectedProjects}-${selectedCycle}-${selectedModule}-${isEpic}`,
+    `total-insights-${workspaceSlug}-${analyticsType}-${filtersKey}`,
     () =>
-      analyticsService.getAdvanceAnalytics<IAnalyticsResponse>(
-        workspaceSlug,
-        analyticsType,
-        {
-          // date_filter: selectedDuration,
-          ...(selectedProjects?.length > 0 ? { project_ids: selectedProjects.join(",") } : {}),
-          ...(selectedCycle ? { cycle_id: selectedCycle } : {}),
-          ...(selectedModule ? { module_id: selectedModule } : {}),
-          ...(isEpic ? { epic: true } : {}),
-        },
-        isPeekView
-      )
+      analyticsService.getAdvanceAnalytics<IAnalyticsResponse>(workspaceSlug, analyticsType, filterParams, isPeekView)
   );
   return (
     <div
@@ -84,7 +73,9 @@ const TotalInsights = observer(function TotalInsights({
         !peekView
           ? ANALYTICS_INSIGHTS_FIELDS[analyticsType]?.length % 5 === 0
             ? "gap-10 lg:grid-cols-5"
-            : "gap-8 lg:grid-cols-4"
+            : ANALYTICS_INSIGHTS_FIELDS[analyticsType]?.length % 3 === 0
+              ? "gap-10 lg:grid-cols-3"
+              : "gap-8 lg:grid-cols-4"
           : "grid-cols-2"
       )}
     >
@@ -94,6 +85,7 @@ const TotalInsights = observer(function TotalInsights({
           isLoading={isLoading}
           data={totalInsightsData?.[item.key]}
           label={getInsightLabel(analyticsType, item, isEpic, t)}
+          format={item.format}
         />
       ))}
     </div>

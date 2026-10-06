@@ -4,7 +4,7 @@
  * See the LICENSE file for details.
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { observer } from "mobx-react";
 // plane package imports
 import type { ICycle, IModule, IProject } from "@plane/types";
@@ -27,10 +27,21 @@ type Props = {
 
 export const WorkItemsModalMainContent = observer(function WorkItemsModalMainContent(props: Props) {
   const { projectDetails, cycleDetails, moduleDetails, fullScreen, isEpic } = props;
-  const { updateSelectedProjects, updateSelectedCycle, updateSelectedModule, updateIsPeekView } = useAnalytics();
+  const {
+    selectedProjects,
+    selectedCycle,
+    selectedModule,
+    updateSelectedProjects,
+    updateSelectedCycle,
+    updateSelectedModule,
+    updateIsPeekView,
+  } = useAnalytics();
   const [isModalConfigured, setIsModalConfigured] = useState(false);
+  // filters active before the peek view opened (e.g. on the analytics dashboard), restored on close
+  const previousFiltersRef = useRef({ projects: [...selectedProjects], cycle: selectedCycle, module: selectedModule });
 
   useEffect(() => {
+    const previousFilters = previousFiltersRef.current;
     updateIsPeekView(true);
 
     // Handle project selection
@@ -51,9 +62,9 @@ export const WorkItemsModalMainContent = observer(function WorkItemsModalMainCon
 
     // Cleanup fields
     return () => {
-      updateSelectedProjects([]);
-      updateSelectedCycle("");
-      updateSelectedModule("");
+      updateSelectedProjects(previousFilters.projects);
+      updateSelectedCycle(previousFilters.cycle);
+      updateSelectedModule(previousFilters.module);
       updateIsPeekView(false);
     };
   }, [

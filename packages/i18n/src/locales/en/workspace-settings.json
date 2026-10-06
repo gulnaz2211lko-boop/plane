@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Teamspaces",
+        "heading": "Teamspaces",
+        "description": "Group members and projects into teamspaces to track how work is distributed across your organization.",
+        "add_teamspace": "Add teamspace",
+        "create_teamspace": "Create teamspace",
+        "edit_teamspace": "Edit teamspace",
+        "name_placeholder": "Teamspace name",
+        "description_placeholder": "What does this team work on?",
+        "lead": "Lead",
+        "members": "Members",
+        "projects": "Projects",
+        "no_lead": "No lead",
+        "members_count": "{count, plural, one {# member} other {# members}}",
+        "projects_count": "{count, plural, one {# project} other {# projects}}",
+        "only_admins_can_manage": "Only workspace admins can create or edit teamspaces.",
+        "empty_state": {
+          "title": "No teamspaces yet",
+          "description": "Create a teamspace to group members and projects, then filter analytics by team."
+        },
+        "delete": {
+          "title": "Delete teamspace",
+          "content": "Are you sure you want to delete {name}? Members and projects are not affected; only the grouping is removed."
+        },
+        "toast": {
+          "created": "Teamspace created successfully.",
+          "updated": "Teamspace updated successfully.",
+          "deleted": "Teamspace deleted successfully.",
+          "error": "Something went wrong. Please try again."
+        }
+      },
       "billing_and_plans": {
         "heading": "Billing & Plans",
         "description": "Choose your plan, manage subscriptions, and easily upgrade as your needs grow.",

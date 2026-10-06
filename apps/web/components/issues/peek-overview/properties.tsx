@@ -19,6 +19,7 @@ import {
   PriorityOutline,
   StartDateOutline,
   StateOutline,
+  TimeTrackingOutline,
   UserOutline,
 } from "@makeplane/propel/icons";
 import { DateSelect } from "@plane/blocks/property-select";
@@ -42,6 +43,7 @@ import type { TIssueOperations } from "../issue-detail";
 import { IssueCycleSelect } from "../issue-detail/cycle-select";
 import { IssueLabel } from "../issue-detail/label";
 import { IssueModuleSelect } from "../issue-detail/module-select";
+import { IssueWorklogProperty } from "../issue-detail/worklog";
 
 interface IPeekOverviewProperties {
   workspaceSlug: string;
@@ -185,6 +187,17 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
               variant="select-ghost-md"
               placeholder={t("common.none")}
               tooltip
+            />
+          </SidebarPropertyListItem>
+        )}
+
+        {projectDetails?.is_time_tracking_enabled && (
+          <SidebarPropertyListItem icon={TimeTrackingOutline} label={t("work_item_worklog.title")}>
+            <IssueWorklogProperty
+              workspaceSlug={workspaceSlug}
+              projectId={projectId}
+              issueId={issueId}
+              disabled={disabled}
             />
           </SidebarPropertyListItem>
         )}

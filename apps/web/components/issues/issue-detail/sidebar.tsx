@@ -19,6 +19,7 @@ import {
   PriorityOutline,
   StartDateOutline,
   StateOutline,
+  TimeTrackingOutline,
   UserOutline,
 } from "@makeplane/propel/icons";
 import { DateSelect } from "@plane/blocks/property-select";
@@ -42,6 +43,7 @@ import { SidebarPropertyListItem } from "@/components/common/layout/sidebar/prop
 import { IssueCycleSelect } from "./cycle-select";
 import { IssueLabel } from "./label";
 import { IssueModuleSelect } from "./module-select";
+import { IssueWorklogProperty } from "./worklog";
 import type { TIssueOperations } from "./root";
 
 type Props = {
@@ -189,6 +191,17 @@ export const IssueDetailsSidebar = observer(function IssueDetailsSidebar(props: 
                   variant="select-ghost-md"
                   placeholder={t("common.none")}
                   tooltip
+                />
+              </SidebarPropertyListItem>
+            )}
+
+            {projectDetails?.is_time_tracking_enabled && (
+              <SidebarPropertyListItem icon={TimeTrackingOutline} label={t("work_item_worklog.title")}>
+                <IssueWorklogProperty
+                  workspaceSlug={workspaceSlug}
+                  projectId={projectId}
+                  issueId={issueId}
+                  disabled={!isEditable}
                 />
               </SidebarPropertyListItem>
             )}

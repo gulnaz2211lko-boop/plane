@@ -428,5 +428,28 @@
       "label": "Epic Title",
       "required": "Epic title is required."
     }
+  },
+  "work_item_worklog": {
+    "title": "Time logged",
+    "log_time": "Log time",
+    "edit_time_log": "Edit time log",
+    "no_time_logged": "No time logged",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "date": "Date",
+    "description_placeholder": "What did you work on?",
+    "duration_required": "Enter a duration greater than zero.",
+    "total": "Total",
+    "entries": "Entries",
+    "delete": {
+      "title": "Delete time log",
+      "content": "Are you sure you want to delete this time log entry? This cannot be undone."
+    },
+    "toast": {
+      "logged": "Time logged successfully.",
+      "updated": "Time log updated successfully.",
+      "deleted": "Time log deleted successfully.",
+      "error": "Something went wrong. Please try again."
+    }
   }
 }

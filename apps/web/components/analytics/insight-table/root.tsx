@@ -9,10 +9,10 @@ import { DownloadOutline } from "@makeplane/propel/icons";
 import { useTranslation } from "@plane/i18n";
 import { Button } from "@makeplane/propel/components/button";
 import { Icon } from "@makeplane/propel/components/icon";
-import type { AnalyticsTableDataMap, TAnalyticsTabsBase } from "@plane/types";
+import type { AnalyticsTableDataMap, TAnalyticsStatsBase } from "@plane/types";
 import { DataTable } from "./data-table";
 import { TableLoader } from "./loader";
-interface InsightTableProps<T extends Exclude<TAnalyticsTabsBase, "overview">> {
+interface InsightTableProps<T extends TAnalyticsStatsBase> {
   analyticsType: T;
   data?: AnalyticsTableDataMap[T][];
   isLoading?: boolean;
@@ -22,9 +22,7 @@ interface InsightTableProps<T extends Exclude<TAnalyticsTabsBase, "overview">> {
   onExport?: (rows: Row<AnalyticsTableDataMap[T]>[]) => void;
 }
 
-export function InsightTable<T extends Exclude<TAnalyticsTabsBase, "overview">>(
-  props: InsightTableProps<T>
-): React.ReactElement {
+export function InsightTable<T extends TAnalyticsStatsBase>(props: InsightTableProps<T>): React.ReactElement {
   const { data, isLoading, columns, headerText, onExport } = props;
   const { t } = useTranslation();
   if (isLoading) {

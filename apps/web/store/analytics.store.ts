@@ -6,7 +6,7 @@
 
 import { action, computed, makeObservable, observable, runInAction } from "mobx";
 import { ANALYTICS_DURATION_FILTER_OPTIONS } from "@plane/constants";
-import type { TAnalyticsTabsBase } from "@plane/types";
+import type { TAnalyticsFilterParams, TAnalyticsGranularity, TAnalyticsTabsBase } from "@plane/types";
 
 type DurationType = (typeof ANALYTICS_DURATION_FILTER_OPTIONS)[number]["value"];
 
@@ -14,6 +14,8 @@ export interface IBaseAnalyticsStore {
   //observables
   currentTab: TAnalyticsTabsBase;
   selectedProjects: string[];
+  selectedTeamspaces: string[];
+  selectedGranularity: TAnalyticsGranularity;
   selectedDuration: DurationType;
   selectedCycle: string;
   selectedModule: string;
@@ -21,9 +23,15 @@ export interface IBaseAnalyticsStore {
   isEpic?: boolean;
   //computed
   selectedDurationLabel: DurationType | null;
+  /** Query params shared by every analytics request (projects, teamspaces, cycle, module, epic). */
+  filterParams: TAnalyticsFilterParams;
+  /** Stable cache-key fragment for `filterParams`, for use in SWR keys. */
+  filtersKey: string;
 
   //actions
   updateSelectedProjects: (projects: string[]) => void;
+  updateSelectedTeamspaces: (teamspaces: string[]) => void;
+  updateSelectedGranularity: (granularity: TAnalyticsGranularity) => void;
   updateSelectedDuration: (duration: DurationType) => void;
   updateSelectedCycle: (cycle: string) => void;
   updateSelectedModule: (module: string) => void;
@@ -35,6 +43,8 @@ export class BaseAnalyticsStore implements IBaseAnalyticsStore {
   //observables
   currentTab: TAnalyticsTabsBase = "overview";
   selectedProjects: string[] = [];
+  selectedTeamspaces: string[] = [];
+  selectedGranularity: TAnalyticsGranularity = "week";
   selectedDuration: DurationType = "last_30_days";
   selectedCycle: string = "";
   selectedModule: string = "";
@@ -46,14 +56,20 @@ export class BaseAnalyticsStore implements IBaseAnalyticsStore {
       currentTab: observable.ref,
       selectedDuration: observable.ref,
       selectedProjects: observable,
+      selectedTeamspaces: observable,
+      selectedGranularity: observable.ref,
       selectedCycle: observable.ref,
       selectedModule: observable.ref,
       isPeekView: observable.ref,
       isEpic: observable.ref,
       // computed
       selectedDurationLabel: computed,
+      filterParams: computed,
+      filtersKey: computed,
       // actions
       updateSelectedProjects: action,
+      updateSelectedTeamspaces: action,
+      updateSelectedGranularity: action,
       updateSelectedDuration: action,
       updateSelectedCycle: action,
       updateSelectedModule: action,
@@ -65,6 +81,36 @@ export class BaseAnalyticsStore implements IBaseAnalyticsStore {
   get selectedDurationLabel() {
     return ANALYTICS_DURATION_FILTER_OPTIONS.find((item) => item.value === this.selectedDuration)?.name ?? null;
   }
+
+  get filterParams(): TAnalyticsFilterParams {
+    return {
+      ...(this.selectedProjects.length > 0 ? { project_ids: this.selectedProjects.join(",") } : {}),
+      // the peek view is pinned to a single project, so the workspace-level teamspace filter does not apply
+      ...(!this.isPeekView && this.selectedTeamspaces.length > 0
+        ? { teamspace_ids: this.selectedTeamspaces.join(",") }
+        : {}),
+      ...(this.selectedCycle ? { cycle_id: this.selectedCycle } : {}),
+      ...(this.selectedModule ? { module_id: this.selectedModule } : {}),
+      ...(this.isEpic ? { epic: true } : {}),
+    };
+  }
+
+  get filtersKey() {
+    const { project_ids, teamspace_ids, cycle_id, module_id, epic } = this.filterParams;
+    return [project_ids, teamspace_ids, cycle_id, module_id, epic, this.isPeekView].map((v) => v ?? "").join("|");
+  }
+
+  updateSelectedTeamspaces = (teamspaces: string[]) => {
+    runInAction(() => {
+      this.selectedTeamspaces = teamspaces;
+    });
+  };
+
+  updateSelectedGranularity = (granularity: TAnalyticsGranularity) => {
+    runInAction(() => {
+      this.selectedGranularity = granularity;
+    });
+  };
 
   updateSelectedProjects = (projects: string[]) => {
     try {

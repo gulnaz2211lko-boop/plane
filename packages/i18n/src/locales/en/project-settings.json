@@ -70,7 +70,9 @@
         "choose_estimate_system": "Choose an estimate system",
         "enter_estimate_point": "Enter estimate",
         "step": "Step {step} of {total}",
-        "label": "Create estimate"
+        "label": "Create estimate",
+        "hours": "Hours",
+        "minutes": "Minutes"
       },
       "toasts": {
         "created": {
