@@ -14,29 +14,28 @@ interface TableSkeletonProps {
   rows: number;
 }
 
-const getColumnKey = (column: ColumnDef<any>) => column.id ?? String(column.header ?? "");
+// Header renderers can share one helper (identical source text), so they are not usable as keys.
+const getColumnKey = (column: ColumnDef<any>, index: number) =>
+  column.id ?? ("accessorKey" in column && column.accessorKey != null ? String(column.accessorKey) : `column-${index}`);
 
 export function TableLoader({ columns, rows }: TableSkeletonProps) {
   const rowKeys = Array.from({ length: rows }, (_, rowIndex) => `skeleton-row-${rowIndex}`);
+  const keyedColumns = columns.map((column, index) => ({ column, key: getColumnKey(column, index) }));
 
   return (
     <Table variant="table">
       <TableHeader>
         <TableRow>
-          {columns.map((column) => (
-            <TableHead
-              key={getColumnKey(column)}
-              pinned="none"
-              label={typeof column.header === "string" ? column.header : ""}
-            />
+          {keyedColumns.map(({ column, key }) => (
+            <TableHead key={key} pinned="none" label={typeof column.header === "string" ? column.header : ""} />
           ))}
         </TableRow>
       </TableHeader>
       <TableBody>
         {rowKeys.map((rowKey) => (
           <TableRow key={rowKey}>
-            {columns.map((column) => (
-              <TableCell key={getColumnKey(column)} pinned="none" padding="cell">
+            {keyedColumns.map(({ key }) => (
+              <TableCell key={key} pinned="none" padding="cell">
                 <Loader.Item height="20px" width="100%" />
               </TableCell>
             ))}
