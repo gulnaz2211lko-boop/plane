@@ -286,7 +286,7 @@ export const getDate = (date: string | Date | undefined | null): Date | undefine
 
     if (typeof date !== "string" && Object.prototype.toString.call(date) !== "[object String]") return date;
 
-    const [yearString, monthString, dayString] = date.substring(0, 10).split("-");
+    const [yearString, monthString, dayString] = String(date).substring(0, 10).split("-");
     const year = parseInt(yearString);
     const month = parseInt(monthString);
     const day = parseInt(dayString);
