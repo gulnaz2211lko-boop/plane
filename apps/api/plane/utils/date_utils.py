@@ -3,7 +3,7 @@
 # See the LICENSE file for details.
 
 import uuid
-from datetime import datetime, timedelta, date
+from datetime import datetime, time, timedelta, date
 from django.db.models.functions import TruncDate, TruncMonth, TruncWeek
 from django.utils import timezone
 from typing import Dict, Optional, List, Union, Tuple, Any
@@ -164,6 +164,30 @@ def get_teamspace_project_ids(slug: str, teamspace_ids: Optional[Union[str, List
     ]
 
 
+def get_datetime_bounds(start: date, end: date) -> Tuple[datetime, datetime]:
+    """
+    Half-open ``[start 00:00, end + 1 day 00:00)`` datetime range, in the active timezone, covering the
+    inclusive ``start``..``end`` dates. Same rows as ``field__date__gte/lte``, but comparing the raw
+    timestamp keeps the predicate index-friendly (a ``::date`` cast on the column is not).
+    """
+    lower = timezone.make_aware(datetime.combine(start, time.min))
+    upper = timezone.make_aware(datetime.combine(end + timedelta(days=1), time.min))
+    return lower, upper
+
+
+def date_range_filter(field: str, start: date, end: date) -> Dict[str, Any]:
+    """
+    Filter kwargs restricting ``field`` to the inclusive ``start``..``end`` dates.
+    A ``<datetime field>__date`` lookup is rewritten to timestamp bounds on the underlying column;
+    plain date fields are compared directly.
+    """
+    if field.endswith("__date"):
+        lower, upper = get_datetime_bounds(start, end)
+        column = field[: -len("__date")]
+        return {f"{column}__gte": lower, f"{column}__lt": upper}
+    return {f"{field}__gte": start, f"{field}__lte": end}
+
+
 def get_granularity(value: Optional[str], default: str = "month") -> str:
     return value if value in GRANULARITIES else default
 
@@ -207,7 +231,7 @@ def get_bucket_starts(start: date, end: date, granularity: str) -> List[date]:
 
 def get_default_series_start(granularity: str, today: Optional[date] = None) -> date:
     """Default look-back for time series: 30 days, 12 weeks or 12 months (including the current bucket)."""
-    today = today or timezone.now().date()
+    today = today or timezone.localdate()
     if granularity == "day":
         return today - timedelta(days=29)
     if granularity == "week":
@@ -220,7 +244,7 @@ def get_default_series_start(granularity: str, today: Optional[date] = None) -> 
 
 def get_period_ranges(granularity: str, today: Optional[date] = None) -> Dict[str, Tuple[date, date]]:
     """Current and previous period (inclusive date ranges) for day/week/month comparisons."""
-    today = today or timezone.now().date()
+    today = today or timezone.localdate()
     current_start = align_to_bucket(today, granularity)
     current_end = next_bucket(current_start, granularity) - timedelta(days=1)
     previous_end = current_start - timedelta(days=1)

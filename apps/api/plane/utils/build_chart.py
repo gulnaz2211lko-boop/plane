@@ -15,7 +15,7 @@ from django.db.models import (
 )
 
 from plane.db.models import Issue
-from plane.utils.date_utils import align_to_bucket, get_bucket_starts, get_trunc_function, to_date
+from plane.utils.date_utils import align_to_bucket, date_range_filter, get_bucket_starts, get_trunc_function, to_date
 from rest_framework.exceptions import ValidationError
 
 
@@ -217,7 +217,7 @@ def build_created_vs_resolved_series(
     range_start = align_to_bucket(start_date, granularity)
 
     created_rows = (
-        queryset.filter(created_at__date__gte=range_start, created_at__date__lte=end_date)
+        queryset.filter(**date_range_filter("created_at__date", range_start, end_date))
         .annotate(bucket=trunc("created_at"))
         .values("bucket")
         .annotate(total=Count(f"{issue_prefix}id", distinct=True))
@@ -225,11 +225,8 @@ def build_created_vs_resolved_series(
     )
     completed_rows = (
         queryset.filter(
-            **{
-                f"{issue_prefix}state__group": "completed",
-                f"{issue_prefix}completed_at__date__gte": range_start,
-                f"{issue_prefix}completed_at__date__lte": end_date,
-            }
+            **{f"{issue_prefix}state__group": "completed"},
+            **date_range_filter(f"{issue_prefix}completed_at__date", range_start, end_date),
         )
         .annotate(bucket=trunc(f"{issue_prefix}completed_at"))
         .values("bucket")

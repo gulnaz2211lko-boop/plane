@@ -32,6 +32,7 @@ from plane.db.models import (
 )
 from plane.utils.build_chart import build_analytics_chart, build_created_vs_resolved_series
 from plane.utils.date_utils import (
+    date_range_filter,
     get_analytics_filters,
     get_bucket_starts,
     get_default_series_start,
@@ -46,6 +47,9 @@ from plane.utils.date_utils import (
 PENDING_STATE_GROUPS = ["backlog", "unstarted", "started"]
 CLOSED_STATE_GROUPS = ["completed", "cancelled"]
 NUMERIC_VALUE_REGEX = r"^\s*[0-9]+(\.[0-9]+)?\s*$"
+# Only work items carrying a time-based estimate can contribute allocated minutes; filtering on it
+# first keeps the allocation aggregates from scanning every work item in the selected projects.
+TIME_ESTIMATED = Q(estimate_point__estimate__type="time")
 
 
 def minutes_to_hours(minutes: Optional[int]) -> float:
@@ -199,10 +203,10 @@ class AdvanceAnalyticsEndpoint(AdvanceAnalyticsBaseView):
         date_range = self.get_analytics_range()
         if not date_range:
             return queryset
-        return queryset.filter(**{f"{field}__gte": date_range[0], f"{field}__lte": date_range[1]})
+        return queryset.filter(**date_range_filter(field, date_range[0], date_range[1]))
 
     def get_projects_data(self) -> Dict[str, Dict[str, Any]]:
-        today = timezone.now().date()
+        today = timezone.localdate()
         project_ids = self.get_project_ids()
         issues = self.filter_by_date(self.get_issue_queryset(), "created_at__date")
         issue_counts = issues.aggregate(
@@ -241,9 +245,9 @@ class AdvanceAnalyticsEndpoint(AdvanceAnalyticsBaseView):
             last_week=Sum("duration", filter=Q(logged_at__range=weeks["previous"])),
         )
         # Time-based estimates store their value in minutes.
-        estimated_minutes = self.filter_by_date(self.get_issue_queryset(), "created_at__date").aggregate(
-            total=Sum(allocated_minutes())
-        )["total"]
+        estimated_minutes = self.filter_by_date(
+            self.get_issue_queryset().filter(TIME_ESTIMATED), "created_at__date"
+        ).aggregate(total=Sum(allocated_minutes()))["total"]
         return {
             "total_time_logged": {"count": minutes_to_hours(totals["total"])},
             "time_logged_this_week": {"count": minutes_to_hours(week_totals["this_week"])},
@@ -264,18 +268,18 @@ class AdvanceAnalyticsEndpoint(AdvanceAnalyticsBaseView):
         full_range = (previous[0], current[1])
 
         def in_period(field: str, period: Tuple[date, date]) -> Q:
-            return Q(**{f"{field}__range": period})
+            return Q(**date_range_filter(field, *period))
 
-        created = issues.filter(created_at__date__range=full_range).aggregate(
+        created = issues.filter(in_period("created_at__date", full_range)).aggregate(
             current=Count("id", filter=in_period("created_at__date", current)),
             previous=Count("id", filter=in_period("created_at__date", previous)),
         )
-        completed = issues.filter(state__group="completed", completed_at__date__range=full_range).aggregate(
+        completed = issues.filter(in_period("completed_at__date", full_range), state__group="completed").aggregate(
             current=Count("id", filter=in_period("completed_at__date", current)),
             previous=Count("id", filter=in_period("completed_at__date", previous)),
         )
         # Contributors are the people who logged time in the period, not anyone who touched a work item.
-        logged = worklogs.filter(logged_at__range=full_range).aggregate(
+        logged = worklogs.filter(in_period("logged_at", full_range)).aggregate(
             current=Sum("duration", filter=in_period("logged_at", current)),
             previous=Sum("duration", filter=in_period("logged_at", previous)),
             current_contributors=Count("logged_by_id", distinct=True, filter=in_period("logged_at", current)),
@@ -359,10 +363,10 @@ class AdvanceAnalyticsStatsEndpoint(AdvanceAnalyticsBaseView):
         if not self.filters["chart_period_range"]:
             return queryset
         start_date, end_date = self.filters["chart_period_range"]
-        return queryset.filter(**{f"{field}__gte": start_date, f"{field}__lte": end_date})
+        return queryset.filter(**date_range_filter(field, start_date, end_date))
 
     def get_projects_stats(self) -> List[Dict[str, Any]]:
-        today = timezone.now().date()
+        today = timezone.localdate()
         project_ids = self.get_project_ids()
         projects = Project.objects.filter(id__in=project_ids).values("id", "name").order_by("name")
 
@@ -452,7 +456,7 @@ class AdvanceAnalyticsStatsEndpoint(AdvanceAnalyticsBaseView):
             self.filter_by_chart_period(
                 IssueAssignee.objects.filter(
                     project_id__in=self.get_project_ids(),
-                    issue__in=self.get_issue_queryset(),
+                    issue__in=self.get_issue_queryset().filter(TIME_ESTIMATED),
                 ),
                 "issue__created_at__date",
             )
@@ -641,7 +645,7 @@ class AdvanceAnalyticsChartEndpoint(AdvanceAnalyticsBaseView):
         """Start/end dates of a time series: the ``date_filter`` period if given, else the default look-back."""
         if self.filters["chart_period_range"]:
             return self.filters["chart_period_range"]
-        return default_start, timezone.now().date()
+        return default_start, timezone.localdate()
 
     def work_item_completion_chart(self) -> Dict[str, Any]:
         granularity = get_granularity(self.request.GET.get("granularity"))
@@ -657,11 +661,11 @@ class AdvanceAnalyticsChartEndpoint(AdvanceAnalyticsBaseView):
         return build_created_vs_resolved_series(queryset, granularity, start_date, end_date)
 
     def project_distribution_chart(self) -> Dict[str, Any]:
-        today = timezone.now().date()
+        today = timezone.localdate()
         queryset = self.get_issue_queryset()
         if self.filters["chart_period_range"]:
             start_date, end_date = self.filters["chart_period_range"]
-            queryset = queryset.filter(created_at__date__gte=start_date, created_at__date__lte=end_date)
+            queryset = queryset.filter(**date_range_filter("created_at__date", start_date, end_date))
         rows = (
             queryset.values("project_id", "project__name")
             .annotate(
@@ -735,6 +739,7 @@ class AdvanceAnalyticsChartEndpoint(AdvanceAnalyticsBaseView):
         planned_on = Coalesce("target_date", "start_date", TruncDate("created_at"))
         allocated_rows = (
             self.get_issue_queryset()
+            .filter(TIME_ESTIMATED)
             .annotate(planned_on=planned_on)
             .filter(planned_on__gte=range_start, planned_on__lte=end_date)
             .annotate(bucket=trunc("planned_on"))

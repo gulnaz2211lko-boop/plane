@@ -225,7 +225,7 @@ class ProjectAdvanceAnalyticsChartEndpoint(ProjectAdvanceAnalyticsBaseView):
                 if granularity == "month"
                 else get_default_series_start(granularity)
             )
-            end_date = timezone.now().date()
+            end_date = timezone.localdate()
         return build_created_vs_resolved_series(queryset, granularity, start_date, end_date)
 
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST])
