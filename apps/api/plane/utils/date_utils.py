@@ -2,11 +2,15 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 # See the LICENSE file for details.
 
+import uuid
 from datetime import datetime, timedelta, date
+from django.db.models.functions import TruncDate, TruncMonth, TruncWeek
 from django.utils import timezone
 from typing import Dict, Optional, List, Union, Tuple, Any
 
-from plane.db.models import User
+from plane.db.models import TeamspaceProject, User
+
+GRANULARITIES = ("day", "week", "month")
 
 
 def get_analytics_date_range(
@@ -122,12 +126,115 @@ def get_chart_period_range(
     return period_ranges.get(date_filter, None)
 
 
+def parse_id_list(value: Optional[Union[str, List[str]]]) -> List[str]:
+    """Split a comma-separated id string, dropping blanks and anything that is not a UUID."""
+    if not value:
+        return []
+    if isinstance(value, str):
+        value = value.split(",")
+    ids = []
+    for item in value:
+        try:
+            ids.append(str(uuid.UUID(str(item).strip())))
+        except ValueError:
+            continue
+    return ids
+
+
+def get_teamspace_project_ids(slug: str, teamspace_ids: Optional[Union[str, List[str]]]) -> Optional[List[str]]:
+    """
+    Resolve teamspace ids to the ids of the projects linked to any of them.
+    Returns None when no teamspace filter was requested, and an empty list when the
+    requested teamspaces have no projects (so callers filter to nothing, not everything).
+    """
+    if not teamspace_ids:
+        return None
+    parsed_ids = parse_id_list(teamspace_ids)
+    if not parsed_ids:
+        return []
+    return [
+        str(project_id)
+        for project_id in TeamspaceProject.objects.filter(
+            teamspace_id__in=parsed_ids,
+            teamspace__workspace__slug=slug,
+            teamspace__deleted_at__isnull=True,
+        )
+        .values_list("project_id", flat=True)
+        .distinct()
+    ]
+
+
+def get_granularity(value: Optional[str], default: str = "month") -> str:
+    return value if value in GRANULARITIES else default
+
+
+def get_trunc_function(granularity: str):
+    return {"day": TruncDate, "week": TruncWeek, "month": TruncMonth}[granularity]
+
+
+def to_date(value: Union[date, datetime]) -> date:
+    return value.date() if isinstance(value, datetime) else value
+
+
+def align_to_bucket(value: date, granularity: str) -> date:
+    """Return the start of the day/week (Monday)/month bucket containing ``value``."""
+    if granularity == "week":
+        return value - timedelta(days=value.weekday())
+    if granularity == "month":
+        return value.replace(day=1)
+    return value
+
+
+def next_bucket(value: date, granularity: str) -> date:
+    if granularity == "day":
+        return value + timedelta(days=1)
+    if granularity == "week":
+        return value + timedelta(weeks=1)
+    if value.month == 12:
+        return value.replace(year=value.year + 1, month=1)
+    return value.replace(month=value.month + 1)
+
+
+def get_bucket_starts(start: date, end: date, granularity: str) -> List[date]:
+    """All bucket start dates from the bucket containing ``start`` through the one containing ``end``."""
+    buckets = []
+    current = align_to_bucket(start, granularity)
+    while current <= end:
+        buckets.append(current)
+        current = next_bucket(current, granularity)
+    return buckets
+
+
+def get_default_series_start(granularity: str, today: Optional[date] = None) -> date:
+    """Default look-back for time series: 30 days, 12 weeks or 12 months (including the current bucket)."""
+    today = today or timezone.now().date()
+    if granularity == "day":
+        return today - timedelta(days=29)
+    if granularity == "week":
+        return align_to_bucket(today, "week") - timedelta(weeks=11)
+    start = today.replace(day=1)
+    for _ in range(11):
+        start = (start - timedelta(days=1)).replace(day=1)
+    return start
+
+
+def get_period_ranges(granularity: str, today: Optional[date] = None) -> Dict[str, Tuple[date, date]]:
+    """Current and previous period (inclusive date ranges) for day/week/month comparisons."""
+    today = today or timezone.now().date()
+    current_start = align_to_bucket(today, granularity)
+    current_end = next_bucket(current_start, granularity) - timedelta(days=1)
+    previous_end = current_start - timedelta(days=1)
+    previous_start = align_to_bucket(previous_end, granularity)
+    return {"current": (current_start, current_end), "previous": (previous_start, previous_end)}
+
+
 def get_analytics_filters(
     slug: str,
     user: User,
     type: str,
     date_filter: Optional[str] = None,
     project_ids: Optional[Union[str, List[str]]] = None,
+    teamspace_ids: Optional[Union[str, List[str]]] = None,
 ) -> Dict[str, Any]:
     """
     Get combined project and date filters for analytics endpoints
@@ -138,6 +245,7 @@ def get_analytics_filters(
         type: The type of filter ("analytics" or "chart")
         date_filter: Optional date filter string
         project_ids: Optional list of project IDs or comma-separated string of project IDs
+        teamspace_ids: Optional list/comma-separated string of teamspace IDs; restricts to their projects
 
     Returns:
         dict: A dictionary containing:
@@ -145,6 +253,7 @@ def get_analytics_filters(
             - project_filters: Project-specific filters
             - analytics_date_range: Date range filters for analytics comparison
             - chart_period_range: Date range for chart visualization
+            - project_ids: The resolved project id restriction (None means no restriction)
     """
     # Get project IDs from request
     if project_ids and isinstance(project_ids, str):
@@ -168,10 +277,21 @@ def get_analytics_filters(
         "archived_at__isnull": True,
     }
 
-    # Add project IDs to filters if provided
-    if project_ids:
+    # Narrow to the projects of the requested teamspaces (intersected with explicit project ids)
+    teamspace_project_ids = get_teamspace_project_ids(slug, teamspace_ids)
+    if teamspace_project_ids is not None:
+        if project_ids:
+            allowed = set(teamspace_project_ids)
+            project_ids = [project_id for project_id in project_ids if project_id in allowed]
+        else:
+            project_ids = teamspace_project_ids
+
+    # Add project IDs to filters if provided (an empty list after teamspace resolution matches nothing)
+    if project_ids or teamspace_project_ids is not None:
         base_filters["project_id__in"] = project_ids
         project_filters["id__in"] = project_ids
+    else:
+        project_ids = None
 
     # Initialize date range variables
     analytics_date_range = None
@@ -188,4 +308,5 @@ def get_analytics_filters(
         "project_filters": project_filters,
         "analytics_date_range": analytics_date_range,
         "chart_period_range": chart_period_range,
+        "project_ids": project_ids,
     }

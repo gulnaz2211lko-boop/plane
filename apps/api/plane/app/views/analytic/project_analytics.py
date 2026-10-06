@@ -7,9 +7,7 @@ from rest_framework import status
 from typing import Dict, Any
 from django.db.models import QuerySet, Q, Count
 from django.http import HttpRequest
-from django.db.models.functions import TruncMonth
 from django.utils import timezone
-from datetime import timedelta
 from plane.app.views.base import BaseAPIView
 from plane.app.permissions import ROLE, allow_permission
 from plane.db.models import (
@@ -23,9 +21,11 @@ from plane.db.models import (
 from django.db import models
 from django.db.models import F, Case, When, Value
 from django.db.models.functions import Cast, Concat
-from plane.utils.build_chart import build_analytics_chart
+from plane.utils.build_chart import build_analytics_chart, build_created_vs_resolved_series
 from plane.utils.date_utils import (
     get_analytics_filters,
+    get_default_series_start,
+    get_granularity,
 )
 
 
@@ -38,6 +38,7 @@ class ProjectAdvanceAnalyticsBaseView(BaseAPIView):
             user=self.request.user,
             date_filter=self.request.GET.get("date_filter", None),
             project_ids=self.request.GET.get("project_ids", None),
+            teamspace_ids=self.request.GET.get("teamspace_ids", None),
         )
 
 
@@ -190,129 +191,42 @@ class ProjectAdvanceAnalyticsChartEndpoint(ProjectAdvanceAnalyticsBaseView):
         )
 
         if cycle_id is not None:
-            cycle_issues = CycleIssue.objects.filter(**self.filters["base_filters"], cycle_id=cycle_id).values_list(
-                "issue_id", flat=True
-            )
             cycle = Cycle.objects.filter(id=cycle_id).first()
-            if cycle and cycle.start_date:
-                start_date = cycle.start_date.date()
-                end_date = cycle.end_date.date()
-            else:
+            if not cycle or not cycle.start_date or not cycle.end_date:
                 return {"data": [], "schema": {}}
-            queryset = cycle_issues
-
-        elif module_id is not None:
-            module_issues = ModuleIssue.objects.filter(**self.filters["base_filters"], module_id=module_id).values_list(
-                "issue_id", flat=True
+            # "Created" for a cycle means added to the cycle, so bucket the CycleIssue rows.
+            cycle_issues = CycleIssue.objects.filter(
+                **self.filters["base_filters"], cycle_id=cycle_id, issue__deleted_at__isnull=True
             )
+            return build_created_vs_resolved_series(
+                cycle_issues, "day", cycle.start_date.date(), cycle.end_date.date(), issue_prefix="issue__"
+            )
+
+        if module_id is not None:
             module = Module.objects.filter(id=module_id).first()
-            if module and module.start_date:
-                start_date = module.start_date
-                end_date = module.target_date
-            else:
+            if not module or not module.start_date or not module.target_date:
                 return {"data": [], "schema": {}}
-            queryset = module_issues
-
-        else:
-            project = Project.objects.filter(id=project_id).first()
-            if project.created_at:
-                start_date = project.created_at.date().replace(day=1)
-            else:
-                return {"data": [], "schema": {}}
-
-        if cycle_id or module_id:
-            # Get daily stats with optimized query
-            daily_stats = (
-                queryset.values("created_at__date")
-                .annotate(
-                    created_count=Count("id"),
-                    completed_count=Count("id", filter=Q(issue__state__group="completed")),
-                )
-                .order_by("created_at__date")
+            module_issues = ModuleIssue.objects.filter(
+                **self.filters["base_filters"], module_id=module_id, issue__deleted_at__isnull=True
+            )
+            return build_created_vs_resolved_series(
+                module_issues, "day", module.start_date, module.target_date, issue_prefix="issue__"
             )
 
-            # Create a dictionary of existing stats with summed counts
-            stats_dict = {
-                stat["created_at__date"].strftime("%Y-%m-%d"): {
-                    "created_count": stat["created_count"],
-                    "completed_count": stat["completed_count"],
-                }
-                for stat in daily_stats
-            }
-
-            # Generate data for all days in the range
-            data = []
-            current_date = start_date
-            while current_date <= end_date:
-                date_str = current_date.strftime("%Y-%m-%d")
-                stats = stats_dict.get(date_str, {"created_count": 0, "completed_count": 0})
-                data.append(
-                    {
-                        "key": date_str,
-                        "name": date_str,
-                        "count": stats["created_count"] + stats["completed_count"],
-                        "completed_issues": stats["completed_count"],
-                        "created_issues": stats["created_count"],
-                    }
-                )
-                current_date += timedelta(days=1)
+        project = Project.objects.filter(id=project_id).first()
+        if not project or not project.created_at:
+            return {"data": [], "schema": {}}
+        granularity = get_granularity(self.request.GET.get("granularity"))
+        if self.filters["chart_period_range"]:
+            start_date, end_date = self.filters["chart_period_range"]
         else:
-            # Apply date range filter if available
-            if self.filters["chart_period_range"]:
-                start_date, end_date = self.filters["chart_period_range"]
-                queryset = queryset.filter(created_at__date__gte=start_date, created_at__date__lte=end_date)
-
-            # Annotate by month and count
-            monthly_stats = (
-                queryset.annotate(month=TruncMonth("created_at"))
-                .values("month")
-                .annotate(
-                    created_count=Count("id"),
-                    completed_count=Count("id", filter=Q(state__group="completed")),
-                )
-                .order_by("month")
+            start_date = (
+                project.created_at.date().replace(day=1)
+                if granularity == "month"
+                else get_default_series_start(granularity)
             )
-
-            # Create dictionary of month -> counts
-            stats_dict = {
-                stat["month"].strftime("%Y-%m-%d"): {
-                    "created_count": stat["created_count"],
-                    "completed_count": stat["completed_count"],
-                }
-                for stat in monthly_stats
-            }
-
-            # Generate monthly data (ensure months with 0 count are included)
-            data = []
-            # include the current date at the end
             end_date = timezone.now().date()
-            last_month = end_date.replace(day=1)
-            current_month = start_date
-
-            while current_month <= last_month:
-                date_str = current_month.strftime("%Y-%m-%d")
-                stats = stats_dict.get(date_str, {"created_count": 0, "completed_count": 0})
-                data.append(
-                    {
-                        "key": date_str,
-                        "name": date_str,
-                        "count": stats["created_count"],
-                        "completed_issues": stats["completed_count"],
-                        "created_issues": stats["created_count"],
-                    }
-                )
-                # Move to next month
-                if current_month.month == 12:
-                    current_month = current_month.replace(year=current_month.year + 1, month=1)
-                else:
-                    current_month = current_month.replace(month=current_month.month + 1)
-
-        schema = {
-            "completed_issues": "completed_issues",
-            "created_issues": "created_issues",
-        }
-
-        return {"data": data, "schema": schema}
+        return build_created_vs_resolved_series(queryset, granularity, start_date, end_date)
 
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST])
     def get(self, request: HttpRequest, slug: str, project_id: str) -> Response:

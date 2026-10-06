@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 # See the LICENSE file for details.
 
+from datetime import date
 from typing import Dict, Any, Tuple, Optional, List, Union
 
 
@@ -14,6 +15,7 @@ from django.db.models import (
 )
 
 from plane.db.models import Issue
+from plane.utils.date_utils import align_to_bucket, get_bucket_starts, get_trunc_function, to_date
 from rest_framework.exceptions import ValidationError
 
 
@@ -31,6 +33,7 @@ x_axis_mapper = {
     "CREATED_AT": "CREATED_AT",
     "COMPLETED_AT": "COMPLETED_AT",
     "CREATED_BY": "CREATED_BY",
+    "PROJECTS": "PROJECTS",
 }
 
 
@@ -72,6 +75,7 @@ def get_x_axis_field() -> Dict[str, Tuple[str, str, Optional[Dict[str, Any]]]]:
         "CREATED_AT": ("created_at__date", "created_at__date", None),
         "COMPLETED_AT": ("completed_at__date", "completed_at__date", None),
         "CREATED_BY": ("created_by_id", "created_by__display_name", None),
+        "PROJECTS": ("project_id", "project__name", None),
     }
 
 
@@ -192,3 +196,67 @@ def build_analytics_chart(
         schema = {}
 
     return {"data": response, "schema": schema}
+
+
+def build_created_vs_resolved_series(
+    queryset: QuerySet,
+    granularity: str,
+    start_date: date,
+    end_date: date,
+    issue_prefix: str = "",
+) -> Dict[str, Any]:
+    """
+    Created vs. resolved work items per day/week/month bucket, with empty buckets zero-filled.
+
+    ``created_issues`` buckets rows by their ``created_at``; ``completed_issues`` buckets work items
+    that are currently in a completed state by their ``completed_at``, so an item created in March and
+    finished in May counts as resolved in May. ``issue_prefix`` lets callers pass a queryset of a
+    through model (e.g. ``"issue__"`` for CycleIssue rows) whose ``created_at`` is the "added" date.
+    """
+    trunc = get_trunc_function(granularity)
+    range_start = align_to_bucket(start_date, granularity)
+
+    created_rows = (
+        queryset.filter(created_at__date__gte=range_start, created_at__date__lte=end_date)
+        .annotate(bucket=trunc("created_at"))
+        .values("bucket")
+        .annotate(total=Count(f"{issue_prefix}id", distinct=True))
+        .order_by()
+    )
+    completed_rows = (
+        queryset.filter(
+            **{
+                f"{issue_prefix}state__group": "completed",
+                f"{issue_prefix}completed_at__date__gte": range_start,
+                f"{issue_prefix}completed_at__date__lte": end_date,
+            }
+        )
+        .annotate(bucket=trunc(f"{issue_prefix}completed_at"))
+        .values("bucket")
+        .annotate(total=Count(f"{issue_prefix}id", distinct=True))
+        .order_by()
+    )
+    created = {to_date(row["bucket"]).strftime("%Y-%m-%d"): row["total"] for row in created_rows}
+    completed = {to_date(row["bucket"]).strftime("%Y-%m-%d"): row["total"] for row in completed_rows}
+
+    data = []
+    for bucket_start in get_bucket_starts(start_date, end_date, granularity):
+        date_str = bucket_start.strftime("%Y-%m-%d")
+        created_count = created.get(date_str, 0)
+        data.append(
+            {
+                "key": date_str,
+                "name": date_str,
+                "count": created_count,
+                "completed_issues": completed.get(date_str, 0),
+                "created_issues": created_count,
+            }
+        )
+
+    return {
+        "data": data,
+        "schema": {
+            "completed_issues": "completed_issues",
+            "created_issues": "created_issues",
+        },
+    }
