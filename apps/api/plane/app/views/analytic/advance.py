@@ -17,7 +17,6 @@ from plane.db.models import (
     WorkspaceMember,
     Project,
     Issue,
-    IssueActivity,
     IssueAssignee,
     IssueWorklog,
     Cycle,
@@ -257,7 +256,6 @@ class AdvanceAnalyticsEndpoint(AdvanceAnalyticsBaseView):
     def get_progress_data(self) -> Dict[str, Dict[str, Any]]:
         granularity = get_granularity(self.request.GET.get("granularity"), default="week")
         periods = get_period_ranges(granularity)
-        project_ids = self.get_project_ids()
         issues = self.get_issue_queryset()
         worklogs = self.get_worklog_queryset()
 
@@ -276,18 +274,12 @@ class AdvanceAnalyticsEndpoint(AdvanceAnalyticsBaseView):
             current=Count("id", filter=in_period("completed_at__date", current)),
             previous=Count("id", filter=in_period("completed_at__date", previous)),
         )
+        # Contributors are the people who logged time in the period, not anyone who touched a work item.
         logged = worklogs.filter(logged_at__range=full_range).aggregate(
             current=Sum("duration", filter=in_period("logged_at", current)),
             previous=Sum("duration", filter=in_period("logged_at", previous)),
-        )
-        contributors = IssueActivity.objects.filter(
-            project_id__in=project_ids,
-            created_at__date__range=full_range,
-            actor__isnull=False,
-            actor__is_bot=False,
-        ).aggregate(
-            current=Count("actor_id", distinct=True, filter=in_period("created_at__date", current)),
-            previous=Count("actor_id", distinct=True, filter=in_period("created_at__date", previous)),
+            current_contributors=Count("logged_by_id", distinct=True, filter=in_period("logged_at", current)),
+            previous_contributors=Count("logged_by_id", distinct=True, filter=in_period("logged_at", previous)),
         )
 
         return {
@@ -297,7 +289,10 @@ class AdvanceAnalyticsEndpoint(AdvanceAnalyticsBaseView):
                 "count": minutes_to_hours(logged["current"]),
                 "previous_count": minutes_to_hours(logged["previous"]),
             },
-            "active_contributors": {"count": contributors["current"], "previous_count": contributors["previous"]},
+            "active_contributors": {
+                "count": logged["current_contributors"],
+                "previous_count": logged["previous_contributors"],
+            },
         }
 
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER], level="WORKSPACE")

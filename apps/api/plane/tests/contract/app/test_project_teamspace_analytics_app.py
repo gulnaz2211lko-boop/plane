@@ -23,6 +23,7 @@ from plane.db.models import (
     State,
     Teamspace,
     TeamspaceProject,
+    User,
 )
 
 ANALYTICS_URL = "/api/workspaces/{slug}/advance-analytics/"
@@ -176,6 +177,22 @@ class TestTimeTrackingAndProgressTabs:
         assert response.data["created_work_items"] == {"count": 5, "previous_count": 0}
         assert response.data["completed_work_items"] == {"count": 1, "previous_count": 0}
         assert response.data["time_logged"] == {"count": 2.5, "previous_count": 0.5}
+        # The user logged time this week and 7 days ago (always last week).
+        assert response.data["active_contributors"] == {"count": 1, "previous_count": 1}
+
+    def test_active_contributors_only_count_people_who_logged_time(self, session_client, workspace, data):
+        # Activity on a work item without logging time does not make someone an active contributor.
+        bystander = User.objects.create(email="bystander@plane.so", username="bystander")
+        IssueActivity.objects.create(
+            issue=Issue.objects.filter(project=data["alpha"]).first(),
+            project=data["alpha"],
+            workspace=workspace,
+            actor=bystander,
+            verb="updated",
+        )
+        response = session_client.get(
+            ANALYTICS_URL.format(slug=workspace.slug), {"tab": "progress", "granularity": "day"}
+        )
         assert response.data["active_contributors"] == {"count": 1, "previous_count": 0}
 
     def test_progress_day(self, session_client, workspace, data):
