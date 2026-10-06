@@ -15,7 +15,7 @@ from .draft import (
     DraftIssueModule,
     DraftIssueCycle,
 )
-from .estimate import Estimate, EstimatePoint
+from .estimate import Estimate, EstimatePoint, EstimateType
 from .exporter import ExporterHistory
 from .importer import Importer
 from .intake import Intake, IntakeIssue
@@ -71,6 +71,9 @@ from .workspace import (
     WorkspaceMember,
     WorkspaceMemberInvite,
     WorkspaceTheme,
+    Teamspace,
+    TeamspaceMember,
+    TeamspaceProject,
     WorkspaceUserProperties,
     WorkspaceUserLink,
     WorkspaceHomePreference,
@@ -88,5 +91,7 @@ from .label import Label
 from .device import Device, DeviceSession
 
 from .sticky import Sticky
+
+from .worklog import IssueWorklog
 
 from .description import Description, DescriptionVersion

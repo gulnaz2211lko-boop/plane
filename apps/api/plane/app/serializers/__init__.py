@@ -135,3 +135,7 @@ from .draft import (
     DraftIssueSerializer,
     DraftIssueDetailSerializer,
 )
+
+from .teamspace import TeamspaceSerializer
+
+from .worklog import IssueWorklogSerializer

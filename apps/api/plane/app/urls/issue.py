@@ -9,6 +9,7 @@ from plane.app.views import (
     BulkDeleteIssuesEndpoint,
     SubIssuesEndpoint,
     IssueLinkViewSet,
+    IssueWorklogViewSet,
     IssueAttachmentEndpoint,
     CommentReactionViewSet,
     IssueActivityEndpoint,
@@ -105,6 +106,16 @@ urlpatterns = [
         "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/sub-issues/",
         SubIssuesEndpoint.as_view(),
         name="sub-issues",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/worklogs/",
+        IssueWorklogViewSet.as_view({"get": "list", "post": "create"}),
+        name="project-issue-worklogs",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/worklogs/<uuid:pk>/",
+        IssueWorklogViewSet.as_view({"patch": "partial_update", "delete": "destroy"}),
+        name="project-issue-worklogs",
     ),
     path(
         "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/issue-links/",
