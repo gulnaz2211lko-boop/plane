@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Перемкнути режим перегляду",
     "options": "Параметри",
     "duration": "Тривалість",
+    "duration_units": {
+      "hours": "{count} год",
+      "minutes": "{count} хв"
+    },
     "today": "Сьогодні",
     "week": "Тиждень",
     "month": "Місяць",

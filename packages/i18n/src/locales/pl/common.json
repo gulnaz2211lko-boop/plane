@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Przełącz układ podglądu",
     "options": "Opcje",
     "duration": "Czas trwania",
+    "duration_units": {
+      "hours": "{count} godz.",
+      "minutes": "{count} min"
+    },
     "today": "Dziś",
     "week": "Tydzień",
     "month": "Miesiąc",

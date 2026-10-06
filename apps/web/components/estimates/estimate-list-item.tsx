@@ -7,13 +7,13 @@
 import { observer } from "mobx-react";
 // plane imports
 import { EEstimateSystem } from "@plane/constants";
-import { convertMinutesToHoursMinutesString } from "@plane/utils";
 // components
 import { EstimateListItemButtons } from "./estimate-list-item-buttons";
 import { SettingsBoxedControlItem } from "@/components/settings/boxed-control-item";
 // hooks
 import { useProjectEstimates } from "@/hooks/store/estimates";
 import { useEstimate } from "@/hooks/store/estimates/use-estimate";
+import { useDurationFormatter } from "@/hooks/use-duration-formatter";
 
 type TEstimateListItem = {
   estimateId: string;
@@ -26,6 +26,7 @@ type TEstimateListItem = {
 
 export const EstimateListItem = observer(function EstimateListItem(props: TEstimateListItem) {
   const { estimateId } = props;
+  const formatDuration = useDurationFormatter();
   // store hooks
   const { estimateById } = useProjectEstimates();
   const { estimatePointIds, estimatePointById } = useEstimate(estimateId);
@@ -44,7 +45,7 @@ export const EstimateListItem = observer(function EstimateListItem(props: TEstim
       description={estimatePointValues
         ?.map((estimatePointValue) => {
           if (currentEstimate.type === EEstimateSystem.TIME) {
-            return convertMinutesToHoursMinutesString(Number(estimatePointValue));
+            return formatDuration(Number(estimatePointValue));
           }
           return estimatePointValue;
         })

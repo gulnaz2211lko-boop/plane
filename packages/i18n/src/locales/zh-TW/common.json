@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "切換預覽檢視版面配置",
     "options": "選項",
     "duration": "時長",
+    "duration_units": {
+      "hours": "{count}小時",
+      "minutes": "{count}分鐘"
+    },
     "today": "今天",
     "week": "週",
     "month": "月",

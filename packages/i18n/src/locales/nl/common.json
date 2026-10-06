@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Peekweergave-indeling wisselen",
     "options": "Opties",
     "duration": "Duur",
+    "duration_units": {
+      "hours": "{count}u",
+      "minutes": "{count}m"
+    },
     "today": "Vandaag",
     "week": "Week",
     "month": "Maand",

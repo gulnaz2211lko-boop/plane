@@ -14,7 +14,7 @@ import { cn } from "@plane/utils";
 // services
 import { IssueWorklogService } from "@/services/issue";
 // local imports
-import { formatWorklogDuration, getWorklogsSWRKey } from "./helper";
+import { useWorklogDurationFormatter, getWorklogsSWRKey } from "./helper";
 import { IssueWorklogModal } from "./modal";
 
 const issueWorklogService = new IssueWorklogService();
@@ -33,6 +33,7 @@ export const IssueWorklogProperty = observer(function IssueWorklogProperty(props
   const [isModalOpen, setIsModalOpen] = useState(false);
   // plane hooks
   const { t } = useTranslation();
+  const formatWorklogDuration = useWorklogDurationFormatter();
   // fetching worklogs
   const { data: worklogs, mutate } = useSWR<TIssueWorklog[]>(
     workspaceSlug && projectId && issueId ? getWorklogsSWRKey(workspaceSlug, projectId, issueId) : null,

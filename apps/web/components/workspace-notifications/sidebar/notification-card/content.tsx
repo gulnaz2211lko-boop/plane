@@ -15,6 +15,7 @@ import {
 } from "@plane/utils";
 // components
 import { LiteTextEditor } from "@/components/editor/lite-text";
+import { useDurationFormatter } from "@/hooks/use-duration-formatter";
 import {
   ADDITIONAL_NOTIFICATION_CONTENT_MAP,
   renderAdditionalAction,
@@ -28,6 +29,8 @@ export type TNotificationFieldData = {
   newValue: string | undefined;
   oldValue: string | undefined;
   verb: string | undefined;
+  /** Locale-aware minutes formatter; falls back to English `h`/`m` units when absent. */
+  formatDuration?: (totalMinutes: number) => string;
 };
 
 export type TNotificationContentDetails = {
@@ -107,11 +110,8 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
     value: stripAndTruncateHTML(newValue || "", 55),
     showConnector: true,
   }),
-  estimate_time: ({ newValue, oldValue }) => ({
-    value:
-      newValue !== ""
-        ? convertMinutesToHoursMinutesString(Number(newValue))
-        : convertMinutesToHoursMinutesString(Number(oldValue)),
+  estimate_time: ({ newValue, oldValue, formatDuration = convertMinutesToHoursMinutesString }) => ({
+    value: newValue !== "" ? formatDuration(Number(newValue)) : formatDuration(Number(oldValue)),
     showConnector: true,
   }),
 };
@@ -164,12 +164,14 @@ export function NotificationContent({
   const newValue = data?.issue_activity.new_value;
   const oldValue = data?.issue_activity.old_value;
   const verb = data?.issue_activity.verb;
+  const formatDuration = useDurationFormatter();
 
   const fieldData: TNotificationFieldData = {
     field: notificationField,
     newValue,
     oldValue,
     verb,
+    formatDuration,
   };
 
   const renderTriggerName = () => (

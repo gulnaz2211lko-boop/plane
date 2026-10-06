@@ -11,9 +11,9 @@ import { DeleteOutline, DragDropOutline, EditOutline } from "@makeplane/propel/i
 import { EEstimateSystem, estimateCount } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import type { TEstimatePointsObject, TEstimateSystemKeys, TEstimateTypeErrorObject } from "@plane/types";
-import { convertMinutesToHoursMinutesString } from "@plane/utils";
 // local imports
 import { EstimatePointUpdate } from "./update";
+import { useDurationFormatter } from "@/hooks/use-duration-formatter";
 
 type TEstimatePointItemPreview = {
   workspaceSlug: string;
@@ -45,6 +45,7 @@ export const EstimatePointItemPreview = observer(function EstimatePointItemPrevi
   } = props;
   // i18n
   const { t } = useTranslation();
+  const formatDuration = useDurationFormatter();
   // state
   const [estimatePointEditToggle, setEstimatePointEditToggle] = useState(false);
   const [estimatePointDeleteToggle, setEstimatePointDeleteToggle] = useState(false);
@@ -72,7 +73,7 @@ export const EstimatePointItemPreview = observer(function EstimatePointItemPrevi
           </div>
           <div ref={EstimatePointValueRef} className="w-full py-2 text-13">
             {estimatePoint?.value ? (
-              `${estimateType === EEstimateSystem.TIME ? convertMinutesToHoursMinutesString(Number(estimatePoint?.value)) : estimatePoint?.value}`
+              `${estimateType === EEstimateSystem.TIME ? formatDuration(Number(estimatePoint?.value)) : estimatePoint?.value}`
             ) : (
               <span className="text-placeholder">{t("project_settings.estimates.create.enter_estimate_point")}</span>
             )}

@@ -31,7 +31,7 @@ import { useMember } from "@/hooks/store/use-member";
 import { useUser, useUserPermissions } from "@/hooks/store/user";
 // local imports
 import { IssueWorklogForm } from "./form";
-import { formatWorklogDuration } from "./helper";
+import { useWorklogDurationFormatter } from "./helper";
 
 type Props = {
   workspaceSlug: string;
@@ -57,6 +57,7 @@ export const IssueWorklogModal = observer(function IssueWorklogModal(props: Prop
   const [isDeleting, setIsDeleting] = useState(false);
   // plane hooks
   const { t } = useTranslation();
+  const formatWorklogDuration = useWorklogDurationFormatter();
   // store hooks
   const { data: currentUser } = useUser();
   const { getUserDetails } = useMember();

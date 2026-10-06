@@ -9,10 +9,11 @@ import { observer } from "mobx-react";
 import { useTranslation } from "@plane/i18n";
 import { EstimateOutline } from "@makeplane/propel/icons";
 import { EEstimateSystem } from "@plane/types";
-import { cn, convertMinutesToHoursMinutesString } from "@plane/utils";
+import { cn } from "@plane/utils";
 // hooks
 import { useProjectEstimates } from "@/hooks/store/estimates";
 import { useEstimate } from "@/hooks/store/estimates/use-estimate";
+import { useDurationFormatter } from "@/hooks/use-duration-formatter";
 
 export type TReadonlyEstimateProps = {
   className?: string;
@@ -27,6 +28,7 @@ export const ReadonlyEstimate = observer(function ReadonlyEstimate(props: TReado
   const { className, hideIcon = false, value, placeholder, projectId, workspaceSlug } = props;
 
   const { t } = useTranslation();
+  const formatDuration = useDurationFormatter();
   const { currentActiveEstimateIdByProjectId, getEstimateById, getProjectEstimates } = useProjectEstimates();
 
   const currentActiveEstimateId = projectId ? currentActiveEstimateIdByProjectId(projectId) : undefined;
@@ -37,7 +39,7 @@ export const ReadonlyEstimate = observer(function ReadonlyEstimate(props: TReado
 
   const displayValue = estimatePoint
     ? currentActiveEstimate?.type === EEstimateSystem.TIME
-      ? convertMinutesToHoursMinutesString(Number(estimatePoint.value))
+      ? formatDuration(Number(estimatePoint.value))
       : estimatePoint.value
     : null;
 
@@ -45,6 +47,7 @@ export const ReadonlyEstimate = observer(function ReadonlyEstimate(props: TReado
     if (projectId) {
       getProjectEstimates(workspaceSlug, projectId);
     }
+    // oxlint-disable-next-line react-hooks/exhaustive-deps -- store action; refetch only when the project changes
   }, [projectId, workspaceSlug]);
 
   return (

@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Alternar diseño de vista previa",
     "options": "Opciones",
     "duration": "Duración",
+    "duration_units": {
+      "hours": "{count}h",
+      "minutes": "{count} min"
+    },
     "today": "Hoy",
     "week": "Semana",
     "month": "Mes",
