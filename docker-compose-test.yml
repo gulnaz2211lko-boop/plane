@@ -33,6 +33,9 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-plane}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-plane}
       POSTGRES_DB: ${POSTGRES_DB:-plane}
+    # Parallel query workers allocate from /dev/shm; Docker's 64MB default runs out under concurrent
+    # analytical queries ("could not resize shared memory segment").
+    shm_size: 512mb
     tmpfs:
       - /var/lib/postgresql/data
     healthcheck:

@@ -428,5 +428,28 @@
       "label": "Epic 標題",
       "required": "Epic 標題為必填。"
     }
+  },
+  "work_item_worklog": {
+    "title": "已記錄工時",
+    "log_time": "記錄工時",
+    "edit_time_log": "編輯工時記錄",
+    "no_time_logged": "尚未記錄工時",
+    "hours": "小時",
+    "minutes": "分鐘",
+    "date": "日期",
+    "description_placeholder": "您做了哪些工作？",
+    "duration_required": "請輸入大於零的時長。",
+    "total": "總計",
+    "entries": "記錄項目",
+    "delete": {
+      "title": "刪除工時記錄",
+      "content": "確定要刪除此工時記錄嗎？此操作無法復原。"
+    },
+    "toast": {
+      "logged": "工時記錄成功。",
+      "updated": "工時記錄更新成功。",
+      "deleted": "工時記錄刪除成功。",
+      "error": "發生錯誤，請再試一次。"
+    }
   }
 }

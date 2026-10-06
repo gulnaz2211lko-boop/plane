@@ -15,6 +15,9 @@ class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
         django_get_or_create = ("email",)
+        # The password is set in a post-generation hook; persist it explicitly below instead of relying on
+        # factory_boy's deprecated implicit save.
+        skip_postgeneration_save = True
 
     id = factory.LazyFunction(uuid4)
     email = factory.Sequence(lambda n: f"user{n}@plane.so")
@@ -24,6 +27,12 @@ class UserFactory(factory.django.DjangoModelFactory):
     is_active = True
     is_superuser = False
     is_staff = False
+
+    @classmethod
+    def _after_postgeneration(cls, instance, create, results=None):
+        super()._after_postgeneration(instance, create, results)
+        if create and results:
+            instance.save()
 
 
 class WorkspaceFactory(factory.django.DjangoModelFactory):

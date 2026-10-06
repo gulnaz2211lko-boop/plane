@@ -8,7 +8,8 @@
 import { API_BASE_URL } from "@plane/constants";
 import type {
   IAnalyticsResponse,
-  TAnalyticsTabsBase,
+  TAnalyticsSummaryBase,
+  TAnalyticsStatsBase,
   TAnalyticsGraphsBase,
   TAnalyticsFilterParams,
 } from "@plane/types";
@@ -22,16 +23,19 @@ export class AnalyticsService extends APIService {
 
   async getAdvanceAnalytics<T extends IAnalyticsResponse>(
     workspaceSlug: string,
-    tab: TAnalyticsTabsBase,
+    tab: TAnalyticsSummaryBase,
     params?: TAnalyticsFilterParams,
     isPeekView?: boolean
   ): Promise<T> {
-    return this.get(this.processUrl<TAnalyticsTabsBase>("advance-analytics", workspaceSlug, tab, params, isPeekView), {
-      params: {
-        tab,
-        ...params,
-      },
-    })
+    return this.get(
+      this.processUrl<TAnalyticsSummaryBase>("advance-analytics", workspaceSlug, tab, params, isPeekView),
+      {
+        params: {
+          tab,
+          ...params,
+        },
+      }
+    )
       .then((res) => res?.data)
       .catch((err) => {
         throw err?.response?.data;
@@ -40,11 +44,11 @@ export class AnalyticsService extends APIService {
 
   async getAdvanceAnalyticsStats<T>(
     workspaceSlug: string,
-    tab: Exclude<TAnalyticsTabsBase, "overview">,
+    tab: TAnalyticsStatsBase,
     params?: TAnalyticsFilterParams,
     isPeekView?: boolean
   ): Promise<T> {
-    const processedUrl = this.processUrl<Exclude<TAnalyticsTabsBase, "overview">>(
+    const processedUrl = this.processUrl<TAnalyticsStatsBase>(
       "advance-analytics-stats",
       workspaceSlug,
       tab,
@@ -91,7 +95,7 @@ export class AnalyticsService extends APIService {
   processUrl<_T extends string>(
     endpoint: string,
     workspaceSlug: string,
-    tab: TAnalyticsGraphsBase | TAnalyticsTabsBase,
+    tab: TAnalyticsGraphsBase | TAnalyticsSummaryBase | TAnalyticsStatsBase,
     params?: TAnalyticsFilterParams,
     isPeekView?: boolean
   ) {

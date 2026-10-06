@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Yan görünüm düzenini değiştir",
     "options": "Seçenekler",
     "duration": "Süre",
+    "duration_units": {
+      "hours": "{count} sa",
+      "minutes": "{count} dk"
+    },
     "today": "Bugün",
     "week": "Hafta",
     "month": "Ay",

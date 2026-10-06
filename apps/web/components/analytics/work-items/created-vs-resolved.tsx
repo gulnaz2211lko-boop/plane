@@ -21,15 +21,16 @@ import { AnalyticsService } from "@/services/analytics.service";
 // plane web components
 import AnalyticsSectionWrapper from "../analytics-section-wrapper";
 import { ChartLoader } from "../loaders";
+import { GranularitySelect } from "../select/granularity";
 
 const analyticsService = new AnalyticsService();
 const CreatedVsResolved = observer(function CreatedVsResolved() {
   const {
-    selectedDuration,
     selectedDurationLabel,
-    selectedProjects,
-    selectedCycle,
-    selectedModule,
+    selectedGranularity,
+    updateSelectedGranularity,
+    filterParams,
+    filtersKey,
     isPeekView,
     isEpic,
   } = useAnalytics();
@@ -37,18 +38,12 @@ const CreatedVsResolved = observer(function CreatedVsResolved() {
   const { t } = useTranslation();
   const workspaceSlug = params.workspaceSlug.toString();
   const { data: createdVsResolvedData, isLoading: isCreatedVsResolvedLoading } = useSWR(
-    `created-vs-resolved-${workspaceSlug}-${selectedDuration}-${selectedProjects}-${selectedCycle}-${selectedModule}-${isPeekView}-${isEpic}`,
+    `created-vs-resolved-${workspaceSlug}-${filtersKey}-${selectedGranularity}`,
     () =>
       analyticsService.getAdvanceAnalyticsCharts<IChartResponse>(
         workspaceSlug,
         "work-items",
-        {
-          // date_filter: selectedDuration,
-          ...(selectedProjects?.length > 0 && { project_ids: selectedProjects?.join(",") }),
-          ...(selectedCycle ? { cycle_id: selectedCycle } : {}),
-          ...(selectedModule ? { module_id: selectedModule } : {}),
-          ...(isEpic ? { epic: true } : {}),
-        },
+        { ...filterParams, granularity: selectedGranularity },
         isPeekView
       )
   );
@@ -61,6 +56,7 @@ const CreatedVsResolved = observer(function CreatedVsResolved() {
     }));
   }, [createdVsResolvedData]);
 
+  // Created and resolved are independent counts (resolved is bucketed by completion date), so they are not stacked.
   const areas = useMemo(
     () => [
       {
@@ -68,7 +64,7 @@ const CreatedVsResolved = observer(function CreatedVsResolved() {
         label: "Resolved",
         fill: "#19803833",
         fillOpacity: 1,
-        stackId: "bar-one",
+        stackId: "resolved",
         showDot: false,
         smoothCurves: true,
         strokeColor: "#198038",
@@ -79,7 +75,7 @@ const CreatedVsResolved = observer(function CreatedVsResolved() {
         label: "Created",
         fill: "#1192E833",
         fillOpacity: 1,
-        stackId: "bar-one",
+        stackId: "created",
         showDot: false,
         smoothCurves: true,
         strokeColor: "#1192E8",
@@ -94,6 +90,7 @@ const CreatedVsResolved = observer(function CreatedVsResolved() {
       title={t("workspace_analytics.created_vs_resolved")}
       subtitle={selectedDurationLabel}
       className="col-span-1"
+      actions={<GranularitySelect value={selectedGranularity} onChange={updateSelectedGranularity} />}
     >
       {isCreatedVsResolvedLoading ? (
         <ChartLoader />

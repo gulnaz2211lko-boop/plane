@@ -70,7 +70,11 @@
         "choose_estimate_system": "Vybrat systém odhadů",
         "enter_estimate_point": "Zadat odhad",
         "step": "Krok {step} z {total}",
-        "label": "Vytvořit odhad"
+        "label": "Vytvořit odhad",
+        "hours": "Hodiny",
+        "minutes": "Minuty",
+        "hours_short": "h",
+        "minutes_short": "m"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Přepnout systém odhadů",
       "current": "Aktuální systém odhadů",
-      "select": "Vyberte systém odhadů"
+      "select": "Vyberte systém odhadů",
+      "no_estimate_found": "Nenalezen žádný odhad"
     },
     "automations": {
       "label": "Automatizace",
@@ -428,7 +433,8 @@
         "loading": "Aktualizace funkce projektu...",
         "success": "Funkce projektu byla úspěšně aktualizována.",
         "error": "Při aktualizaci funkce projektu se něco pokazilo. Zkuste to prosím znovu."
-      }
+      },
+      "pro_feature": "Funkce Pro"
     },
     "project_updates": {
       "heading": "Aktualizace projektu",

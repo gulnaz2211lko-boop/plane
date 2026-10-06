@@ -46,22 +46,14 @@ const WorkItemsInsightTable = observer(function WorkItemsInsightTable() {
   const { t } = useTranslation();
   // store hooks
   const { getProjectById } = useProject();
-  const { selectedDuration, selectedProjects, selectedCycle, selectedModule, isPeekView, isEpic } = useAnalytics();
-  const { data: workItemsData, isLoading } = useSWR(
-    `insights-table-work-items-${workspaceSlug}-${selectedDuration}-${selectedProjects}-${selectedCycle}-${selectedModule}-${isPeekView}-${isEpic}`,
-    () =>
-      analyticsService.getAdvanceAnalyticsStats<WorkItemInsightColumns[]>(
-        workspaceSlug,
-        "work-items",
-        {
-          // date_filter: selectedDuration,
-          ...(selectedProjects?.length > 0 ? { project_ids: selectedProjects.join(",") } : {}),
-          ...(selectedCycle ? { cycle_id: selectedCycle } : {}),
-          ...(selectedModule ? { module_id: selectedModule } : {}),
-          ...(isEpic ? { epic: true } : {}),
-        },
-        isPeekView
-      )
+  const { filterParams, filtersKey, isPeekView } = useAnalytics();
+  const { data: workItemsData, isLoading } = useSWR(`insights-table-work-items-${workspaceSlug}-${filtersKey}`, () =>
+    analyticsService.getAdvanceAnalyticsStats<WorkItemInsightColumns[]>(
+      workspaceSlug,
+      "work-items",
+      filterParams,
+      isPeekView
+    )
   );
   // derived values
   const columnsLabels: Record<keyof Omit<WorkItemInsightColumns, "project_id" | "avatar_url" | "assignee_id">, string> =

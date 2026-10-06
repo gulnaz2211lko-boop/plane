@@ -428,5 +428,28 @@
       "label": "Název epiku",
       "required": "Název epiku je povinný."
     }
+  },
+  "work_item_worklog": {
+    "title": "Zaznamenaný čas",
+    "log_time": "Zaznamenat čas",
+    "edit_time_log": "Upravit časový záznam",
+    "no_time_logged": "Žádný zaznamenaný čas",
+    "hours": "Hodiny",
+    "minutes": "Minuty",
+    "date": "Datum",
+    "description_placeholder": "Na čem jste pracovali?",
+    "duration_required": "Zadejte dobu trvání větší než nula.",
+    "total": "Celkem",
+    "entries": "Záznamy",
+    "delete": {
+      "title": "Smazat časový záznam",
+      "content": "Opravdu chcete smazat tento časový záznam? Tuto akci nelze vrátit zpět."
+    },
+    "toast": {
+      "logged": "Čas byl úspěšně zaznamenán.",
+      "updated": "Časový záznam byl úspěšně aktualizován.",
+      "deleted": "Časový záznam byl úspěšně smazán.",
+      "error": "Něco se pokazilo. Zkuste to prosím znovu."
+    }
   }
 }

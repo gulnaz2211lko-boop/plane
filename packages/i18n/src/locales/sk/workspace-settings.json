@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Tímové priestory",
+        "heading": "Tímové priestory",
+        "description": "Zoskupte členov a projekty do tímových priestorov a sledujte, ako je práca rozdelená vo vašej organizácii.",
+        "add_teamspace": "Pridať tímový priestor",
+        "create_teamspace": "Vytvoriť tímový priestor",
+        "edit_teamspace": "Upraviť tímový priestor",
+        "name_placeholder": "Názov tímového priestoru",
+        "description_placeholder": "Na čom pracuje tento tím?",
+        "lead": "Vedúci",
+        "members": "Členovia",
+        "projects": "Projekty",
+        "no_lead": "Bez vedúceho",
+        "members_count": "{count, plural, one {# člen} few {# členovia} many {# člena} other {# členov}}",
+        "projects_count": "{count, plural, one {# projekt} few {# projekty} many {# projektu} other {# projektov}}",
+        "only_admins_can_manage": "Tímové priestory môžu vytvárať a upravovať iba administrátori pracovného priestoru.",
+        "empty_state": {
+          "title": "Zatiaľ žiadne tímové priestory",
+          "description": "Vytvorte tímový priestor na zoskupenie členov a projektov a potom filtrujte analytiku podľa tímu."
+        },
+        "delete": {
+          "title": "Odstrániť tímový priestor",
+          "content": "Naozaj chcete odstrániť {name}? Členovia a projekty nebudú ovplyvnení; odstráni sa iba zoskupenie."
+        },
+        "toast": {
+          "created": "Tímový priestor bol úspešne vytvorený.",
+          "updated": "Tímový priestor bol úspešne aktualizovaný.",
+          "deleted": "Tímový priestor bol úspešne odstránený.",
+          "error": "Niečo sa pokazilo. Skúste to znova."
+        }
+      },
       "billing_and_plans": {
         "heading": "Fakturácia a plány",
         "description": "Vyberte si plán, spravujte predplatné a jednoducho upgradujte podľa vašich potrieb.",

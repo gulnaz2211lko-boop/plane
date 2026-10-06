@@ -70,7 +70,11 @@
         "choose_estimate_system": "Kies een inschattingssysteem",
         "enter_estimate_point": "Voer inschatting in",
         "step": "Stap {step} van {total}",
-        "label": "Inschatting aanmaken"
+        "label": "Inschatting aanmaken",
+        "hours": "Uren",
+        "minutes": "Minuten",
+        "hours_short": "u",
+        "minutes_short": "m"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Inschattingssysteem wisselen",
       "current": "Huidig inschattingssysteem",
-      "select": "Selecteer een inschattingssysteem"
+      "select": "Selecteer een inschattingssysteem",
+      "no_estimate_found": "Geen inschatting gevonden"
     },
     "automations": {
       "label": "Automatiseringen",
@@ -428,7 +433,8 @@
         "loading": "Projectfunctie bijwerken...",
         "success": "Projectfunctie succesvol bijgewerkt.",
         "error": "Er is iets misgegaan bij het bijwerken van de projectfunctie. Probeer het opnieuw."
-      }
+      },
+      "pro_feature": "Pro-functie"
     },
     "project_updates": {
       "heading": "Projectupdates",

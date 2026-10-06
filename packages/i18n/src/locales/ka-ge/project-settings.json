@@ -70,7 +70,11 @@
         "choose_estimate_system": "აირჩიეთ შეფასების სისტემა",
         "enter_estimate_point": "შეიყვანეთ შეფასების ქულა",
         "step": "ნაბიჯი {step} {total}-დან",
-        "label": "შეფასების შექმნა"
+        "label": "შეფასების შექმნა",
+        "hours": "საათები",
+        "minutes": "წუთები",
+        "hours_short": "სთ",
+        "minutes_short": "წთ"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Switch estimate system",
       "current": "Current estimate system",
-      "select": "Select an estimate system"
+      "select": "Select an estimate system",
+      "no_estimate_found": "შეფასება ვერ მოიძებნა"
     },
     "automations": {
       "label": "ავტომატიზაციები",
@@ -428,7 +433,8 @@
         "loading": "Updating project feature...",
         "success": "Project feature updated successfully.",
         "error": "Something went wrong while updating project feature. Please try again."
-      }
+      },
+      "pro_feature": "Pro ფუნქცია"
     },
     "project_updates": {
       "heading": "Project Updates",

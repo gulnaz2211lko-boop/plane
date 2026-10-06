@@ -70,7 +70,11 @@
         "choose_estimate_system": "Choisir un système d’estimation",
         "enter_estimate_point": "Saisir une estimation",
         "step": "Étape {step} de {total}",
-        "label": "Créer une estimation"
+        "label": "Créer une estimation",
+        "hours": "Heures",
+        "minutes": "Minutes",
+        "hours_short": "h",
+        "minutes_short": "min"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Changer de système d'estimation",
       "current": "Système d'estimation actuel",
-      "select": "Sélectionner un système d'estimation"
+      "select": "Sélectionner un système d'estimation",
+      "no_estimate_found": "Aucune estimation trouvée"
     },
     "automations": {
       "label": "Automatisations",
@@ -428,7 +433,8 @@
         "loading": "Mise à jour de la fonctionnalité du projet...",
         "success": "Fonctionnalité du projet mise à jour avec succès.",
         "error": "Une erreur s'est produite lors de la mise à jour de la fonctionnalité du projet. Veuillez réessayer."
-      }
+      },
+      "pro_feature": "Fonctionnalité Pro"
     },
     "project_updates": {
       "heading": "Mises à jour du projet",

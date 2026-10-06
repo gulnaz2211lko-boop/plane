@@ -176,6 +176,21 @@ class Issue(ChangeTrackerMixin, ProjectBaseModel):
         verbose_name_plural = "Issues"
         db_table = "issues"
         ordering = ("-created_at",)
+        indexes = [
+            # Analytics bucket work items per project by creation / completion time.
+            models.Index(fields=["project", "created_at"], name="issue_project_created_at_idx"),
+            models.Index(
+                fields=["project", "completed_at"],
+                name="issue_project_completed_at_idx",
+                condition=models.Q(completed_at__isnull=False),
+            ),
+            # Soft-deleted work items per project; small, and lets analytics exclude their worklogs cheaply.
+            models.Index(
+                fields=["project"],
+                name="issue_project_deleted_idx",
+                condition=models.Q(deleted_at__isnull=False),
+            ),
+        ]
 
     def save(self, *args, **kwargs):
         self._ensure_default_state()

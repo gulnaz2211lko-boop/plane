@@ -148,7 +148,92 @@
     "workitem_resolved_vs_pending": "Rozwiązane vs oczekujące elementy pracy",
     "projects_by_status": "Projekty według statusu",
     "active_users": "Aktywni użytkownicy",
-    "intake_trends": "Trendy przyjęć"
+    "intake_trends": "Trendy przyjęć",
+    "overdue_work_items": "Zaległe {entity}",
+    "granularity": {
+      "day": "Dziennie",
+      "week": "Tygodniowo",
+      "month": "Miesięcznie"
+    },
+    "teamspaces": {
+      "all": "Wszystkie przestrzenie zespołów",
+      "selected_count": "Przestrzenie zespołów: {count}"
+    },
+    "progress": {
+      "daily_title": "Aktualizacja dzienna",
+      "weekly_title": "Raport tygodniowy",
+      "created_work_items": "Utworzone elementy pracy",
+      "completed_work_items": "Ukończone elementy pracy",
+      "time_logged": "Zarejestrowany czas",
+      "active_contributors": "Aktywni współtwórcy",
+      "vs_yesterday": "w porównaniu z wczoraj",
+      "vs_last_week": "w porównaniu z poprzednim tygodniem"
+    },
+    "projects": {
+      "distribution": "Rozkład pracy między projektami",
+      "breakdown": "Podział według projektów",
+      "pending": "Oczekujące",
+      "overdue": "Zaległe",
+      "columns": {
+        "total": "Łącznie elementów pracy",
+        "completion": "Ukończenie",
+        "estimates": "Szacunki"
+      }
+    },
+    "time_tracking": {
+      "title": "Śledzenie czasu",
+      "total_time_logged": "Przepracowane godziny",
+      "time_logged_this_week": "Czas zarejestrowany w tym tygodniu",
+      "time_logged_last_week": "Czas zarejestrowany w poprzednim tygodniu",
+      "total_estimated_time": "Przydzielone godziny",
+      "utilization_percentage": "Wykorzystanie",
+      "utilization": "Wykorzystanie",
+      "allocated": "Przydzielone (godz.)",
+      "allocated_hours": "Przydzielone godziny",
+      "spent_hours": "Przepracowane godziny",
+      "allocated_vs_spent": "Godziny przydzielone a przepracowane",
+      "allocated_vs_spent_empty_state": "Brak przydzielonego lub przepracowanego czasu w tym okresie. Używaj szacunków czasu w elementach pracy i rejestruj czas, aby je porównać.",
+      "by_teamspace": "Rozkład zasobów według przestrzeni zespołów",
+      "teamspace": "Przestrzeń zespołu",
+      "teamspaces": "Przestrzenie zespołów",
+      "contributors": "Współtwórcy",
+      "time_logged": "Zarejestrowany czas",
+      "time_logged_hours": "Zarejestrowany czas (godziny)",
+      "time_logged_over_time": "Zarejestrowany czas w ujęciu czasowym",
+      "work_items_logged": "Elementy pracy z zarejestrowanym czasem",
+      "by_member": "Zarejestrowany czas według członków",
+      "hours": "Godziny",
+      "empty_state": "Nie zarejestrowano jeszcze czasu. Włącz śledzenie czasu w ustawieniach projektu i rejestruj czas w elementach pracy.",
+      "projects": "Projekty",
+      "members": "Członkowie",
+      "work_items": "Elementy pracy",
+      "completed": "Ukończone",
+      "pending": "Oczekujące"
+    },
+    "axis": {
+      "state_name": "Nazwa stanu",
+      "state_group": "Grupa stanów",
+      "priority": "Priorytet",
+      "label": "Etykieta",
+      "assignee": "Przypisany",
+      "project": "Projekt",
+      "estimate_point": "Punkt szacunkowy",
+      "cycle": "Cykl",
+      "module": "Moduł",
+      "completed_date": "Data ukończenia",
+      "due_date": "Termin",
+      "start_date": "Data rozpoczęcia",
+      "created_date": "Data utworzenia",
+      "work_item": "Element pracy",
+      "estimate": "Szacowanie",
+      "epic": "Epik",
+      "no_value": "Brak wartości",
+      "add_metric": "Dodaj metrykę",
+      "add_property": "Dodaj właściwość",
+      "group_by": "Grupuj według"
+    },
+    "hours_value": "{value} godz.",
+    "count": "Liczba"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Projekt} few {Projekty} other {Projektów}}",

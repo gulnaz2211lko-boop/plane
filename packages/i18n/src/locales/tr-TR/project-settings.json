@@ -70,7 +70,11 @@
         "choose_estimate_system": "Tahmin sistemi seç",
         "enter_estimate_point": "Tahmin puanı girin",
         "step": "Adım {step} / {total}",
-        "label": "Tahmin oluştur"
+        "label": "Tahmin oluştur",
+        "hours": "Saat",
+        "minutes": "Dakika",
+        "hours_short": "sa",
+        "minutes_short": "dk"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Estimasyon sistemini değiştir",
       "current": "Mevcut estimasyon sistemi",
-      "select": "Estimasyon sistemi seç"
+      "select": "Estimasyon sistemi seç",
+      "no_estimate_found": "Tahmin bulunamadı"
     },
     "automations": {
       "label": "Otomasyonlar",
@@ -428,7 +433,8 @@
         "loading": "Proje özelliği güncelleniyor...",
         "success": "Proje özelliği başarıyla güncellendi.",
         "error": "Proje özelliği güncellenirken bir şeyler yanlış gitti. Lütfen tekrar deneyin."
-      }
+      },
+      "pro_feature": "Pro özelliği"
     },
     "project_updates": {
       "heading": "Proje Güncellemeleri",

@@ -70,7 +70,11 @@
         "choose_estimate_system": "Choose an estimate system",
         "enter_estimate_point": "Enter estimate",
         "step": "Step {step} of {total}",
-        "label": "Create estimate"
+        "label": "Create estimate",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "hours_short": "h",
+        "minutes_short": "m"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Switch estimate system",
       "current": "Current estimate system",
-      "select": "Select an estimate system"
+      "select": "Select an estimate system",
+      "no_estimate_found": "No estimate found"
     },
     "automations": {
       "label": "Automations",
@@ -428,7 +433,8 @@
         "loading": "Updating project feature...",
         "success": "Project feature updated successfully.",
         "error": "Something went wrong while updating project feature. Please try again."
-      }
+      },
+      "pro_feature": "Pro feature"
     },
     "project_updates": {
       "heading": "Project Updates",

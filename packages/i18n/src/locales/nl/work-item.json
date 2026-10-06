@@ -428,5 +428,28 @@
       "label": "Epic-titel",
       "required": "Epic-titel is verplicht."
     }
+  },
+  "work_item_worklog": {
+    "title": "Geregistreerde tijd",
+    "log_time": "Tijd registreren",
+    "edit_time_log": "Tijdregistratie bewerken",
+    "no_time_logged": "Geen tijd geregistreerd",
+    "hours": "Uren",
+    "minutes": "Minuten",
+    "date": "Datum",
+    "description_placeholder": "Waar heb je aan gewerkt?",
+    "duration_required": "Voer een duur groter dan nul in.",
+    "total": "Totaal",
+    "entries": "Registraties",
+    "delete": {
+      "title": "Tijdregistratie verwijderen",
+      "content": "Weet je zeker dat je deze tijdregistratie wilt verwijderen? Dit kan niet ongedaan worden gemaakt."
+    },
+    "toast": {
+      "logged": "Tijd succesvol geregistreerd.",
+      "updated": "Tijdregistratie succesvol bijgewerkt.",
+      "deleted": "Tijdregistratie succesvol verwijderd.",
+      "error": "Er ging iets mis. Probeer het opnieuw."
+    }
   }
 }

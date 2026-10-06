@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "ピークビューのレイアウトを切り替え",
     "options": "オプション",
     "duration": "期間",
+    "duration_units": {
+      "hours": "{count}時間",
+      "minutes": "{count}分"
+    },
     "today": "今日",
     "week": "週",
     "month": "月",

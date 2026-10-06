@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Přepnout rozložení náhledu",
     "options": "Možnosti",
     "duration": "Trvání",
+    "duration_units": {
+      "hours": "{count}h",
+      "minutes": "{count}m"
+    },
     "today": "Dnes",
     "week": "Týden",
     "month": "Měsíc",

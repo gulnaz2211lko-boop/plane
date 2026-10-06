@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Teamspace",
+        "heading": "Teamspace",
+        "description": "Kelompokkan anggota dan proyek ke dalam teamspace untuk melacak bagaimana pekerjaan didistribusikan di seluruh organisasi Anda.",
+        "add_teamspace": "Tambah teamspace",
+        "create_teamspace": "Buat teamspace",
+        "edit_teamspace": "Edit teamspace",
+        "name_placeholder": "Nama teamspace",
+        "description_placeholder": "Apa yang dikerjakan tim ini?",
+        "lead": "Pemimpin",
+        "members": "Anggota",
+        "projects": "Proyek",
+        "no_lead": "Tanpa pemimpin",
+        "members_count": "{count, plural, other {# anggota}}",
+        "projects_count": "{count, plural, other {# proyek}}",
+        "only_admins_can_manage": "Hanya admin workspace yang dapat membuat atau mengedit teamspace.",
+        "empty_state": {
+          "title": "Belum ada teamspace",
+          "description": "Buat teamspace untuk mengelompokkan anggota dan proyek, lalu filter analitik berdasarkan tim."
+        },
+        "delete": {
+          "title": "Hapus teamspace",
+          "content": "Apakah Anda yakin ingin menghapus {name}? Anggota dan proyek tidak terpengaruh; hanya pengelompokannya yang dihapus."
+        },
+        "toast": {
+          "created": "Teamspace berhasil dibuat.",
+          "updated": "Teamspace berhasil diperbarui.",
+          "deleted": "Teamspace berhasil dihapus.",
+          "error": "Terjadi kesalahan. Silakan coba lagi."
+        }
+      },
       "billing_and_plans": {
         "heading": "Penagihan & Rencana",
         "description": "Pilih rencana Anda, kelola langganan, dan tingkatkan dengan mudah seiring pertumbuhan kebutuhan Anda.",

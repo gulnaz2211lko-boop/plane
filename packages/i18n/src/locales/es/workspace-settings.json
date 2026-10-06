@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Espacios de equipo",
+        "heading": "Espacios de equipo",
+        "description": "Agrupa miembros y proyectos en espacios de equipo para seguir cómo se distribuye el trabajo en tu organización.",
+        "add_teamspace": "Añadir espacio de equipo",
+        "create_teamspace": "Crear espacio de equipo",
+        "edit_teamspace": "Editar espacio de equipo",
+        "name_placeholder": "Nombre del espacio de equipo",
+        "description_placeholder": "¿En qué trabaja este equipo?",
+        "lead": "Líder",
+        "members": "Miembros",
+        "projects": "Proyectos",
+        "no_lead": "Sin líder",
+        "members_count": "{count, plural, one {# miembro} other {# miembros}}",
+        "projects_count": "{count, plural, one {# proyecto} other {# proyectos}}",
+        "only_admins_can_manage": "Solo los administradores del espacio de trabajo pueden crear o editar espacios de equipo.",
+        "empty_state": {
+          "title": "Aún no hay espacios de equipo",
+          "description": "Crea un espacio de equipo para agrupar miembros y proyectos y luego filtra el análisis por equipo."
+        },
+        "delete": {
+          "title": "Eliminar espacio de equipo",
+          "content": "¿Seguro que quieres eliminar {name}? Los miembros y proyectos no se verán afectados; solo se elimina la agrupación."
+        },
+        "toast": {
+          "created": "Espacio de equipo creado correctamente.",
+          "updated": "Espacio de equipo actualizado correctamente.",
+          "deleted": "Espacio de equipo eliminado correctamente.",
+          "error": "Algo salió mal. Por favor, inténtalo de nuevo."
+        }
+      },
       "billing_and_plans": {
         "heading": "Facturación y Planes",
         "description": "Elige tu plan, gestiona las suscripciones y actualiza fácilmente a medida que crecen tus necesidades.",

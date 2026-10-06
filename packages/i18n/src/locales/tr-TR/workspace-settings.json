@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Takım alanları",
+        "heading": "Takım alanları",
+        "description": "Çalışmanın kuruluşunuzda nasıl dağıldığını izlemek için üyeleri ve projeleri takım alanlarında gruplandırın.",
+        "add_teamspace": "Takım alanı ekle",
+        "create_teamspace": "Takım alanı oluştur",
+        "edit_teamspace": "Takım alanını düzenle",
+        "name_placeholder": "Takım alanı adı",
+        "description_placeholder": "Bu takım ne üzerinde çalışıyor?",
+        "lead": "Lider",
+        "members": "Üyeler",
+        "projects": "Projeler",
+        "no_lead": "Lider yok",
+        "members_count": "{count, plural, one {# üye} other {# üye}}",
+        "projects_count": "{count, plural, one {# proje} other {# proje}}",
+        "only_admins_can_manage": "Yalnızca çalışma alanı yöneticileri takım alanı oluşturabilir veya düzenleyebilir.",
+        "empty_state": {
+          "title": "Henüz takım alanı yok",
+          "description": "Üyeleri ve projeleri gruplandırmak için bir takım alanı oluşturun, ardından analitiği takıma göre filtreleyin."
+        },
+        "delete": {
+          "title": "Takım alanını sil",
+          "content": "{name} adlı takım alanını silmek istediğinizden emin misiniz? Üyeler ve projeler etkilenmez; yalnızca gruplandırma kaldırılır."
+        },
+        "toast": {
+          "created": "Takım alanı başarıyla oluşturuldu.",
+          "updated": "Takım alanı başarıyla güncellendi.",
+          "deleted": "Takım alanı başarıyla silindi.",
+          "error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin."
+        }
+      },
       "billing_and_plans": {
         "heading": "Faturalandırma ve Planlar",
         "description": "Planınızı seçin, abonelikleri yönetin ve ihtiyaçlarınız arttıkça kolayca yükseltin.",

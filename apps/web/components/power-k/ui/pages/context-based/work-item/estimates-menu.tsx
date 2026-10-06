@@ -12,9 +12,9 @@ import { useTranslation } from "@plane/i18n";
 import { EEstimateSystem } from "@plane/types";
 import type { TIssue } from "@plane/types";
 import { Spinner } from "@plane/blocks/spinner";
-import { convertMinutesToHoursMinutesString } from "@plane/utils";
 // hooks
 import { useEstimate, useProjectEstimates } from "@/hooks/store/estimates";
+import { useDurationFormatter } from "@/hooks/use-duration-formatter";
 // local imports
 import { PowerKModalCommandItem } from "../../../modal/command-item";
 
@@ -35,6 +35,7 @@ export const PowerKWorkItemEstimatesMenu = observer(function PowerKWorkItemEstim
   const currentActiveEstimate = currentActiveEstimateId ? getEstimateById(currentActiveEstimateId) : undefined;
   // translation
   const { t } = useTranslation();
+  const formatDuration = useDurationFormatter();
 
   if (!estimatePointIds) return <Spinner />;
 
@@ -57,7 +58,7 @@ export const PowerKWorkItemEstimatesMenu = observer(function PowerKWorkItemEstim
               icon={Triangle}
               label={
                 currentActiveEstimate?.type === EEstimateSystem.TIME
-                  ? convertMinutesToHoursMinutesString(Number(estimatePoint.value))
+                  ? formatDuration(Number(estimatePoint.value))
                   : estimatePoint.value
               }
               isSelected={workItemDetails.estimate_point === estimatePoint.id}
@@ -66,7 +67,7 @@ export const PowerKWorkItemEstimatesMenu = observer(function PowerKWorkItemEstim
           );
         })
       ) : (
-        <div className="text-center">No estimate found</div>
+        <div className="text-center">{t("project_settings.estimates.no_estimate_found")}</div>
       )}
     </Command.Group>
   );

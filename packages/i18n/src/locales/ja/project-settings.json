@@ -70,7 +70,11 @@
         "choose_estimate_system": "見積もりシステムを選択",
         "enter_estimate_point": "見積もりを入力",
         "step": "ステップ {step} の {total}",
-        "label": "見積もりを作成"
+        "label": "見積もりを作成",
+        "hours": "時間",
+        "minutes": "分",
+        "hours_short": "時間",
+        "minutes_short": "分"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "見積もりシステムの切り替え",
       "current": "現在の見積もりシステム",
-      "select": "見積もりシステムを選択"
+      "select": "見積もりシステムを選択",
+      "no_estimate_found": "見積もりが見つかりません"
     },
     "automations": {
       "label": "自動化",
@@ -428,7 +433,8 @@
         "loading": "プロジェクト機能を更新中...",
         "success": "プロジェクト機能が正常に更新されました。",
         "error": "プロジェクト機能の更新中に問題が発生しました。もう一度お試しください。"
-      }
+      },
+      "pro_feature": "Pro機能"
     },
     "project_updates": {
       "heading": "プロジェクトの更新",

@@ -70,7 +70,11 @@
         "choose_estimate_system": "Wybierz system szacowania",
         "enter_estimate_point": "Wprowadź punkt szacunkowy",
         "step": "Krok {step} z {total}",
-        "label": "Utwórz szacunek"
+        "label": "Utwórz szacunek",
+        "hours": "Godziny",
+        "minutes": "Minuty",
+        "hours_short": "godz.",
+        "minutes_short": "min"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Przełącz system szacowania",
       "current": "Obecny system szacowania",
-      "select": "Wybierz system szacowania"
+      "select": "Wybierz system szacowania",
+      "no_estimate_found": "Nie znaleziono szacunku"
     },
     "automations": {
       "label": "Automatyzacja",
@@ -428,7 +433,8 @@
         "loading": "Aktualizowanie funkcji projektu...",
         "success": "Funkcja projektu zaktualizowana pomyślnie.",
         "error": "Coś poszło nie tak podczas aktualizacji funkcji projektu. Spróbuj ponownie."
-      }
+      },
+      "pro_feature": "Funkcja Pro"
     },
     "project_updates": {
       "heading": "Aktualizacje projektu",

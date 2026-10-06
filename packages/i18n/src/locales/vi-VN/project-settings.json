@@ -70,7 +70,11 @@
         "choose_estimate_system": "Chọn hệ thống ước tính",
         "enter_estimate_point": "Nhập điểm ước tính",
         "step": "Bước {step} của {total}",
-        "label": "Tạo ước tính"
+        "label": "Tạo ước tính",
+        "hours": "Giờ",
+        "minutes": "Phút",
+        "hours_short": "giờ",
+        "minutes_short": "phút"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Chuyển đổi hệ thống ước tính",
       "current": "Hệ thống ước tính hiện tại",
-      "select": "Chọn hệ thống ước tính"
+      "select": "Chọn hệ thống ước tính",
+      "no_estimate_found": "Không tìm thấy ước tính"
     },
     "automations": {
       "label": "Tự động hóa",
@@ -428,7 +433,8 @@
         "loading": "Đang cập nhật tính năng dự án...",
         "success": "Đã cập nhật tính năng dự án thành công.",
         "error": "Đã xảy ra lỗi khi cập nhật tính năng dự án. Vui lòng thử lại."
-      }
+      },
+      "pro_feature": "Tính năng Pro"
     },
     "project_updates": {
       "heading": "Cập nhật dự án",

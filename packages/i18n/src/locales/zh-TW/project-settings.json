@@ -70,7 +70,11 @@
         "choose_estimate_system": "選擇預估系統",
         "enter_estimate_point": "輸入預估",
         "step": "步驟 {step} 共 {total}",
-        "label": "建立預估"
+        "label": "建立預估",
+        "hours": "小時",
+        "minutes": "分鐘",
+        "hours_short": "小時",
+        "minutes_short": "分鐘"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "切換估算系統",
       "current": "目前估算系統",
-      "select": "選擇估算系統"
+      "select": "選擇估算系統",
+      "no_estimate_found": "找不到預估"
     },
     "automations": {
       "label": "自動化",
@@ -428,7 +433,8 @@
         "loading": "正在更新專案功能...",
         "success": "專案功能更新成功。",
         "error": "更新專案功能時發生錯誤。請再試一次。"
-      }
+      },
+      "pro_feature": "Pro 功能"
     },
     "project_updates": {
       "heading": "專案更新",

@@ -284,9 +284,9 @@ export const getDate = (date: string | Date | undefined | null): Date | undefine
   try {
     if (!date || date === "") return;
 
-    if (typeof date !== "string" && !(date instanceof String)) return date;
+    if (typeof date !== "string" && Object.prototype.toString.call(date) !== "[object String]") return date;
 
-    const [yearString, monthString, dayString] = date.substring(0, 10).split("-");
+    const [yearString, monthString, dayString] = String(date).substring(0, 10).split("-");
     const year = parseInt(yearString);
     const month = parseInt(monthString);
     const day = parseInt(dayString);
@@ -358,15 +358,23 @@ export const convertMinutesToHoursAndMinutes = (mins: number): { hours: number; 
   return { hours: hours, minutes: minutes };
 };
 
+/** Renders the hours and minutes parts of a duration, e.g. from localized `{count}h` / `{count}m` templates. */
+export type TDurationUnitFormatter = {
+  hours: (value: number) => string;
+  minutes: (value: number) => string;
+};
+
 /**
  * @description converts minutes to hours and minutes string
  * @param { number } totalMinutes
+ * @param { TDurationUnitFormatter } units optional localized unit renderers; English `h`/`m` when omitted
  * @returns { string } 0h 0m
- * @example convertMinutesToHoursAndMinutes(150) // Output: 2h 10m
+ * @example convertMinutesToHoursMinutesString(150) // Output: 2h 30m
  */
-export const convertMinutesToHoursMinutesString = (totalMinutes: number): string => {
+export const convertMinutesToHoursMinutesString = (totalMinutes: number, units?: TDurationUnitFormatter): string => {
   const { hours, minutes } = convertMinutesToHoursAndMinutes(totalMinutes);
 
+  if (units) return [hours ? units.hours(hours) : "", minutes ? units.minutes(minutes) : ""].filter(Boolean).join(" ");
   return `${hours ? `${hours}h ` : ``}${minutes ? `${minutes}m ` : ``}`;
 };
 
@@ -400,6 +408,7 @@ export const generateDateArray = (startDate: string | Date, endDate: string | Da
   const dateArray = [];
 
   // Use a while loop to generate dates between the range
+  // oxlint-disable-next-line no-unmodified-loop-condition -- `start` is a Date mutated in place by setDate below
   while (start <= end) {
     // Push the current date (converted to ISO string for consistency)
     dateArray.push({

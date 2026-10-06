@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Týmové prostory",
+        "heading": "Týmové prostory",
+        "description": "Seskupte členy a projekty do týmových prostorů a sledujte, jak je práce rozdělena napříč vaší organizací.",
+        "add_teamspace": "Přidat týmový prostor",
+        "create_teamspace": "Vytvořit týmový prostor",
+        "edit_teamspace": "Upravit týmový prostor",
+        "name_placeholder": "Název týmového prostoru",
+        "description_placeholder": "Na čem tento tým pracuje?",
+        "lead": "Vedoucí",
+        "members": "Členové",
+        "projects": "Projekty",
+        "no_lead": "Bez vedoucího",
+        "members_count": "{count, plural, one {# člen} few {# členové} many {# člena} other {# členů}}",
+        "projects_count": "{count, plural, one {# projekt} few {# projekty} many {# projektu} other {# projektů}}",
+        "only_admins_can_manage": "Týmové prostory mohou vytvářet nebo upravovat pouze správci pracovního prostoru.",
+        "empty_state": {
+          "title": "Zatím žádné týmové prostory",
+          "description": "Vytvořte týmový prostor pro seskupení členů a projektů a poté filtrujte analytiku podle týmu."
+        },
+        "delete": {
+          "title": "Smazat týmový prostor",
+          "content": "Opravdu chcete smazat {name}? Členové a projekty nebudou ovlivněni; odstraní se pouze seskupení."
+        },
+        "toast": {
+          "created": "Týmový prostor byl úspěšně vytvořen.",
+          "updated": "Týmový prostor byl úspěšně aktualizován.",
+          "deleted": "Týmový prostor byl úspěšně smazán.",
+          "error": "Něco se pokazilo. Zkuste to prosím znovu."
+        }
+      },
       "billing_and_plans": {
         "heading": "Fakturace a plány",
         "description": "Vyberte si plán, spravujte předplatná a snadno je upgradujte, jak rostou vaše potřeby.",

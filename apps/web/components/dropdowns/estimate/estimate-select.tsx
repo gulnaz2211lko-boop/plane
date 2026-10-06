@@ -13,10 +13,10 @@ import { EstimateSelect as EstimateSelectBlock } from "@plane/blocks/property-se
 import type { SelectTooltip, SelectTooltipOverride, SelectVariant } from "@plane/blocks/select";
 import { useTranslation } from "@plane/i18n";
 import { EEstimateSystem } from "@plane/types";
-import { convertMinutesToHoursMinutesString } from "@plane/utils";
 // hooks
 import { useProjectEstimates } from "@/hooks/store/estimates";
 import { useEstimate } from "@/hooks/store/estimates/use-estimate";
+import { useDurationFormatter } from "@/hooks/use-duration-formatter";
 // store
 import type { IEstimate } from "@/store/estimates/estimate";
 
@@ -35,18 +35,28 @@ type Props = {
   tabIndex?: number;
 };
 
+type TFormatDuration = (totalMinutes: number) => string;
+
 /** Formats a raw estimate point value for display — minutes-to-"1h 30m" for time-based systems, verbatim otherwise. */
-function formatEstimatePointValue(estimate: IEstimate | undefined, rawValue: string): string {
-  return estimate?.type === EEstimateSystem.TIME ? convertMinutesToHoursMinutesString(Number(rawValue)) : rawValue;
+function formatEstimatePointValue(
+  estimate: IEstimate | undefined,
+  rawValue: string,
+  formatDuration: TFormatDuration
+): string {
+  return estimate?.type === EEstimateSystem.TIME ? formatDuration(Number(rawValue)) : rawValue;
 }
 
 /** Maps an estimate's points to dropdown options, optionally filtered by a case-insensitive search term. */
-function toEstimateOptions(estimate: IEstimate | undefined, search: string | undefined): EstimateOption[] {
+function toEstimateOptions(
+  estimate: IEstimate | undefined,
+  search: string | undefined,
+  formatDuration: TFormatDuration
+): EstimateOption[] {
   const points = estimate?.estimatePointIds ?? [];
   return points.flatMap((id) => {
     const point = estimate?.estimatePointById(id);
     if (!point) return [];
-    const displayValue = formatEstimatePointValue(estimate, point.value ?? "");
+    const displayValue = formatEstimatePointValue(estimate, point.value ?? "", formatDuration);
     if (search && !displayValue.toLowerCase().includes(search.toLowerCase())) return [];
     return [{ id, displayValue }];
   });
@@ -56,6 +66,7 @@ export const EstimateSelect = observer(function EstimateSelect(props: Props) {
   const { value, onChange, projectId, variant, disabled, placeholder, onClose, className, tooltip, tabIndex } = props;
   // i18n
   const { t } = useTranslation();
+  const formatDuration = useDurationFormatter();
   const resolvedTooltip = useMemo<SelectTooltipOverride | undefined>(() => {
     if (!tooltip) return undefined;
     const override = typeof tooltip === "object" ? tooltip : undefined;
@@ -92,16 +103,18 @@ export const EstimateSelect = observer(function EstimateSelect(props: Props) {
       if (!projectId || !areEstimateEnabledByProjectId(projectId)) return { results: [] };
 
       const activeEstimate = await resolveActiveEstimate();
-      return { results: toEstimateOptions(activeEstimate, search) };
+      return { results: toEstimateOptions(activeEstimate, search, formatDuration) };
     },
-    [projectId, areEstimateEnabledByProjectId, resolveActiveEstimate]
+    [projectId, areEstimateEnabledByProjectId, resolveActiveEstimate, formatDuration]
   );
 
   // CE change: CE's `useEstimate` returns an empty object (not `undefined`) while no estimate is
   // active, so the point lookup is optional-called.
   const point = value ? estimate?.estimatePointById?.(value) : undefined;
   const selected: EstimateOption | null =
-    value && point ? { id: value, displayValue: formatEstimatePointValue(estimate, point.value ?? "") } : null;
+    value && point
+      ? { id: value, displayValue: formatEstimatePointValue(estimate, point.value ?? "", formatDuration) }
+      : null;
 
   return (
     <EstimateSelectBlock

@@ -16,7 +16,7 @@ from rest_framework import status
 # Module imports
 from ..base import BaseViewSet, BaseAPIView
 from plane.app.permissions import ProjectEntityPermission, allow_permission, ROLE
-from plane.db.models import Project, Estimate, EstimatePoint, Issue
+from plane.db.models import Project, Estimate, EstimatePoint, EstimateType, Issue
 from plane.app.serializers import (
     EstimateSerializer,
     EstimatePointSerializer,
@@ -29,6 +29,18 @@ from plane.bgtasks.issue_activities_task import issue_activity
 def generate_random_name(length=10):
     letters = string.ascii_lowercase
     return "".join(random.choice(letters) for i in range(length))
+
+
+def get_estimate_validation_error(estimate_type, values):
+    """Error message for an invalid estimate type or point value, or None when valid."""
+    if estimate_type not in EstimateType.values:
+        return f"Invalid estimate type. Expected one of: {', '.join(EstimateType.values)}"
+    if estimate_type == EstimateType.TIME:
+        for value in values:
+            # time estimates are whole minutes
+            if not str(value).strip().isdigit() or int(str(value).strip()) <= 0:
+                return "Time estimate values must be a positive number of minutes"
+    return None
 
 
 class ProjectEstimatePointEndpoint(BaseAPIView):
@@ -66,6 +78,12 @@ class BulkEstimatePointEndpoint(BaseViewSet):
         estimate_name = estimate.get("name", generate_random_name())
         estimate_type = estimate.get("type", "categories")
         last_used = estimate.get("last_used", False)
+        validation_error = get_estimate_validation_error(
+            estimate_type,
+            [estimate_point.get("value", "") for estimate_point in request.data.get("estimate_points", [])],
+        )
+        if validation_error:
+            return Response({"error": validation_error}, status=status.HTTP_400_BAD_REQUEST)
         estimate = Estimate.objects.create(
             name=estimate_name,
             project_id=project_id,
@@ -114,6 +132,17 @@ class BulkEstimatePointEndpoint(BaseViewSet):
             )
 
         estimate = Estimate.objects.get(pk=estimate_id, workspace__slug=slug, project_id=project_id)
+
+        validation_error = get_estimate_validation_error(
+            (request.data.get("estimate") or {}).get("type", estimate.type),
+            [
+                estimate_point.get("value")
+                for estimate_point in request.data.get("estimate_points", [])
+                if "value" in estimate_point
+            ],
+        )
+        if validation_error:
+            return Response({"error": validation_error}, status=status.HTTP_400_BAD_REQUEST)
 
         if request.data.get("estimate"):
             estimate.name = request.data.get("estimate").get("name", estimate.name)
@@ -172,6 +201,9 @@ class EstimatePointEndpoint(BaseViewSet):
             )
         key = request.data.get("key", 0)
         value = request.data.get("value", "")
+        validation_error = get_estimate_validation_error(estimate.type, [value])
+        if validation_error:
+            return Response({"error": validation_error}, status=status.HTTP_400_BAD_REQUEST)
         estimate_point = EstimatePoint.objects.create(
             estimate_id=estimate_id, project_id=project_id, key=key, value=value
         )
@@ -187,6 +219,10 @@ class EstimatePointEndpoint(BaseViewSet):
             project_id=project_id,
             workspace__slug=slug,
         )
+        if "value" in request.data:
+            validation_error = get_estimate_validation_error(estimate_point.estimate.type, [request.data["value"]])
+            if validation_error:
+                return Response({"error": validation_error}, status=status.HTTP_400_BAD_REQUEST)
         serializer = EstimatePointSerializer(estimate_point, data=request.data, partial=True)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

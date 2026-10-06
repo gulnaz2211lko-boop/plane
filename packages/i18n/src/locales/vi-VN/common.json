@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Chuyển đổi bố cục xem lướt",
     "options": "Tùy chọn",
     "duration": "Thời lượng",
+    "duration_units": {
+      "hours": "{count} giờ",
+      "minutes": "{count} phút"
+    },
     "today": "Hôm nay",
     "week": "Tuần",
     "month": "Tháng",

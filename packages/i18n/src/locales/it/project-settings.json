@@ -70,7 +70,11 @@
         "choose_estimate_system": "Scegli un sistema di stima",
         "enter_estimate_point": "Inserisci stima",
         "step": "Passo {step} di {total}",
-        "label": "Crea stima"
+        "label": "Crea stima",
+        "hours": "Ore",
+        "minutes": "Minuti",
+        "hours_short": "h",
+        "minutes_short": "min"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Cambia sistema di stime",
       "current": "Sistema di stime attuale",
-      "select": "Seleziona un sistema di stime"
+      "select": "Seleziona un sistema di stime",
+      "no_estimate_found": "Nessuna stima trovata"
     },
     "automations": {
       "label": "Automatizzazioni",
@@ -428,7 +433,8 @@
         "loading": "Aggiornamento funzionalità progetto...",
         "success": "Funzionalità progetto aggiornata con successo.",
         "error": "Qualcosa è andato storto durante l'aggiornamento della funzionalità progetto. Riprova."
-      }
+      },
+      "pro_feature": "Funzionalità Pro"
     },
     "project_updates": {
       "heading": "Aggiornamenti del progetto",

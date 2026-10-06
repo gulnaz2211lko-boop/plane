@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Teamspaces",
+        "heading": "Teamspaces",
+        "description": "Groepeer leden en projecten in teamspaces om bij te houden hoe het werk binnen je organisatie is verdeeld.",
+        "add_teamspace": "Teamspace toevoegen",
+        "create_teamspace": "Teamspace aanmaken",
+        "edit_teamspace": "Teamspace bewerken",
+        "name_placeholder": "Naam van teamspace",
+        "description_placeholder": "Waar werkt dit team aan?",
+        "lead": "Leider",
+        "members": "Leden",
+        "projects": "Projecten",
+        "no_lead": "Geen leider",
+        "members_count": "{count, plural, one {# lid} other {# leden}}",
+        "projects_count": "{count, plural, one {# project} other {# projecten}}",
+        "only_admins_can_manage": "Alleen werkruimtebeheerders kunnen teamspaces aanmaken of bewerken.",
+        "empty_state": {
+          "title": "Nog geen teamspaces",
+          "description": "Maak een teamspace aan om leden en projecten te groeperen en filter vervolgens analyses op team."
+        },
+        "delete": {
+          "title": "Teamspace verwijderen",
+          "content": "Weet je zeker dat je {name} wilt verwijderen? Leden en projecten worden niet beïnvloed; alleen de groepering wordt verwijderd."
+        },
+        "toast": {
+          "created": "Teamspace succesvol aangemaakt.",
+          "updated": "Teamspace succesvol bijgewerkt.",
+          "deleted": "Teamspace succesvol verwijderd.",
+          "error": "Er ging iets mis. Probeer het opnieuw."
+        }
+      },
       "billing_and_plans": {
         "heading": "Facturering & plannen",
         "description": "Kies je plan, beheer abonnementen en upgrade eenvoudig naarmate je behoeften groeien.",

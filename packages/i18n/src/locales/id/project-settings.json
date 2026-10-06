@@ -70,7 +70,11 @@
         "choose_estimate_system": "Pilih sistem perkiraan",
         "enter_estimate_point": "Masukkan perkiraan",
         "step": "Langkah {step} dari {total}",
-        "label": "Buat perkiraan"
+        "label": "Buat perkiraan",
+        "hours": "Jam",
+        "minutes": "Menit",
+        "hours_short": "j",
+        "minutes_short": "m"
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Alihkan sistem estimasi",
       "current": "Sistem estimasi saat ini",
-      "select": "Pilih sistem estimasi"
+      "select": "Pilih sistem estimasi",
+      "no_estimate_found": "Tidak ada perkiraan yang ditemukan"
     },
     "automations": {
       "label": "Otomatisasi",
@@ -428,7 +433,8 @@
         "loading": "Memperbarui fitur proyek...",
         "success": "Fitur proyek berhasil diperbarui.",
         "error": "Terjadi kesalahan saat memperbarui fitur proyek. Silakan coba lagi."
-      }
+      },
+      "pro_feature": "Fitur Pro"
     },
     "project_updates": {
       "heading": "Pembaruan Proyek",

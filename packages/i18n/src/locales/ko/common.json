@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "피크 뷰 레이아웃 전환",
     "options": "옵션",
     "duration": "기간",
+    "duration_units": {
+      "hours": "{count}시간",
+      "minutes": "{count}분"
+    },
     "today": "오늘",
     "week": "주",
     "month": "월",

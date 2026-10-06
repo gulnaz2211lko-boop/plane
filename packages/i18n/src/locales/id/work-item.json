@@ -428,5 +428,28 @@
       "label": "Judul Epik",
       "required": "Judul epik wajib diisi."
     }
+  },
+  "work_item_worklog": {
+    "title": "Waktu tercatat",
+    "log_time": "Catat waktu",
+    "edit_time_log": "Edit catatan waktu",
+    "no_time_logged": "Belum ada waktu tercatat",
+    "hours": "Jam",
+    "minutes": "Menit",
+    "date": "Tanggal",
+    "description_placeholder": "Apa yang Anda kerjakan?",
+    "duration_required": "Masukkan durasi lebih dari nol.",
+    "total": "Total",
+    "entries": "Entri",
+    "delete": {
+      "title": "Hapus catatan waktu",
+      "content": "Apakah Anda yakin ingin menghapus entri catatan waktu ini? Tindakan ini tidak dapat dibatalkan."
+    },
+    "toast": {
+      "logged": "Waktu berhasil dicatat.",
+      "updated": "Catatan waktu berhasil diperbarui.",
+      "deleted": "Catatan waktu berhasil dihapus.",
+      "error": "Terjadi kesalahan. Silakan coba lagi."
+    }
   }
 }

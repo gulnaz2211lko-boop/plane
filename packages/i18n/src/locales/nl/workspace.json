@@ -148,7 +148,92 @@
     "workitem_resolved_vs_pending": "Werkitems opgelost versus openstaand",
     "projects_by_status": "Projecten op status",
     "active_users": "Actieve gebruikers",
-    "intake_trends": "Intaketrends"
+    "intake_trends": "Intaketrends",
+    "overdue_work_items": "Achterstallige {entity}",
+    "granularity": {
+      "day": "Dagelijks",
+      "week": "Wekelijks",
+      "month": "Maandelijks"
+    },
+    "teamspaces": {
+      "all": "Alle teamspaces",
+      "selected_count": "{count} teamspaces"
+    },
+    "progress": {
+      "daily_title": "Dagelijkse update",
+      "weekly_title": "Weekrapport",
+      "created_work_items": "Aangemaakte werkitems",
+      "completed_work_items": "Voltooide werkitems",
+      "time_logged": "Geregistreerde tijd",
+      "active_contributors": "Actieve bijdragers",
+      "vs_yesterday": "t.o.v. gisteren",
+      "vs_last_week": "t.o.v. vorige week"
+    },
+    "projects": {
+      "distribution": "Werkverdeling over projecten",
+      "breakdown": "Uitsplitsing per project",
+      "pending": "Openstaand",
+      "overdue": "Achterstallig",
+      "columns": {
+        "total": "Totaal aantal werkitems",
+        "completion": "Voltooiing",
+        "estimates": "Inschattingen"
+      }
+    },
+    "time_tracking": {
+      "title": "Tijdregistratie",
+      "total_time_logged": "Bestede uren",
+      "time_logged_this_week": "Deze week geregistreerde tijd",
+      "time_logged_last_week": "Vorige week geregistreerde tijd",
+      "total_estimated_time": "Toegewezen uren",
+      "utilization_percentage": "Benutting",
+      "utilization": "Benutting",
+      "allocated": "Toegewezen (u)",
+      "allocated_hours": "Toegewezen uren",
+      "spent_hours": "Bestede uren",
+      "allocated_vs_spent": "Toegewezen versus bestede uren",
+      "allocated_vs_spent_empty_state": "Geen toegewezen of bestede tijd in deze periode. Gebruik tijdsinschattingen op werkitems en registreer tijd om ze te vergelijken.",
+      "by_teamspace": "Verdeling van middelen per teamspace",
+      "teamspace": "Teamspace",
+      "teamspaces": "Teamspaces",
+      "contributors": "Bijdragers",
+      "time_logged": "Geregistreerde tijd",
+      "time_logged_hours": "Geregistreerde tijd (uren)",
+      "time_logged_over_time": "Geregistreerde tijd in de loop van de tijd",
+      "work_items_logged": "Werkitems met geregistreerde tijd",
+      "by_member": "Geregistreerde tijd per lid",
+      "hours": "Uren",
+      "empty_state": "Nog geen tijd geregistreerd. Schakel tijdregistratie in via de projectinstellingen en registreer tijd op werkitems.",
+      "projects": "Projecten",
+      "members": "Leden",
+      "work_items": "Werkitems",
+      "completed": "Voltooid",
+      "pending": "Openstaand"
+    },
+    "axis": {
+      "state_name": "Statusnaam",
+      "state_group": "Statusgroep",
+      "priority": "Prioriteit",
+      "label": "Label",
+      "assignee": "Toegewezene",
+      "project": "Project",
+      "estimate_point": "Inschattingspunt",
+      "cycle": "Cyclus",
+      "module": "Module",
+      "completed_date": "Voltooiingsdatum",
+      "due_date": "Vervaldatum",
+      "start_date": "Startdatum",
+      "created_date": "Aanmaakdatum",
+      "work_item": "Werkitem",
+      "estimate": "Inschatting",
+      "epic": "Epic",
+      "no_value": "Geen waarde",
+      "add_metric": "Metriek toevoegen",
+      "add_property": "Eigenschap toevoegen",
+      "group_by": "Groeperen op"
+    },
+    "hours_value": "{value} u",
+    "count": "Aantal"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Project} other {Projecten}}",

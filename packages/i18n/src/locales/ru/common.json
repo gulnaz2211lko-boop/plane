@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Переключить макет просмотра",
     "options": "Опции",
     "duration": "Продолжительность",
+    "duration_units": {
+      "hours": "{count} ч",
+      "minutes": "{count} мин"
+    },
     "today": "Сегодня",
     "week": "Неделя",
     "month": "Месяц",

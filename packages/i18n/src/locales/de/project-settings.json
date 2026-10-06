@@ -70,7 +70,11 @@
         "choose_estimate_system": "Schätzungssystem wählen",
         "enter_estimate_point": "Schätzung eingeben",
         "step": "Schritt {step} von {total}",
-        "label": "Schätzung erstellen"
+        "label": "Schätzung erstellen",
+        "hours": "Stunden",
+        "minutes": "Minuten",
+        "hours_short": "Std.",
+        "minutes_short": "Min."
       },
       "toasts": {
         "created": {
@@ -174,7 +178,8 @@
       },
       "switch": "Schätzsystem wechseln",
       "current": "Aktuelles Schätzsystem",
-      "select": "Wählen Sie ein Schätzsystem"
+      "select": "Wählen Sie ein Schätzsystem",
+      "no_estimate_found": "Keine Schätzung gefunden"
     },
     "automations": {
       "label": "Automatisierungen",
@@ -428,7 +433,8 @@
         "loading": "Projektfunktion wird aktualisiert...",
         "success": "Projektfunktion erfolgreich aktualisiert.",
         "error": "Beim Aktualisieren der Projektfunktion ist etwas schiefgelaufen. Bitte versuchen Sie es erneut."
-      }
+      },
+      "pro_feature": "Pro-Funktion"
     },
     "project_updates": {
       "heading": "Projektaktualisierungen",

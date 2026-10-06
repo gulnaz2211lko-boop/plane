@@ -579,6 +579,10 @@
     "toggle_peek_view_layout": "Basculer la disposition de l’aperçu",
     "options": "Options",
     "duration": "Durée",
+    "duration_units": {
+      "hours": "{count}h",
+      "minutes": "{count} min"
+    },
     "today": "Aujourd’hui",
     "week": "Semaine",
     "month": "Mois",

@@ -428,5 +428,28 @@
       "label": "Názov epiky",
       "required": "Názov epiky je povinný."
     }
+  },
+  "work_item_worklog": {
+    "title": "Zaznamenaný čas",
+    "log_time": "Zaznamenať čas",
+    "edit_time_log": "Upraviť záznam času",
+    "no_time_logged": "Žiadny zaznamenaný čas",
+    "hours": "Hodiny",
+    "minutes": "Minúty",
+    "date": "Dátum",
+    "description_placeholder": "Na čom ste pracovali?",
+    "duration_required": "Zadajte trvanie väčšie ako nula.",
+    "total": "Celkom",
+    "entries": "Záznamy",
+    "delete": {
+      "title": "Odstrániť záznam času",
+      "content": "Naozaj chcete odstrániť tento záznam času? Túto akciu nie je možné vrátiť späť."
+    },
+    "toast": {
+      "logged": "Čas bol úspešne zaznamenaný.",
+      "updated": "Záznam času bol úspešne aktualizovaný.",
+      "deleted": "Záznam času bol úspešne odstránený.",
+      "error": "Niečo sa pokazilo. Skúste to znova."
+    }
   }
 }

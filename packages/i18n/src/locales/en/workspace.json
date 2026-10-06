@@ -148,7 +148,92 @@
     "workitem_resolved_vs_pending": "Work items resolved vs pending",
     "projects_by_status": "Projects by status",
     "active_users": "Active users",
-    "intake_trends": "Intake Trends"
+    "intake_trends": "Intake Trends",
+    "overdue_work_items": "Overdue {entity}",
+    "granularity": {
+      "day": "Daily",
+      "week": "Weekly",
+      "month": "Monthly"
+    },
+    "teamspaces": {
+      "all": "All teamspaces",
+      "selected_count": "{count} teamspaces"
+    },
+    "progress": {
+      "daily_title": "Daily update",
+      "weekly_title": "Weekly report",
+      "created_work_items": "Work items created",
+      "completed_work_items": "Work items completed",
+      "time_logged": "Time logged",
+      "active_contributors": "Active contributors",
+      "vs_yesterday": "vs yesterday",
+      "vs_last_week": "vs last week"
+    },
+    "projects": {
+      "distribution": "Work distribution across projects",
+      "breakdown": "Project breakdown",
+      "pending": "Pending",
+      "overdue": "Overdue",
+      "columns": {
+        "total": "Total work items",
+        "completion": "Completion",
+        "estimates": "Estimates"
+      }
+    },
+    "time_tracking": {
+      "title": "Time tracking",
+      "total_time_logged": "Spent hours",
+      "time_logged_this_week": "Time logged this week",
+      "time_logged_last_week": "Time logged last week",
+      "total_estimated_time": "Allocated hours",
+      "utilization_percentage": "Utilization",
+      "utilization": "Utilization",
+      "allocated": "Allocated (h)",
+      "allocated_hours": "Allocated hours",
+      "spent_hours": "Spent hours",
+      "allocated_vs_spent": "Allocated vs spent hours",
+      "allocated_vs_spent_empty_state": "No allocated or spent time in this period. Use time estimates on work items and log time to compare them.",
+      "by_teamspace": "Resource distribution by teamspace",
+      "teamspace": "Teamspace",
+      "teamspaces": "Teamspaces",
+      "contributors": "Contributors",
+      "time_logged": "Time logged",
+      "time_logged_hours": "Time logged (hours)",
+      "time_logged_over_time": "Time logged over time",
+      "work_items_logged": "Work items logged",
+      "by_member": "Time logged by member",
+      "hours": "Hours",
+      "empty_state": "No time logged yet. Enable time tracking in project settings and log time on work items.",
+      "projects": "Projects",
+      "members": "Members",
+      "work_items": "Work items",
+      "completed": "Completed",
+      "pending": "Pending"
+    },
+    "axis": {
+      "state_name": "State name",
+      "state_group": "State group",
+      "priority": "Priority",
+      "label": "Label",
+      "assignee": "Assignee",
+      "project": "Project",
+      "estimate_point": "Estimate point",
+      "cycle": "Cycle",
+      "module": "Module",
+      "completed_date": "Completed date",
+      "due_date": "Due date",
+      "start_date": "Start date",
+      "created_date": "Created date",
+      "work_item": "Work item",
+      "estimate": "Estimate",
+      "epic": "Epic",
+      "no_value": "No value",
+      "add_metric": "Add metric",
+      "add_property": "Add property",
+      "group_by": "Group by"
+    },
+    "hours_value": "{value} h",
+    "count": "Count"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Project} other {Projects}}",

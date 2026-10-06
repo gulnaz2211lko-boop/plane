@@ -148,7 +148,92 @@
     "workitem_resolved_vs_pending": "解決済み／保留中の作業項目",
     "projects_by_status": "ステータス別のプロジェクト",
     "active_users": "アクティブユーザー",
-    "intake_trends": "Intakeの推移"
+    "intake_trends": "Intakeの推移",
+    "overdue_work_items": "期限切れの{entity}",
+    "granularity": {
+      "day": "日次",
+      "week": "週次",
+      "month": "月次"
+    },
+    "teamspaces": {
+      "all": "すべてのチームスペース",
+      "selected_count": "{count}件のチームスペース"
+    },
+    "progress": {
+      "daily_title": "デイリーアップデート",
+      "weekly_title": "週次レポート",
+      "created_work_items": "作成された作業項目",
+      "completed_work_items": "完了した作業項目",
+      "time_logged": "記録された時間",
+      "active_contributors": "アクティブな貢献者",
+      "vs_yesterday": "昨日比",
+      "vs_last_week": "先週比"
+    },
+    "projects": {
+      "distribution": "プロジェクト別の作業分布",
+      "breakdown": "プロジェクトの内訳",
+      "pending": "保留中",
+      "overdue": "期限切れ",
+      "columns": {
+        "total": "作業項目の合計",
+        "completion": "完了率",
+        "estimates": "見積もり"
+      }
+    },
+    "time_tracking": {
+      "title": "時間トラッキング",
+      "total_time_logged": "実績時間",
+      "time_logged_this_week": "今週記録された時間",
+      "time_logged_last_week": "先週記録された時間",
+      "total_estimated_time": "割り当て時間",
+      "utilization_percentage": "稼働率",
+      "utilization": "稼働率",
+      "allocated": "割り当て（時間）",
+      "allocated_hours": "割り当て時間",
+      "spent_hours": "実績時間",
+      "allocated_vs_spent": "割り当て時間と実績時間",
+      "allocated_vs_spent_empty_state": "この期間に割り当て時間または実績時間はありません。作業項目に時間の見積もりを設定し、時間を記録すると比較できます。",
+      "by_teamspace": "チームスペース別のリソース配分",
+      "teamspace": "チームスペース",
+      "teamspaces": "チームスペース",
+      "contributors": "貢献者",
+      "time_logged": "記録された時間",
+      "time_logged_hours": "記録された時間（時間）",
+      "time_logged_over_time": "記録時間の推移",
+      "work_items_logged": "時間が記録された作業項目",
+      "by_member": "メンバー別の記録時間",
+      "hours": "時間",
+      "empty_state": "まだ時間が記録されていません。プロジェクト設定で時間トラッキングを有効にし、作業項目に時間を記録してください。",
+      "projects": "プロジェクト",
+      "members": "メンバー",
+      "work_items": "作業項目",
+      "completed": "完了",
+      "pending": "保留中"
+    },
+    "axis": {
+      "state_name": "ステート名",
+      "state_group": "ステート グループ",
+      "priority": "優先度",
+      "label": "ラベル",
+      "assignee": "担当者",
+      "project": "プロジェクト",
+      "estimate_point": "見積もりポイント",
+      "cycle": "サイクル",
+      "module": "モジュール",
+      "completed_date": "完了日",
+      "due_date": "期限日",
+      "start_date": "開始日",
+      "created_date": "作成日",
+      "work_item": "作業項目",
+      "estimate": "見積もり",
+      "epic": "エピック",
+      "no_value": "値なし",
+      "add_metric": "指標を追加",
+      "add_property": "プロパティを追加",
+      "group_by": "グループ化"
+    },
+    "hours_value": "{value}時間",
+    "count": "件数"
   },
   "workspace_projects": {
     "label": "{count, plural, one {プロジェクト} other {プロジェクト}}",

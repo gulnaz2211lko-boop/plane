@@ -148,7 +148,92 @@
     "workitem_resolved_vs_pending": "Gelöste vs. ausstehende Arbeitsaufgaben",
     "projects_by_status": "Projekte nach Status",
     "active_users": "Aktive Nutzer",
-    "intake_trends": "Aufnahmetrends"
+    "intake_trends": "Aufnahmetrends",
+    "overdue_work_items": "Überfällige {entity}",
+    "granularity": {
+      "day": "Täglich",
+      "week": "Wöchentlich",
+      "month": "Monatlich"
+    },
+    "teamspaces": {
+      "all": "Alle Teamspaces",
+      "selected_count": "{count} Teamspaces"
+    },
+    "progress": {
+      "daily_title": "Tägliches Update",
+      "weekly_title": "Wochenbericht",
+      "created_work_items": "Erstellte Arbeitselemente",
+      "completed_work_items": "Abgeschlossene Arbeitselemente",
+      "time_logged": "Erfasste Zeit",
+      "active_contributors": "Aktive Mitwirkende",
+      "vs_yesterday": "ggü. gestern",
+      "vs_last_week": "ggü. letzter Woche"
+    },
+    "projects": {
+      "distribution": "Arbeitsverteilung über Projekte",
+      "breakdown": "Projektaufschlüsselung",
+      "pending": "Ausstehend",
+      "overdue": "Überfällig",
+      "columns": {
+        "total": "Arbeitselemente gesamt",
+        "completion": "Fertigstellung",
+        "estimates": "Schätzungen"
+      }
+    },
+    "time_tracking": {
+      "title": "Zeiterfassung",
+      "total_time_logged": "Aufgewendete Stunden",
+      "time_logged_this_week": "Diese Woche erfasste Zeit",
+      "time_logged_last_week": "Letzte Woche erfasste Zeit",
+      "total_estimated_time": "Zugewiesene Stunden",
+      "utilization_percentage": "Auslastung",
+      "utilization": "Auslastung",
+      "allocated": "Zugewiesen (Std.)",
+      "allocated_hours": "Zugewiesene Stunden",
+      "spent_hours": "Aufgewendete Stunden",
+      "allocated_vs_spent": "Zugewiesene vs. aufgewendete Stunden",
+      "allocated_vs_spent_empty_state": "Keine zugewiesene oder aufgewendete Zeit in diesem Zeitraum. Verwenden Sie Zeitschätzungen für Arbeitselemente und erfassen Sie Zeit, um sie zu vergleichen.",
+      "by_teamspace": "Ressourcenverteilung nach Teamspace",
+      "teamspace": "Teamspace",
+      "teamspaces": "Teamspaces",
+      "contributors": "Mitwirkende",
+      "time_logged": "Erfasste Zeit",
+      "time_logged_hours": "Erfasste Zeit (Stunden)",
+      "time_logged_over_time": "Erfasste Zeit im Zeitverlauf",
+      "work_items_logged": "Arbeitselemente mit erfasster Zeit",
+      "by_member": "Erfasste Zeit nach Mitglied",
+      "hours": "Stunden",
+      "empty_state": "Noch keine Zeit erfasst. Aktivieren Sie die Zeiterfassung in den Projekteinstellungen und erfassen Sie Zeit für Arbeitselemente.",
+      "projects": "Projekte",
+      "members": "Mitglieder",
+      "work_items": "Arbeitselemente",
+      "completed": "Abgeschlossen",
+      "pending": "Ausstehend"
+    },
+    "axis": {
+      "state_name": "Statusname",
+      "state_group": "Statusgruppe",
+      "priority": "Priorität",
+      "label": "Label",
+      "assignee": "Zugewiesene Person",
+      "project": "Projekt",
+      "estimate_point": "Schätzpunkt",
+      "cycle": "Zyklus",
+      "module": "Modul",
+      "completed_date": "Abschlussdatum",
+      "due_date": "Fälligkeitsdatum",
+      "start_date": "Startdatum",
+      "created_date": "Erstellungsdatum",
+      "work_item": "Arbeitselement",
+      "estimate": "Schätzung",
+      "epic": "Epic",
+      "no_value": "Kein Wert",
+      "add_metric": "Metrik hinzufügen",
+      "add_property": "Eigenschaft hinzufügen",
+      "group_by": "Gruppieren nach"
+    },
+    "hours_value": "{value} Std.",
+    "count": "Anzahl"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Projekt} few {Projekte} other {Projekte}}",

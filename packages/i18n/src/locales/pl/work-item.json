@@ -428,5 +428,28 @@
       "label": "Tytuł epiku",
       "required": "Tytuł epiku jest wymagany."
     }
+  },
+  "work_item_worklog": {
+    "title": "Zarejestrowany czas",
+    "log_time": "Zarejestruj czas",
+    "edit_time_log": "Edytuj wpis czasu",
+    "no_time_logged": "Brak zarejestrowanego czasu",
+    "hours": "Godziny",
+    "minutes": "Minuty",
+    "date": "Data",
+    "description_placeholder": "Nad czym pracowałeś?",
+    "duration_required": "Wprowadź czas trwania większy od zera.",
+    "total": "Łącznie",
+    "entries": "Wpisy",
+    "delete": {
+      "title": "Usuń wpis czasu",
+      "content": "Czy na pewno chcesz usunąć ten wpis czasu? Tej operacji nie można cofnąć."
+    },
+    "toast": {
+      "logged": "Czas został pomyślnie zarejestrowany.",
+      "updated": "Wpis czasu został pomyślnie zaktualizowany.",
+      "deleted": "Wpis czasu został pomyślnie usunięty.",
+      "error": "Coś poszło nie tak. Spróbuj ponownie."
+    }
   }
 }

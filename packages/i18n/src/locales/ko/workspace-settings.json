@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "팀스페이스",
+        "heading": "팀스페이스",
+        "description": "멤버와 프로젝트를 팀스페이스로 묶어 조직 전체에서 작업이 어떻게 분배되는지 추적하세요.",
+        "add_teamspace": "팀스페이스 추가",
+        "create_teamspace": "팀스페이스 생성",
+        "edit_teamspace": "팀스페이스 편집",
+        "name_placeholder": "팀스페이스 이름",
+        "description_placeholder": "이 팀은 어떤 작업을 하나요?",
+        "lead": "리드",
+        "members": "멤버",
+        "projects": "프로젝트",
+        "no_lead": "리드 없음",
+        "members_count": "{count, plural, other {멤버 #명}}",
+        "projects_count": "{count, plural, other {프로젝트 #개}}",
+        "only_admins_can_manage": "작업 공간 관리자만 팀스페이스를 생성하거나 편집할 수 있습니다.",
+        "empty_state": {
+          "title": "아직 팀스페이스가 없습니다",
+          "description": "팀스페이스를 생성하여 멤버와 프로젝트를 묶은 다음 팀별로 분석을 필터링하세요."
+        },
+        "delete": {
+          "title": "팀스페이스 삭제",
+          "content": "{name}을(를) 삭제하시겠습니까? 멤버와 프로젝트는 영향을 받지 않으며 그룹만 제거됩니다."
+        },
+        "toast": {
+          "created": "팀스페이스가 성공적으로 생성되었습니다.",
+          "updated": "팀스페이스가 성공적으로 업데이트되었습니다.",
+          "deleted": "팀스페이스가 성공적으로 삭제되었습니다.",
+          "error": "문제가 발생했습니다. 다시 시도해 주세요."
+        }
+      },
       "billing_and_plans": {
         "heading": "청구 및 플랜",
         "description": "플랜을 선택하고, 구독을 관리하며, 필요에 따라 손쉽게 업그레이드하세요.",

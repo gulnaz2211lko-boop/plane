@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "團隊空間",
+        "heading": "團隊空間",
+        "description": "將成員和專案分組到團隊空間中，以追蹤工作在組織中的分配情況。",
+        "add_teamspace": "新增團隊空間",
+        "create_teamspace": "建立團隊空間",
+        "edit_teamspace": "編輯團隊空間",
+        "name_placeholder": "團隊空間名稱",
+        "description_placeholder": "這個團隊負責什麼工作？",
+        "lead": "負責人",
+        "members": "成員",
+        "projects": "專案",
+        "no_lead": "無負責人",
+        "members_count": "{count, plural, other {# 位成員}}",
+        "projects_count": "{count, plural, other {# 個專案}}",
+        "only_admins_can_manage": "只有工作區管理員可以建立或編輯團隊空間。",
+        "empty_state": {
+          "title": "尚無團隊空間",
+          "description": "建立團隊空間以分組成員和專案，然後依團隊篩選分析資料。"
+        },
+        "delete": {
+          "title": "刪除團隊空間",
+          "content": "確定要刪除 {name} 嗎？成員和專案不受影響，僅移除分組。"
+        },
+        "toast": {
+          "created": "團隊空間建立成功。",
+          "updated": "團隊空間更新成功。",
+          "deleted": "團隊空間刪除成功。",
+          "error": "發生錯誤，請再試一次。"
+        }
+      },
       "billing_and_plans": {
         "heading": "計費與方案",
         "description": "選擇您的方案、管理訂閱，並在需求增加時輕鬆升級。",

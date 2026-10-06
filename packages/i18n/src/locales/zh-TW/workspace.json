@@ -148,7 +148,92 @@
     "workitem_resolved_vs_pending": "已解決 vs 待處理的工作項目",
     "projects_by_status": "按狀態分類的專案",
     "active_users": "活躍使用者",
-    "intake_trends": "入學趨勢"
+    "intake_trends": "入學趨勢",
+    "overdue_work_items": "逾期的{entity}",
+    "granularity": {
+      "day": "每日",
+      "week": "每週",
+      "month": "每月"
+    },
+    "teamspaces": {
+      "all": "所有團隊空間",
+      "selected_count": "{count} 個團隊空間"
+    },
+    "progress": {
+      "daily_title": "每日更新",
+      "weekly_title": "每週報告",
+      "created_work_items": "已建立的工作事項",
+      "completed_work_items": "已完成的工作事項",
+      "time_logged": "已記錄工時",
+      "active_contributors": "活躍貢獻者",
+      "vs_yesterday": "較昨日",
+      "vs_last_week": "較上週"
+    },
+    "projects": {
+      "distribution": "各專案工作分布",
+      "breakdown": "專案明細",
+      "pending": "待處理",
+      "overdue": "已逾期",
+      "columns": {
+        "total": "工作事項總數",
+        "completion": "完成率",
+        "estimates": "預估"
+      }
+    },
+    "time_tracking": {
+      "title": "工時追蹤",
+      "total_time_logged": "已用工時",
+      "time_logged_this_week": "本週記錄工時",
+      "time_logged_last_week": "上週記錄工時",
+      "total_estimated_time": "分配工時",
+      "utilization_percentage": "使用率",
+      "utilization": "使用率",
+      "allocated": "已分配（小時）",
+      "allocated_hours": "分配工時",
+      "spent_hours": "已用工時",
+      "allocated_vs_spent": "分配工時 vs 已用工時",
+      "allocated_vs_spent_empty_state": "此期間沒有分配或已用的工時。請為工作事項設定時間預估並記錄工時以進行比較。",
+      "by_teamspace": "依團隊空間的資源分配",
+      "teamspace": "團隊空間",
+      "teamspaces": "團隊空間",
+      "contributors": "貢獻者",
+      "time_logged": "已記錄工時",
+      "time_logged_hours": "已記錄工時（小時）",
+      "time_logged_over_time": "工時記錄趨勢",
+      "work_items_logged": "已記錄工時的工作事項",
+      "by_member": "依成員統計的工時",
+      "hours": "小時",
+      "empty_state": "尚未記錄工時。請在專案設定中啟用工時追蹤，並在工作事項上記錄工時。",
+      "projects": "專案",
+      "members": "成員",
+      "work_items": "工作事項",
+      "completed": "已完成",
+      "pending": "待處理"
+    },
+    "axis": {
+      "state_name": "狀態名稱",
+      "state_group": "狀態群組",
+      "priority": "優先順序",
+      "label": "標籤",
+      "assignee": "指派對象",
+      "project": "專案",
+      "estimate_point": "預估點數",
+      "cycle": "週期",
+      "module": "模組",
+      "completed_date": "完成日期",
+      "due_date": "截止日期",
+      "start_date": "開始日期",
+      "created_date": "建立日期",
+      "work_item": "工作事項",
+      "estimate": "預估",
+      "epic": "Epic",
+      "no_value": "無值",
+      "add_metric": "新增指標",
+      "add_property": "新增屬性",
+      "group_by": "分組依據"
+    },
+    "hours_value": "{value} 小時",
+    "count": "數量"
   },
   "workspace_projects": {
     "label": "{count, plural, one {專案} other {專案}}",
