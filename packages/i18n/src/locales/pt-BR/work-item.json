@@ -428,5 +428,28 @@
       "label": "Título do Épico",
       "required": "O título do épico é obrigatório."
     }
+  },
+  "work_item_worklog": {
+    "title": "Tempo registrado",
+    "log_time": "Registrar tempo",
+    "edit_time_log": "Editar registro de tempo",
+    "no_time_logged": "Nenhum tempo registrado",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "date": "Data",
+    "description_placeholder": "No que você trabalhou?",
+    "duration_required": "Insira uma duração maior que zero.",
+    "total": "Total",
+    "entries": "Registros",
+    "delete": {
+      "title": "Excluir registro de tempo",
+      "content": "Tem certeza de que deseja excluir este registro de tempo? Esta ação não pode ser desfeita."
+    },
+    "toast": {
+      "logged": "Tempo registrado com sucesso.",
+      "updated": "Registro de tempo atualizado com sucesso.",
+      "deleted": "Registro de tempo excluído com sucesso.",
+      "error": "Algo deu errado. Tente novamente."
+    }
   }
 }

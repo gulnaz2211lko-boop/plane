@@ -70,7 +70,11 @@
         "choose_estimate_system": "Kies een inschattingssysteem",
         "enter_estimate_point": "Voer inschatting in",
         "step": "Stap {step} van {total}",
-        "label": "Inschatting aanmaken"
+        "label": "Inschatting aanmaken",
+        "hours": "Uren",
+        "minutes": "Minuten",
+        "hours_short": "u",
+        "minutes_short": "m"
       },
       "toasts": {
         "created": {

@@ -70,7 +70,11 @@
         "choose_estimate_system": "Choisir un système d’estimation",
         "enter_estimate_point": "Saisir une estimation",
         "step": "Étape {step} de {total}",
-        "label": "Créer une estimation"
+        "label": "Créer une estimation",
+        "hours": "Heures",
+        "minutes": "Minutes",
+        "hours_short": "h",
+        "minutes_short": "min"
       },
       "toasts": {
         "created": {

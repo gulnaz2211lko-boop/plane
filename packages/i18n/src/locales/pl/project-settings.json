@@ -70,7 +70,11 @@
         "choose_estimate_system": "Wybierz system szacowania",
         "enter_estimate_point": "Wprowadź punkt szacunkowy",
         "step": "Krok {step} z {total}",
-        "label": "Utwórz szacunek"
+        "label": "Utwórz szacunek",
+        "hours": "Godziny",
+        "minutes": "Minuty",
+        "hours_short": "godz.",
+        "minutes_short": "min"
       },
       "toasts": {
         "created": {

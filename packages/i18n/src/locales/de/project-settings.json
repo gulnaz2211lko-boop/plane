@@ -70,7 +70,11 @@
         "choose_estimate_system": "Schätzungssystem wählen",
         "enter_estimate_point": "Schätzung eingeben",
         "step": "Schritt {step} von {total}",
-        "label": "Schätzung erstellen"
+        "label": "Schätzung erstellen",
+        "hours": "Stunden",
+        "minutes": "Minuten",
+        "hours_short": "Std.",
+        "minutes_short": "Min."
       },
       "toasts": {
         "created": {

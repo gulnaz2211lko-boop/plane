@@ -70,7 +70,11 @@
         "choose_estimate_system": "見積もりシステムを選択",
         "enter_estimate_point": "見積もりを入力",
         "step": "ステップ {step} の {total}",
-        "label": "見積もりを作成"
+        "label": "見積もりを作成",
+        "hours": "時間",
+        "minutes": "分",
+        "hours_short": "時間",
+        "minutes_short": "分"
       },
       "toasts": {
         "created": {

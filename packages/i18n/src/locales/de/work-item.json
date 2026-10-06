@@ -428,5 +428,28 @@
       "label": "Epic-Titel",
       "required": "Ein Titel für das Epic ist erforderlich."
     }
+  },
+  "work_item_worklog": {
+    "title": "Erfasste Zeit",
+    "log_time": "Zeit erfassen",
+    "edit_time_log": "Zeiteintrag bearbeiten",
+    "no_time_logged": "Keine Zeit erfasst",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "date": "Datum",
+    "description_placeholder": "Woran haben Sie gearbeitet?",
+    "duration_required": "Geben Sie eine Dauer größer als null ein.",
+    "total": "Gesamt",
+    "entries": "Einträge",
+    "delete": {
+      "title": "Zeiteintrag löschen",
+      "content": "Möchten Sie diesen Zeiteintrag wirklich löschen? Dies kann nicht rückgängig gemacht werden."
+    },
+    "toast": {
+      "logged": "Zeit erfolgreich erfasst.",
+      "updated": "Zeiteintrag erfolgreich aktualisiert.",
+      "deleted": "Zeiteintrag erfolgreich gelöscht.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    }
   }
 }

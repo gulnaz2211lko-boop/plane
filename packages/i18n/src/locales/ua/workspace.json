@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Вирішені vs очікуючі робочі елементи",
     "projects_by_status": "Проєкти за статусом",
     "active_users": "Активні користувачі",
-    "intake_trends": "Тенденції прийому"
+    "intake_trends": "Тенденції прийому",
+    "overdue_work_items": "Прострочені {entity}",
+    "granularity": {
+      "day": "Щодня",
+      "week": "Щотижня",
+      "month": "Щомісяця"
+    },
+    "teamspaces": {
+      "all": "Усі командні простори",
+      "selected_count": "Командних просторів: {count}"
+    },
+    "progress": {
+      "daily_title": "Щоденне оновлення",
+      "weekly_title": "Щотижневий звіт",
+      "created_work_items": "Створені робочі одиниці",
+      "completed_work_items": "Завершені робочі одиниці",
+      "time_logged": "Облікований час",
+      "active_contributors": "Активні учасники",
+      "vs_yesterday": "порівняно з учора",
+      "vs_last_week": "порівняно з минулим тижнем"
+    },
+    "projects": {
+      "distribution": "Розподіл роботи між проєктами",
+      "breakdown": "Розбивка за проєктами",
+      "pending": "Очікують",
+      "overdue": "Прострочені",
+      "columns": {
+        "total": "Усього робочих одиниць",
+        "completion": "Виконання",
+        "estimates": "Оцінки"
+      }
+    },
+    "time_tracking": {
+      "title": "Облік часу",
+      "total_time_logged": "Витрачені години",
+      "time_logged_this_week": "Час, облікований цього тижня",
+      "time_logged_last_week": "Час, облікований минулого тижня",
+      "total_estimated_time": "Виділені години",
+      "utilization_percentage": "Завантаженість",
+      "utilization": "Завантаженість",
+      "allocated": "Виділено (год)",
+      "allocated_hours": "Виділені години",
+      "spent_hours": "Витрачені години",
+      "allocated_vs_spent": "Виділені vs витрачені години",
+      "allocated_vs_spent_empty_state": "У цьому періоді немає виділеного чи витраченого часу. Використовуйте оцінки часу для робочих одиниць і обліковуйте час, щоб їх порівняти.",
+      "by_teamspace": "Розподіл ресурсів за командними просторами",
+      "teamspace": "Командний простір",
+      "teamspaces": "Командні простори",
+      "contributors": "Учасники",
+      "time_logged": "Облікований час",
+      "time_logged_hours": "Облікований час (години)",
+      "time_logged_over_time": "Облікований час у динаміці",
+      "work_items_logged": "Робочі одиниці з обліком часу",
+      "by_member": "Облікований час за учасниками",
+      "hours": "Години",
+      "empty_state": "Час ще не обліковано. Увімкніть облік часу в налаштуваннях проєкту та обліковуйте час у робочих одиницях.",
+      "projects": "Проєкти",
+      "members": "Учасники",
+      "work_items": "Робочі одиниці",
+      "completed": "Завершено",
+      "pending": "Очікує"
+    },
+    "axis": {
+      "state_name": "Назва стану",
+      "state_group": "Група станів",
+      "priority": "Пріоритет",
+      "label": "Мітка",
+      "assignee": "Призначено",
+      "project": "Проєкт",
+      "estimate_point": "Бал оцінки",
+      "cycle": "Цикл",
+      "module": "Модуль",
+      "completed_date": "Дата завершення",
+      "due_date": "Термін виконання",
+      "start_date": "Дата початку",
+      "created_date": "Дата створення",
+      "work_item": "Робоча одиниця",
+      "estimate": "Оцінка",
+      "epic": "Епік",
+      "no_value": "Немає значення",
+      "add_metric": "Додати метрику",
+      "add_property": "Додати властивість",
+      "group_by": "Групувати за"
+    },
+    "hours_value": "{value} год"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Проєкт} few {Проєкти} other {Проєктів}}",

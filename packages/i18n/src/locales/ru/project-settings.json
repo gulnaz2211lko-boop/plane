@@ -70,7 +70,11 @@
         "choose_estimate_system": "Выбрать систему оценок",
         "enter_estimate_point": "Ввести оценку",
         "step": "Шаг {step} из {total}",
-        "label": "Создать оценку"
+        "label": "Создать оценку",
+        "hours": "Часы",
+        "minutes": "Минуты",
+        "hours_short": "ч",
+        "minutes_short": "мин"
       },
       "toasts": {
         "created": {

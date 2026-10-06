@@ -428,5 +428,28 @@
       "label": "Titlu sarcină majoră",
       "required": "Titlul sarcinii majore este obligatoriu."
     }
+  },
+  "work_item_worklog": {
+    "title": "Timp înregistrat",
+    "log_time": "Înregistrează timp",
+    "edit_time_log": "Editează înregistrarea de timp",
+    "no_time_logged": "Niciun timp înregistrat",
+    "hours": "Ore",
+    "minutes": "Minute",
+    "date": "Dată",
+    "description_placeholder": "La ce ai lucrat?",
+    "duration_required": "Introdu o durată mai mare decât zero.",
+    "total": "Total",
+    "entries": "Înregistrări",
+    "delete": {
+      "title": "Șterge înregistrarea de timp",
+      "content": "Sigur vrei să ștergi această înregistrare de timp? Acțiunea nu poate fi anulată."
+    },
+    "toast": {
+      "logged": "Timpul a fost înregistrat cu succes.",
+      "updated": "Înregistrarea de timp a fost actualizată cu succes.",
+      "deleted": "Înregistrarea de timp a fost ștearsă cu succes.",
+      "error": "Ceva nu a funcționat. Te rugăm să încerci din nou."
+    }
   }
 }

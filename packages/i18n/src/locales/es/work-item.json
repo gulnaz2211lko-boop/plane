@@ -428,5 +428,28 @@
       "label": "Título del Epic",
       "required": "El título del epic es obligatorio."
     }
+  },
+  "work_item_worklog": {
+    "title": "Tiempo registrado",
+    "log_time": "Registrar tiempo",
+    "edit_time_log": "Editar registro de tiempo",
+    "no_time_logged": "No hay tiempo registrado",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "date": "Fecha",
+    "description_placeholder": "¿En qué trabajaste?",
+    "duration_required": "Introduce una duración mayor que cero.",
+    "total": "Total",
+    "entries": "Entradas",
+    "delete": {
+      "title": "Eliminar registro de tiempo",
+      "content": "¿Seguro que quieres eliminar este registro de tiempo? Esta acción no se puede deshacer."
+    },
+    "toast": {
+      "logged": "Tiempo registrado correctamente.",
+      "updated": "Registro de tiempo actualizado correctamente.",
+      "deleted": "Registro de tiempo eliminado correctamente.",
+      "error": "Algo salió mal. Por favor, inténtalo de nuevo."
+    }
   }
 }

@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Teamspaces",
+        "heading": "Teamspaces",
+        "description": "Gruppieren Sie Mitglieder und Projekte in Teamspaces, um nachzuverfolgen, wie die Arbeit in Ihrer Organisation verteilt ist.",
+        "add_teamspace": "Teamspace hinzufügen",
+        "create_teamspace": "Teamspace erstellen",
+        "edit_teamspace": "Teamspace bearbeiten",
+        "name_placeholder": "Name des Teamspace",
+        "description_placeholder": "Woran arbeitet dieses Team?",
+        "lead": "Leitung",
+        "members": "Mitglieder",
+        "projects": "Projekte",
+        "no_lead": "Keine Leitung",
+        "members_count": "{count, plural, one {# Mitglied} other {# Mitglieder}}",
+        "projects_count": "{count, plural, one {# Projekt} other {# Projekte}}",
+        "only_admins_can_manage": "Nur Workspace-Administratoren können Teamspaces erstellen oder bearbeiten.",
+        "empty_state": {
+          "title": "Noch keine Teamspaces",
+          "description": "Erstellen Sie einen Teamspace, um Mitglieder und Projekte zu gruppieren, und filtern Sie Analysen dann nach Team."
+        },
+        "delete": {
+          "title": "Teamspace löschen",
+          "content": "Möchten Sie {name} wirklich löschen? Mitglieder und Projekte sind nicht betroffen; nur die Gruppierung wird entfernt."
+        },
+        "toast": {
+          "created": "Teamspace erfolgreich erstellt.",
+          "updated": "Teamspace erfolgreich aktualisiert.",
+          "deleted": "Teamspace erfolgreich gelöscht.",
+          "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+        }
+      },
       "billing_and_plans": {
         "heading": "Abrechnung und Pläne",
         "description": "Wählen Sie Ihren Plan, verwalten Sie Abonnements und führen Sie bei Bedarf ein Upgrade durch.",

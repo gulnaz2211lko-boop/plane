@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Item kerja yang diselesaikan vs tertunda",
     "projects_by_status": "Proyek berdasarkan status",
     "active_users": "Pengguna aktif",
-    "intake_trends": "Tren Penerimaan"
+    "intake_trends": "Tren Penerimaan",
+    "overdue_work_items": "{entity} yang terlambat",
+    "granularity": {
+      "day": "Harian",
+      "week": "Mingguan",
+      "month": "Bulanan"
+    },
+    "teamspaces": {
+      "all": "Semua teamspace",
+      "selected_count": "{count} teamspace"
+    },
+    "progress": {
+      "daily_title": "Pembaruan harian",
+      "weekly_title": "Laporan mingguan",
+      "created_work_items": "Item kerja dibuat",
+      "completed_work_items": "Item kerja diselesaikan",
+      "time_logged": "Waktu tercatat",
+      "active_contributors": "Kontributor aktif",
+      "vs_yesterday": "vs kemarin",
+      "vs_last_week": "vs minggu lalu"
+    },
+    "projects": {
+      "distribution": "Distribusi pekerjaan di seluruh proyek",
+      "breakdown": "Rincian proyek",
+      "pending": "Tertunda",
+      "overdue": "Terlambat",
+      "columns": {
+        "total": "Total item kerja",
+        "completion": "Penyelesaian",
+        "estimates": "Perkiraan"
+      }
+    },
+    "time_tracking": {
+      "title": "Pelacakan waktu",
+      "total_time_logged": "Jam terpakai",
+      "time_logged_this_week": "Waktu tercatat minggu ini",
+      "time_logged_last_week": "Waktu tercatat minggu lalu",
+      "total_estimated_time": "Jam yang dialokasikan",
+      "utilization_percentage": "Utilisasi",
+      "utilization": "Utilisasi",
+      "allocated": "Dialokasikan (j)",
+      "allocated_hours": "Jam yang dialokasikan",
+      "spent_hours": "Jam terpakai",
+      "allocated_vs_spent": "Jam dialokasikan vs terpakai",
+      "allocated_vs_spent_empty_state": "Tidak ada waktu yang dialokasikan atau terpakai dalam periode ini. Gunakan perkiraan waktu pada item kerja dan catat waktu untuk membandingkannya.",
+      "by_teamspace": "Distribusi sumber daya berdasarkan teamspace",
+      "teamspace": "Teamspace",
+      "teamspaces": "Teamspace",
+      "contributors": "Kontributor",
+      "time_logged": "Waktu tercatat",
+      "time_logged_hours": "Waktu tercatat (jam)",
+      "time_logged_over_time": "Waktu tercatat dari waktu ke waktu",
+      "work_items_logged": "Item kerja dengan waktu tercatat",
+      "by_member": "Waktu tercatat per anggota",
+      "hours": "Jam",
+      "empty_state": "Belum ada waktu tercatat. Aktifkan pelacakan waktu di pengaturan proyek dan catat waktu pada item kerja.",
+      "projects": "Proyek",
+      "members": "Anggota",
+      "work_items": "Item kerja",
+      "completed": "Selesai",
+      "pending": "Tertunda"
+    },
+    "axis": {
+      "state_name": "Nama status",
+      "state_group": "Grup status",
+      "priority": "Prioritas",
+      "label": "Label",
+      "assignee": "Penerima tugas",
+      "project": "Proyek",
+      "estimate_point": "Poin perkiraan",
+      "cycle": "Siklus",
+      "module": "Modul",
+      "completed_date": "Tanggal selesai",
+      "due_date": "Tanggal jatuh tempo",
+      "start_date": "Tanggal mulai",
+      "created_date": "Tanggal dibuat",
+      "work_item": "Item kerja",
+      "estimate": "Perkiraan",
+      "epic": "Epik",
+      "no_value": "Tidak ada nilai",
+      "add_metric": "Tambah metrik",
+      "add_property": "Tambah properti",
+      "group_by": "Kelompokkan berdasarkan"
+    },
+    "hours_value": "{value} j"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Proyek} other {Proyek}}",

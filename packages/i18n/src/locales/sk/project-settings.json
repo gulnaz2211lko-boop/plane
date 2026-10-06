@@ -70,7 +70,11 @@
         "choose_estimate_system": "Vybrať systém odhadov",
         "enter_estimate_point": "Zadať bod odhadu",
         "step": "Krok {step} z {total}",
-        "label": "Vytvoriť odhad"
+        "label": "Vytvoriť odhad",
+        "hours": "Hodiny",
+        "minutes": "Minúty",
+        "hours_short": "h",
+        "minutes_short": "min"
       },
       "toasts": {
         "created": {

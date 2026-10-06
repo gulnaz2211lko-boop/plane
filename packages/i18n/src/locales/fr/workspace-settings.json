@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Teamspaces",
+        "heading": "Teamspaces",
+        "description": "Regroupez les membres et les projets dans des teamspaces pour suivre la répartition du travail au sein de votre organisation.",
+        "add_teamspace": "Ajouter un teamspace",
+        "create_teamspace": "Créer un teamspace",
+        "edit_teamspace": "Modifier le teamspace",
+        "name_placeholder": "Nom du teamspace",
+        "description_placeholder": "Sur quoi travaille cette équipe ?",
+        "lead": "Responsable",
+        "members": "Membres",
+        "projects": "Projets",
+        "no_lead": "Aucun responsable",
+        "members_count": "{count, plural, one {# membre} other {# membres}}",
+        "projects_count": "{count, plural, one {# projet} other {# projets}}",
+        "only_admins_can_manage": "Seuls les administrateurs de l’espace de travail peuvent créer ou modifier des teamspaces.",
+        "empty_state": {
+          "title": "Aucun teamspace pour le moment",
+          "description": "Créez un teamspace pour regrouper les membres et les projets, puis filtrez l’analytique par équipe."
+        },
+        "delete": {
+          "title": "Supprimer le teamspace",
+          "content": "Voulez-vous vraiment supprimer {name} ? Les membres et les projets ne sont pas affectés ; seul le regroupement est supprimé."
+        },
+        "toast": {
+          "created": "Teamspace créé avec succès.",
+          "updated": "Teamspace mis à jour avec succès.",
+          "deleted": "Teamspace supprimé avec succès.",
+          "error": "Une erreur s’est produite. Veuillez réessayer."
+        }
+      },
       "billing_and_plans": {
         "heading": "Facturation & Plans",
         "description": "Choisissez votre forfait, gérez vos abonnements et passez facilement à une version supérieure au fur et à mesure que vos besoins évoluent.",

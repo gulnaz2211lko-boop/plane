@@ -428,5 +428,28 @@
       "label": "Tiêu đề sử thi",
       "required": "Tiêu đề sử thi là bắt buộc"
     }
+  },
+  "work_item_worklog": {
+    "title": "Thời gian đã ghi",
+    "log_time": "Ghi thời gian",
+    "edit_time_log": "Chỉnh sửa nhật ký thời gian",
+    "no_time_logged": "Chưa ghi thời gian",
+    "hours": "Giờ",
+    "minutes": "Phút",
+    "date": "Ngày",
+    "description_placeholder": "Bạn đã làm việc gì?",
+    "duration_required": "Nhập thời lượng lớn hơn 0.",
+    "total": "Tổng",
+    "entries": "Mục ghi",
+    "delete": {
+      "title": "Xóa nhật ký thời gian",
+      "content": "Bạn có chắc chắn muốn xóa mục nhật ký thời gian này không? Hành động này không thể hoàn tác."
+    },
+    "toast": {
+      "logged": "Đã ghi thời gian thành công.",
+      "updated": "Đã cập nhật nhật ký thời gian thành công.",
+      "deleted": "Đã xóa nhật ký thời gian thành công.",
+      "error": "Đã xảy ra lỗi. Vui lòng thử lại."
+    }
   }
 }

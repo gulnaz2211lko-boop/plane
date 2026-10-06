@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Elemente de lucru rezolvate vs în așteptare",
     "projects_by_status": "Proiecte după statut",
     "active_users": "Utilizatori activi",
-    "intake_trends": "Tendințe de admitere"
+    "intake_trends": "Tendințe de admitere",
+    "overdue_work_items": "{entity} întârziate",
+    "granularity": {
+      "day": "Zilnic",
+      "week": "Săptămânal",
+      "month": "Lunar"
+    },
+    "teamspaces": {
+      "all": "Toate spațiile de echipă",
+      "selected_count": "Spații de echipă: {count}"
+    },
+    "progress": {
+      "daily_title": "Actualizare zilnică",
+      "weekly_title": "Raport săptămânal",
+      "created_work_items": "Activități create",
+      "completed_work_items": "Activități finalizate",
+      "time_logged": "Timp înregistrat",
+      "active_contributors": "Contribuitori activi",
+      "vs_yesterday": "față de ieri",
+      "vs_last_week": "față de săptămâna trecută"
+    },
+    "projects": {
+      "distribution": "Distribuția muncii pe proiecte",
+      "breakdown": "Defalcare pe proiecte",
+      "pending": "În așteptare",
+      "overdue": "Întârziate",
+      "columns": {
+        "total": "Total activități",
+        "completion": "Finalizare",
+        "estimates": "Estimări"
+      }
+    },
+    "time_tracking": {
+      "title": "Urmărirea timpului",
+      "total_time_logged": "Ore lucrate",
+      "time_logged_this_week": "Timp înregistrat săptămâna aceasta",
+      "time_logged_last_week": "Timp înregistrat săptămâna trecută",
+      "total_estimated_time": "Ore alocate",
+      "utilization_percentage": "Grad de utilizare",
+      "utilization": "Grad de utilizare",
+      "allocated": "Alocat (h)",
+      "allocated_hours": "Ore alocate",
+      "spent_hours": "Ore lucrate",
+      "allocated_vs_spent": "Ore alocate vs. ore lucrate",
+      "allocated_vs_spent_empty_state": "Nu există timp alocat sau lucrat în această perioadă. Folosește estimări de timp pentru activități și înregistrează timpul pentru a le compara.",
+      "by_teamspace": "Distribuția resurselor pe spații de echipă",
+      "teamspace": "Spațiu de echipă",
+      "teamspaces": "Spații de echipă",
+      "contributors": "Contribuitori",
+      "time_logged": "Timp înregistrat",
+      "time_logged_hours": "Timp înregistrat (ore)",
+      "time_logged_over_time": "Timp înregistrat în timp",
+      "work_items_logged": "Activități cu timp înregistrat",
+      "by_member": "Timp înregistrat pe membru",
+      "hours": "Ore",
+      "empty_state": "Încă nu a fost înregistrat timp. Activează urmărirea timpului în setările proiectului și înregistrează timp pe activități.",
+      "projects": "Proiecte",
+      "members": "Membri",
+      "work_items": "Activități",
+      "completed": "Finalizate",
+      "pending": "În așteptare"
+    },
+    "axis": {
+      "state_name": "Nume stare",
+      "state_group": "Grup de stare",
+      "priority": "Prioritate",
+      "label": "Etichetă",
+      "assignee": "Responsabil",
+      "project": "Proiect",
+      "estimate_point": "Punct de estimare",
+      "cycle": "Ciclu",
+      "module": "Modul",
+      "completed_date": "Data finalizării",
+      "due_date": "Data limită",
+      "start_date": "Data de început",
+      "created_date": "Data creării",
+      "work_item": "Activitate",
+      "estimate": "Estimare",
+      "epic": "Sarcină majoră",
+      "no_value": "Fără valoare",
+      "add_metric": "Adaugă metrică",
+      "add_property": "Adaugă proprietate",
+      "group_by": "Grupează după"
+    },
+    "hours_value": "{value} h"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Proiect} other {Proiecte}}",

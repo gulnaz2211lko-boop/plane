@@ -70,7 +70,11 @@
         "choose_estimate_system": "추정 시스템 선택",
         "enter_estimate_point": "추정 입력",
         "step": "단계 {step}/{total}",
-        "label": "추정 생성"
+        "label": "추정 생성",
+        "hours": "시간",
+        "minutes": "분",
+        "hours_short": "시간",
+        "minutes_short": "분"
       },
       "toasts": {
         "created": {

@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "团队空间",
+        "heading": "团队空间",
+        "description": "将成员和项目分组到团队空间中，以跟踪工作在组织中的分布情况。",
+        "add_teamspace": "添加团队空间",
+        "create_teamspace": "创建团队空间",
+        "edit_teamspace": "编辑团队空间",
+        "name_placeholder": "团队空间名称",
+        "description_placeholder": "这个团队负责什么工作？",
+        "lead": "负责人",
+        "members": "成员",
+        "projects": "项目",
+        "no_lead": "无负责人",
+        "members_count": "{count, plural, other {# 名成员}}",
+        "projects_count": "{count, plural, other {# 个项目}}",
+        "only_admins_can_manage": "只有工作区管理员可以创建或编辑团队空间。",
+        "empty_state": {
+          "title": "暂无团队空间",
+          "description": "创建团队空间以分组成员和项目，然后按团队筛选分析数据。"
+        },
+        "delete": {
+          "title": "删除团队空间",
+          "content": "确定要删除 {name} 吗？成员和项目不受影响，仅移除分组。"
+        },
+        "toast": {
+          "created": "团队空间创建成功。",
+          "updated": "团队空间更新成功。",
+          "deleted": "团队空间删除成功。",
+          "error": "出现错误，请重试。"
+        }
+      },
       "billing_and_plans": {
         "heading": "账单与计划",
         "description": "选择您的计划、管理订阅，并随着需求增长轻松升级。",

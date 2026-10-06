@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "チームスペース",
+        "heading": "チームスペース",
+        "description": "メンバーとプロジェクトをチームスペースにまとめて、組織全体で作業がどのように分散しているかを追跡します。",
+        "add_teamspace": "チームスペースを追加",
+        "create_teamspace": "チームスペースを作成",
+        "edit_teamspace": "チームスペースを編集",
+        "name_placeholder": "チームスペース名",
+        "description_placeholder": "このチームは何に取り組んでいますか？",
+        "lead": "リード",
+        "members": "メンバー",
+        "projects": "プロジェクト",
+        "no_lead": "リードなし",
+        "members_count": "{count, plural, other {#人のメンバー}}",
+        "projects_count": "{count, plural, other {#件のプロジェクト}}",
+        "only_admins_can_manage": "チームスペースを作成または編集できるのはワークスペース管理者のみです。",
+        "empty_state": {
+          "title": "チームスペースはまだありません",
+          "description": "チームスペースを作成してメンバーとプロジェクトをまとめ、チームごとにアナリティクスを絞り込みましょう。"
+        },
+        "delete": {
+          "title": "チームスペースを削除",
+          "content": "{name}を削除してもよろしいですか？メンバーとプロジェクトには影響せず、グループ化のみが削除されます。"
+        },
+        "toast": {
+          "created": "チームスペースが正常に作成されました。",
+          "updated": "チームスペースが正常に更新されました。",
+          "deleted": "チームスペースが正常に削除されました。",
+          "error": "問題が発生しました。もう一度お試しください。"
+        }
+      },
       "billing_and_plans": {
         "heading": "請求とプラン",
         "description": "プランを選択してサブスクリプションを管理し、ニーズの拡大に応じて簡単にアップグレードできます。",

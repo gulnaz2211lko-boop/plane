@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Решенные vs ожидающие рабочие элементы",
     "projects_by_status": "Проекты по статусу",
     "active_users": "Активные пользователи",
-    "intake_trends": "Тенденции приёма"
+    "intake_trends": "Тенденции приёма",
+    "overdue_work_items": "Просроченные {entity}",
+    "granularity": {
+      "day": "По дням",
+      "week": "По неделям",
+      "month": "По месяцам"
+    },
+    "teamspaces": {
+      "all": "Все командные пространства",
+      "selected_count": "Командные пространства: {count}"
+    },
+    "progress": {
+      "daily_title": "Ежедневная сводка",
+      "weekly_title": "Еженедельный отчёт",
+      "created_work_items": "Создано рабочих элементов",
+      "completed_work_items": "Завершено рабочих элементов",
+      "time_logged": "Учтённое время",
+      "active_contributors": "Активные участники",
+      "vs_yesterday": "по сравнению со вчера",
+      "vs_last_week": "по сравнению с прошлой неделей"
+    },
+    "projects": {
+      "distribution": "Распределение работы по проектам",
+      "breakdown": "Разбивка по проектам",
+      "pending": "Ожидающие",
+      "overdue": "Просроченные",
+      "columns": {
+        "total": "Всего рабочих элементов",
+        "completion": "Выполнение",
+        "estimates": "Оценки"
+      }
+    },
+    "time_tracking": {
+      "title": "Учёт времени",
+      "total_time_logged": "Затраченные часы",
+      "time_logged_this_week": "Учтено за эту неделю",
+      "time_logged_last_week": "Учтено за прошлую неделю",
+      "total_estimated_time": "Выделенные часы",
+      "utilization_percentage": "Загрузка",
+      "utilization": "Загрузка",
+      "allocated": "Выделено (ч)",
+      "allocated_hours": "Выделенные часы",
+      "spent_hours": "Затраченные часы",
+      "allocated_vs_spent": "Выделенные и затраченные часы",
+      "allocated_vs_spent_empty_state": "За этот период нет выделенного или затраченного времени. Указывайте оценки времени для рабочих элементов и учитывайте время, чтобы сравнить их.",
+      "by_teamspace": "Распределение ресурсов по командным пространствам",
+      "teamspace": "Командное пространство",
+      "teamspaces": "Командные пространства",
+      "contributors": "Участники",
+      "time_logged": "Учтённое время",
+      "time_logged_hours": "Учтённое время (часы)",
+      "time_logged_over_time": "Учтённое время в динамике",
+      "work_items_logged": "Рабочие элементы с учтённым временем",
+      "by_member": "Учтённое время по участникам",
+      "hours": "Часы",
+      "empty_state": "Время ещё не учтено. Включите учёт времени в настройках проекта и учитывайте время в рабочих элементах.",
+      "projects": "Проекты",
+      "members": "Участники",
+      "work_items": "Рабочие элементы",
+      "completed": "Завершено",
+      "pending": "Ожидание"
+    },
+    "axis": {
+      "state_name": "Название статуса",
+      "state_group": "Группа статусов",
+      "priority": "Приоритет",
+      "label": "Метка",
+      "assignee": "Назначенный",
+      "project": "Проект",
+      "estimate_point": "Пункт оценки",
+      "cycle": "Цикл",
+      "module": "Модуль",
+      "completed_date": "Дата завершения",
+      "due_date": "Срок выполнения",
+      "start_date": "Дата начала",
+      "created_date": "Дата создания",
+      "work_item": "Рабочий элемент",
+      "estimate": "Оценка",
+      "epic": "Эпик",
+      "no_value": "Нет значения",
+      "add_metric": "Добавить метрику",
+      "add_property": "Добавить свойство",
+      "group_by": "Группировать по"
+    },
+    "hours_value": "{value} ч"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Проект} other {Проекты}}",

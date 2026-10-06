@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "已解决 vs 待处理的工作项",
     "projects_by_status": "按状态分类的项目",
     "active_users": "活跃用户",
-    "intake_trends": "入学趋势"
+    "intake_trends": "入学趋势",
+    "overdue_work_items": "逾期的{entity}",
+    "granularity": {
+      "day": "每日",
+      "week": "每周",
+      "month": "每月"
+    },
+    "teamspaces": {
+      "all": "所有团队空间",
+      "selected_count": "{count} 个团队空间"
+    },
+    "progress": {
+      "daily_title": "每日更新",
+      "weekly_title": "每周报告",
+      "created_work_items": "已创建的工作项",
+      "completed_work_items": "已完成的工作项",
+      "time_logged": "已记录工时",
+      "active_contributors": "活跃贡献者",
+      "vs_yesterday": "较昨日",
+      "vs_last_week": "较上周"
+    },
+    "projects": {
+      "distribution": "各项目工作分布",
+      "breakdown": "项目明细",
+      "pending": "待处理",
+      "overdue": "已逾期",
+      "columns": {
+        "total": "工作项总数",
+        "completion": "完成率",
+        "estimates": "估算"
+      }
+    },
+    "time_tracking": {
+      "title": "工时跟踪",
+      "total_time_logged": "已用工时",
+      "time_logged_this_week": "本周记录工时",
+      "time_logged_last_week": "上周记录工时",
+      "total_estimated_time": "分配工时",
+      "utilization_percentage": "利用率",
+      "utilization": "利用率",
+      "allocated": "已分配（小时）",
+      "allocated_hours": "分配工时",
+      "spent_hours": "已用工时",
+      "allocated_vs_spent": "分配工时 vs 已用工时",
+      "allocated_vs_spent_empty_state": "此期间没有分配或已用的工时。请为工作项设置时间估算并记录工时以进行比较。",
+      "by_teamspace": "按团队空间的资源分布",
+      "teamspace": "团队空间",
+      "teamspaces": "团队空间",
+      "contributors": "贡献者",
+      "time_logged": "已记录工时",
+      "time_logged_hours": "已记录工时（小时）",
+      "time_logged_over_time": "工时记录趋势",
+      "work_items_logged": "已记录工时的工作项",
+      "by_member": "按成员统计的工时",
+      "hours": "小时",
+      "empty_state": "尚未记录工时。请在项目设置中启用工时跟踪，并在工作项上记录工时。",
+      "projects": "项目",
+      "members": "成员",
+      "work_items": "工作项",
+      "completed": "已完成",
+      "pending": "待处理"
+    },
+    "axis": {
+      "state_name": "状态名称",
+      "state_group": "状态组",
+      "priority": "优先级",
+      "label": "标签",
+      "assignee": "负责人",
+      "project": "项目",
+      "estimate_point": "估算点数",
+      "cycle": "周期",
+      "module": "模块",
+      "completed_date": "完成日期",
+      "due_date": "截止日期",
+      "start_date": "开始日期",
+      "created_date": "创建日期",
+      "work_item": "工作项",
+      "estimate": "估算",
+      "epic": "史诗",
+      "no_value": "无值",
+      "add_metric": "添加指标",
+      "add_property": "添加属性",
+      "group_by": "分组方式"
+    },
+    "hours_value": "{value} 小时"
   },
   "workspace_projects": {
     "label": "{count, plural, one {项目} other {项目}}",

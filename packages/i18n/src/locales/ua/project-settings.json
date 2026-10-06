@@ -70,7 +70,11 @@
         "choose_estimate_system": "Вибрати систему оцінок",
         "enter_estimate_point": "Введіть оцінку",
         "step": "Крок {step} з {total}",
-        "label": "Створити оцінку"
+        "label": "Створити оцінку",
+        "hours": "Години",
+        "minutes": "Хвилини",
+        "hours_short": "год",
+        "minutes_short": "хв"
       },
       "toasts": {
         "created": {

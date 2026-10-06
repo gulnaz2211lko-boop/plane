@@ -428,5 +428,28 @@
       "label": "Epik Başlığı",
       "required": "Epik başlığı gereklidir."
     }
+  },
+  "work_item_worklog": {
+    "title": "Kaydedilen süre",
+    "log_time": "Süre kaydet",
+    "edit_time_log": "Süre kaydını düzenle",
+    "no_time_logged": "Kaydedilmiş süre yok",
+    "hours": "Saat",
+    "minutes": "Dakika",
+    "date": "Tarih",
+    "description_placeholder": "Ne üzerinde çalıştınız?",
+    "duration_required": "Sıfırdan büyük bir süre girin.",
+    "total": "Toplam",
+    "entries": "Kayıtlar",
+    "delete": {
+      "title": "Süre kaydını sil",
+      "content": "Bu süre kaydını silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+    },
+    "toast": {
+      "logged": "Süre başarıyla kaydedildi.",
+      "updated": "Süre kaydı başarıyla güncellendi.",
+      "deleted": "Süre kaydı başarıyla silindi.",
+      "error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin."
+    }
   }
 }

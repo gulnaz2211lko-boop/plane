@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Teamspace",
+        "heading": "Teamspace",
+        "description": "Raggruppa membri e progetti in teamspace per monitorare come il lavoro è distribuito nella tua organizzazione.",
+        "add_teamspace": "Aggiungi teamspace",
+        "create_teamspace": "Crea teamspace",
+        "edit_teamspace": "Modifica teamspace",
+        "name_placeholder": "Nome del teamspace",
+        "description_placeholder": "Di cosa si occupa questo team?",
+        "lead": "Responsabile",
+        "members": "Membri",
+        "projects": "Progetti",
+        "no_lead": "Nessun responsabile",
+        "members_count": "{count, plural, one {# membro} other {# membri}}",
+        "projects_count": "{count, plural, one {# progetto} other {# progetti}}",
+        "only_admins_can_manage": "Solo gli amministratori dello spazio di lavoro possono creare o modificare i teamspace.",
+        "empty_state": {
+          "title": "Ancora nessun teamspace",
+          "description": "Crea un teamspace per raggruppare membri e progetti, poi filtra le analisi per team."
+        },
+        "delete": {
+          "title": "Elimina teamspace",
+          "content": "Sei sicuro di voler eliminare {name}? Membri e progetti non vengono modificati; viene rimosso solo il raggruppamento."
+        },
+        "toast": {
+          "created": "Teamspace creato con successo.",
+          "updated": "Teamspace aggiornato con successo.",
+          "deleted": "Teamspace eliminato con successo.",
+          "error": "Qualcosa è andato storto. Riprova."
+        }
+      },
       "billing_and_plans": {
         "heading": "Fatturazione e piani",
         "description": "Scegli il tuo piano, gestisci gli abbonamenti e aggiorna facilmente man mano che le tue esigenze crescono.",

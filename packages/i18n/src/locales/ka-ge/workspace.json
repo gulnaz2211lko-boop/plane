@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Work items resolved vs pending",
     "projects_by_status": "Projects by status",
     "active_users": "Active users",
-    "intake_trends": "Intake Trends"
+    "intake_trends": "Intake Trends",
+    "overdue_work_items": "ვადაგადაცილებული {entity}",
+    "granularity": {
+      "day": "ყოველდღიური",
+      "week": "ყოველკვირეული",
+      "month": "ყოველთვიური"
+    },
+    "teamspaces": {
+      "all": "ყველა გუნდის სივრცე",
+      "selected_count": "{count} გუნდის სივრცე"
+    },
+    "progress": {
+      "daily_title": "ყოველდღიური განახლება",
+      "weekly_title": "ყოველკვირეული ანგარიში",
+      "created_work_items": "შექმნილი სამუშაო ელემენტები",
+      "completed_work_items": "დასრულებული სამუშაო ელემენტები",
+      "time_logged": "აღრიცხული დრო",
+      "active_contributors": "აქტიური მონაწილეები",
+      "vs_yesterday": "გუშინდელთან შედარებით",
+      "vs_last_week": "წინა კვირასთან შედარებით"
+    },
+    "projects": {
+      "distribution": "სამუშაოს განაწილება პროექტებს შორის",
+      "breakdown": "პროექტების დეტალიზაცია",
+      "pending": "მომლოდინე",
+      "overdue": "ვადაგადაცილებული",
+      "columns": {
+        "total": "სულ სამუშაო ელემენტები",
+        "completion": "შესრულება",
+        "estimates": "შეფასებები"
+      }
+    },
+    "time_tracking": {
+      "title": "დროის თვალყურის დევნება",
+      "total_time_logged": "დახარჯული საათები",
+      "time_logged_this_week": "ამ კვირაში აღრიცხული დრო",
+      "time_logged_last_week": "წინა კვირაში აღრიცხული დრო",
+      "total_estimated_time": "გამოყოფილი საათები",
+      "utilization_percentage": "დატვირთვა",
+      "utilization": "დატვირთვა",
+      "allocated": "გამოყოფილი (სთ)",
+      "allocated_hours": "გამოყოფილი საათები",
+      "spent_hours": "დახარჯული საათები",
+      "allocated_vs_spent": "გამოყოფილი vs დახარჯული საათები",
+      "allocated_vs_spent_empty_state": "ამ პერიოდში გამოყოფილი ან დახარჯული დრო არ არის. გამოიყენეთ დროის შეფასებები სამუშაო ელემენტებზე და აღრიცხეთ დრო მათ შესადარებლად.",
+      "by_teamspace": "რესურსების განაწილება გუნდის სივრცეების მიხედვით",
+      "teamspace": "გუნდის სივრცე",
+      "teamspaces": "გუნდის სივრცეები",
+      "contributors": "მონაწილეები",
+      "time_logged": "აღრიცხული დრო",
+      "time_logged_hours": "აღრიცხული დრო (საათები)",
+      "time_logged_over_time": "აღრიცხული დრო დროის მიხედვით",
+      "work_items_logged": "სამუშაო ელემენტები აღრიცხული დროით",
+      "by_member": "აღრიცხული დრო წევრების მიხედვით",
+      "hours": "საათები",
+      "empty_state": "დრო ჯერ არ არის აღრიცხული. ჩართეთ დროის თვალყურის დევნება პროექტის პარამეტრებში და აღრიცხეთ დრო სამუშაო ელემენტებზე.",
+      "projects": "პროექტები",
+      "members": "წევრები",
+      "work_items": "სამუშაო ელემენტები",
+      "completed": "დასრულებული",
+      "pending": "მომლოდინე"
+    },
+    "axis": {
+      "state_name": "მდგომარეობის სახელი",
+      "state_group": "მდგომარეობის ჯგუფი",
+      "priority": "პრიორიტეტი",
+      "label": "ლეიბლი",
+      "assignee": "მინიჭებული",
+      "project": "პროექტი",
+      "estimate_point": "შეფასების ქულა",
+      "cycle": "ციკლი",
+      "module": "მოდული",
+      "completed_date": "დასრულების თარიღი",
+      "due_date": "ვადის თარიღი",
+      "start_date": "დაწყების თარიღი",
+      "created_date": "შექმნის თარიღი",
+      "work_item": "სამუშაო ელემენტი",
+      "estimate": "შეფასება",
+      "epic": "ეპიკი",
+      "no_value": "მნიშვნელობა არ არის",
+      "add_metric": "მეტრიკის დამატება",
+      "add_property": "თვისების დამატება",
+      "group_by": "დაჯგუფება"
+    },
+    "hours_value": "{value} სთ"
   },
   "workspace_projects": {
     "label": "{count, plural, one {პროექტი} other {პროექტები}}",

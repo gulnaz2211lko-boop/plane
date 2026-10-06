@@ -70,7 +70,11 @@
         "choose_estimate_system": "Pilih sistem perkiraan",
         "enter_estimate_point": "Masukkan perkiraan",
         "step": "Langkah {step} dari {total}",
-        "label": "Buat perkiraan"
+        "label": "Buat perkiraan",
+        "hours": "Jam",
+        "minutes": "Menit",
+        "hours_short": "j",
+        "minutes_short": "m"
       },
       "toasts": {
         "created": {

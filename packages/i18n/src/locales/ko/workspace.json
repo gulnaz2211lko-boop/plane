@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "해결된 vs 대기 중인 작업 항목",
     "projects_by_status": "상태별 프로젝트",
     "active_users": "활성 사용자",
-    "intake_trends": "수용 추세"
+    "intake_trends": "수용 추세",
+    "overdue_work_items": "기한이 지난 {entity}",
+    "granularity": {
+      "day": "일별",
+      "week": "주별",
+      "month": "월별"
+    },
+    "teamspaces": {
+      "all": "모든 팀스페이스",
+      "selected_count": "팀스페이스 {count}개"
+    },
+    "progress": {
+      "daily_title": "일일 업데이트",
+      "weekly_title": "주간 보고서",
+      "created_work_items": "생성된 작업 항목",
+      "completed_work_items": "완료된 작업 항목",
+      "time_logged": "기록된 시간",
+      "active_contributors": "활성 기여자",
+      "vs_yesterday": "어제 대비",
+      "vs_last_week": "지난주 대비"
+    },
+    "projects": {
+      "distribution": "프로젝트별 작업 분포",
+      "breakdown": "프로젝트별 세부 정보",
+      "pending": "대기 중",
+      "overdue": "기한 초과",
+      "columns": {
+        "total": "총 작업 항목",
+        "completion": "완료율",
+        "estimates": "추정"
+      }
+    },
+    "time_tracking": {
+      "title": "시간 추적",
+      "total_time_logged": "소요 시간",
+      "time_logged_this_week": "이번 주 기록된 시간",
+      "time_logged_last_week": "지난주 기록된 시간",
+      "total_estimated_time": "할당 시간",
+      "utilization_percentage": "활용률",
+      "utilization": "활용률",
+      "allocated": "할당 (시간)",
+      "allocated_hours": "할당 시간",
+      "spent_hours": "소요 시간",
+      "allocated_vs_spent": "할당 시간 vs 소요 시간",
+      "allocated_vs_spent_empty_state": "이 기간에 할당되거나 소요된 시간이 없습니다. 작업 항목에 시간 추정을 사용하고 시간을 기록하여 비교하세요.",
+      "by_teamspace": "팀스페이스별 리소스 분포",
+      "teamspace": "팀스페이스",
+      "teamspaces": "팀스페이스",
+      "contributors": "기여자",
+      "time_logged": "기록된 시간",
+      "time_logged_hours": "기록된 시간 (시간)",
+      "time_logged_over_time": "시간별 기록 추이",
+      "work_items_logged": "시간이 기록된 작업 항목",
+      "by_member": "멤버별 기록된 시간",
+      "hours": "시간",
+      "empty_state": "아직 기록된 시간이 없습니다. 프로젝트 설정에서 시간 추적을 활성화하고 작업 항목에 시간을 기록하세요.",
+      "projects": "프로젝트",
+      "members": "멤버",
+      "work_items": "작업 항목",
+      "completed": "완료됨",
+      "pending": "대기 중"
+    },
+    "axis": {
+      "state_name": "상태 이름",
+      "state_group": "상태 그룹",
+      "priority": "우선순위",
+      "label": "레이블",
+      "assignee": "담당자",
+      "project": "프로젝트",
+      "estimate_point": "추정 포인트",
+      "cycle": "주기",
+      "module": "모듈",
+      "completed_date": "완료 날짜",
+      "due_date": "마감일",
+      "start_date": "시작 날짜",
+      "created_date": "생성 날짜",
+      "work_item": "작업 항목",
+      "estimate": "추정",
+      "epic": "에픽",
+      "no_value": "값 없음",
+      "add_metric": "지표 추가",
+      "add_property": "속성 추가",
+      "group_by": "그룹화 기준"
+    },
+    "hours_value": "{value}시간"
   },
   "workspace_projects": {
     "label": "{count, plural, one {프로젝트} other {프로젝트}}",

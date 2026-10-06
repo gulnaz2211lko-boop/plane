@@ -428,5 +428,28 @@
       "label": "エピックのタイトル",
       "required": "エピックのタイトルは必須です。"
     }
+  },
+  "work_item_worklog": {
+    "title": "記録された時間",
+    "log_time": "時間を記録",
+    "edit_time_log": "時間記録を編集",
+    "no_time_logged": "記録された時間はありません",
+    "hours": "時間",
+    "minutes": "分",
+    "date": "日付",
+    "description_placeholder": "どんな作業をしましたか？",
+    "duration_required": "0より大きい時間を入力してください。",
+    "total": "合計",
+    "entries": "エントリ",
+    "delete": {
+      "title": "時間記録を削除",
+      "content": "この時間記録を削除してもよろしいですか？この操作は取り消せません。"
+    },
+    "toast": {
+      "logged": "時間が正常に記録されました。",
+      "updated": "時間記録が正常に更新されました。",
+      "deleted": "時間記録が正常に削除されました。",
+      "error": "問題が発生しました。もう一度お試しください。"
+    }
   }
 }

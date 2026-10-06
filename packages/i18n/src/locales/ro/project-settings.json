@@ -70,7 +70,11 @@
         "choose_estimate_system": "Alege un sistem de estimare",
         "enter_estimate_point": "Introdu estimarea",
         "step": "Pasul {step} de {total}",
-        "label": "Creează estimare"
+        "label": "Creează estimare",
+        "hours": "Ore",
+        "minutes": "Minute",
+        "hours_short": "h",
+        "minutes_short": "min"
       },
       "toasts": {
         "created": {

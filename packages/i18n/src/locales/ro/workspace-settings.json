@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Spații de echipă",
+        "heading": "Spații de echipă",
+        "description": "Grupează membrii și proiectele în spații de echipă pentru a urmări cum este distribuită munca în organizația ta.",
+        "add_teamspace": "Adaugă spațiu de echipă",
+        "create_teamspace": "Creează spațiu de echipă",
+        "edit_teamspace": "Editează spațiul de echipă",
+        "name_placeholder": "Numele spațiului de echipă",
+        "description_placeholder": "La ce lucrează această echipă?",
+        "lead": "Lider",
+        "members": "Membri",
+        "projects": "Proiecte",
+        "no_lead": "Fără lider",
+        "members_count": "{count, plural, one {# membru} few {# membri} other {# de membri}}",
+        "projects_count": "{count, plural, one {# proiect} few {# proiecte} other {# de proiecte}}",
+        "only_admins_can_manage": "Doar administratorii spațiului de lucru pot crea sau edita spații de echipă.",
+        "empty_state": {
+          "title": "Încă nu există spații de echipă",
+          "description": "Creează un spațiu de echipă pentru a grupa membri și proiecte, apoi filtrează statisticile după echipă."
+        },
+        "delete": {
+          "title": "Șterge spațiul de echipă",
+          "content": "Sigur vrei să ștergi {name}? Membrii și proiectele nu sunt afectate; se elimină doar gruparea."
+        },
+        "toast": {
+          "created": "Spațiul de echipă a fost creat cu succes.",
+          "updated": "Spațiul de echipă a fost actualizat cu succes.",
+          "deleted": "Spațiul de echipă a fost șters cu succes.",
+          "error": "Ceva nu a funcționat. Te rugăm să încerci din nou."
+        }
+      },
       "billing_and_plans": {
         "heading": "Facturare și abonamente",
         "description": "Alege abonamentul tău, gestionează abonamentele și actualizează cu ușurință pe măsură ce nevoile tale cresc.",

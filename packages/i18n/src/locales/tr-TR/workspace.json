@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Çözülen vs bekleyen iş öğeleri",
     "projects_by_status": "Durumuna göre projeler",
     "active_users": "Aktif kullanıcılar",
-    "intake_trends": "Alım Eğilimleri"
+    "intake_trends": "Alım Eğilimleri",
+    "overdue_work_items": "Gecikmiş {entity}",
+    "granularity": {
+      "day": "Günlük",
+      "week": "Haftalık",
+      "month": "Aylık"
+    },
+    "teamspaces": {
+      "all": "Tüm takım alanları",
+      "selected_count": "{count} takım alanı"
+    },
+    "progress": {
+      "daily_title": "Günlük güncelleme",
+      "weekly_title": "Haftalık rapor",
+      "created_work_items": "Oluşturulan iş öğeleri",
+      "completed_work_items": "Tamamlanan iş öğeleri",
+      "time_logged": "Kaydedilen süre",
+      "active_contributors": "Aktif katkıda bulunanlar",
+      "vs_yesterday": "düne göre",
+      "vs_last_week": "geçen haftaya göre"
+    },
+    "projects": {
+      "distribution": "Projeler arasında iş dağılımı",
+      "breakdown": "Proje dökümü",
+      "pending": "Bekleyen",
+      "overdue": "Gecikmiş",
+      "columns": {
+        "total": "Toplam iş öğesi",
+        "completion": "Tamamlanma",
+        "estimates": "Tahminler"
+      }
+    },
+    "time_tracking": {
+      "title": "Zaman takibi",
+      "total_time_logged": "Harcanan saat",
+      "time_logged_this_week": "Bu hafta kaydedilen süre",
+      "time_logged_last_week": "Geçen hafta kaydedilen süre",
+      "total_estimated_time": "Ayrılan saat",
+      "utilization_percentage": "Kullanım oranı",
+      "utilization": "Kullanım oranı",
+      "allocated": "Ayrılan (sa)",
+      "allocated_hours": "Ayrılan saat",
+      "spent_hours": "Harcanan saat",
+      "allocated_vs_spent": "Ayrılan ve harcanan saat",
+      "allocated_vs_spent_empty_state": "Bu dönemde ayrılan veya harcanan süre yok. Karşılaştırmak için iş öğelerinde süre tahminlerini kullanın ve süre kaydedin.",
+      "by_teamspace": "Takım alanına göre kaynak dağılımı",
+      "teamspace": "Takım alanı",
+      "teamspaces": "Takım alanları",
+      "contributors": "Katkıda bulunanlar",
+      "time_logged": "Kaydedilen süre",
+      "time_logged_hours": "Kaydedilen süre (saat)",
+      "time_logged_over_time": "Zaman içinde kaydedilen süre",
+      "work_items_logged": "Süre kaydedilen iş öğeleri",
+      "by_member": "Üyeye göre kaydedilen süre",
+      "hours": "Saat",
+      "empty_state": "Henüz süre kaydedilmedi. Proje ayarlarında zaman takibini etkinleştirin ve iş öğelerine süre kaydedin.",
+      "projects": "Projeler",
+      "members": "Üyeler",
+      "work_items": "İş öğeleri",
+      "completed": "Tamamlandı",
+      "pending": "Bekleyen"
+    },
+    "axis": {
+      "state_name": "Durum adı",
+      "state_group": "Durum grubu",
+      "priority": "Öncelik",
+      "label": "Etiket",
+      "assignee": "Atanan",
+      "project": "Proje",
+      "estimate_point": "Tahmin puanı",
+      "cycle": "Döngü",
+      "module": "Modül",
+      "completed_date": "Tamamlanma tarihi",
+      "due_date": "Bitiş tarihi",
+      "start_date": "Başlangıç tarihi",
+      "created_date": "Oluşturulma tarihi",
+      "work_item": "İş öğesi",
+      "estimate": "Tahmin",
+      "epic": "Epik",
+      "no_value": "Değer yok",
+      "add_metric": "Metrik ekle",
+      "add_property": "Özellik ekle",
+      "group_by": "Gruplandır"
+    },
+    "hours_value": "{value} sa"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Proje} other {Projeler}}",

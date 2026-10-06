@@ -428,5 +428,28 @@
       "label": "에픽 제목",
       "required": "에픽 제목이 필요합니다."
     }
+  },
+  "work_item_worklog": {
+    "title": "기록된 시간",
+    "log_time": "시간 기록",
+    "edit_time_log": "시간 기록 편집",
+    "no_time_logged": "기록된 시간 없음",
+    "hours": "시간",
+    "minutes": "분",
+    "date": "날짜",
+    "description_placeholder": "어떤 작업을 하셨나요?",
+    "duration_required": "0보다 큰 시간을 입력하세요.",
+    "total": "합계",
+    "entries": "항목",
+    "delete": {
+      "title": "시간 기록 삭제",
+      "content": "이 시간 기록을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+    },
+    "toast": {
+      "logged": "시간이 성공적으로 기록되었습니다.",
+      "updated": "시간 기록이 성공적으로 업데이트되었습니다.",
+      "deleted": "시간 기록이 성공적으로 삭제되었습니다.",
+      "error": "문제가 발생했습니다. 다시 시도해 주세요."
+    }
   }
 }

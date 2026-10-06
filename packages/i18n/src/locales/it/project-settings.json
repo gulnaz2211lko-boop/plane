@@ -70,7 +70,11 @@
         "choose_estimate_system": "Scegli un sistema di stima",
         "enter_estimate_point": "Inserisci stima",
         "step": "Passo {step} di {total}",
-        "label": "Crea stima"
+        "label": "Crea stima",
+        "hours": "Ore",
+        "minutes": "Minuti",
+        "hours_short": "h",
+        "minutes_short": "min"
       },
       "toasts": {
         "created": {

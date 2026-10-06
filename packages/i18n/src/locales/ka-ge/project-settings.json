@@ -70,7 +70,11 @@
         "choose_estimate_system": "აირჩიეთ შეფასების სისტემა",
         "enter_estimate_point": "შეიყვანეთ შეფასების ქულა",
         "step": "ნაბიჯი {step} {total}-დან",
-        "label": "შეფასების შექმნა"
+        "label": "შეფასების შექმნა",
+        "hours": "საათები",
+        "minutes": "წუთები",
+        "hours_short": "სთ",
+        "minutes_short": "წთ"
       },
       "toasts": {
         "created": {

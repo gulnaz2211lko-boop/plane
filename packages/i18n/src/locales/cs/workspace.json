@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Vyřešené vs. čekající pracovní položky",
     "projects_by_status": "Projekty podle stavu",
     "active_users": "Aktivní uživatelé",
-    "intake_trends": "Trendy příjmů"
+    "intake_trends": "Trendy příjmů",
+    "overdue_work_items": "{entity} po termínu",
+    "granularity": {
+      "day": "Denně",
+      "week": "Týdně",
+      "month": "Měsíčně"
+    },
+    "teamspaces": {
+      "all": "Všechny týmové prostory",
+      "selected_count": "Týmové prostory: {count}"
+    },
+    "progress": {
+      "daily_title": "Denní přehled",
+      "weekly_title": "Týdenní report",
+      "created_work_items": "Vytvořené pracovní položky",
+      "completed_work_items": "Dokončené pracovní položky",
+      "time_logged": "Zaznamenaný čas",
+      "active_contributors": "Aktivní přispěvatelé",
+      "vs_yesterday": "oproti včerejšku",
+      "vs_last_week": "oproti minulému týdnu"
+    },
+    "projects": {
+      "distribution": "Rozdělení práce mezi projekty",
+      "breakdown": "Rozpis projektů",
+      "pending": "Čekající",
+      "overdue": "Po termínu",
+      "columns": {
+        "total": "Celkem pracovních položek",
+        "completion": "Dokončení",
+        "estimates": "Odhady"
+      }
+    },
+    "time_tracking": {
+      "title": "Sledování času",
+      "total_time_logged": "Odpracované hodiny",
+      "time_logged_this_week": "Čas zaznamenaný tento týden",
+      "time_logged_last_week": "Čas zaznamenaný minulý týden",
+      "total_estimated_time": "Přidělené hodiny",
+      "utilization_percentage": "Vytížení",
+      "utilization": "Vytížení",
+      "allocated": "Přiděleno (h)",
+      "allocated_hours": "Přidělené hodiny",
+      "spent_hours": "Odpracované hodiny",
+      "allocated_vs_spent": "Přidělené vs odpracované hodiny",
+      "allocated_vs_spent_empty_state": "V tomto období není žádný přidělený ani odpracovaný čas. Pro jejich porovnání používejte časové odhady u pracovních položek a zaznamenávejte čas.",
+      "by_teamspace": "Rozdělení zdrojů podle týmového prostoru",
+      "teamspace": "Týmový prostor",
+      "teamspaces": "Týmové prostory",
+      "contributors": "Přispěvatelé",
+      "time_logged": "Zaznamenaný čas",
+      "time_logged_hours": "Zaznamenaný čas (hodiny)",
+      "time_logged_over_time": "Zaznamenaný čas v průběhu času",
+      "work_items_logged": "Pracovní položky se zaznamenaným časem",
+      "by_member": "Zaznamenaný čas podle členů",
+      "hours": "Hodiny",
+      "empty_state": "Zatím nebyl zaznamenán žádný čas. Povolte sledování času v nastavení projektu a zaznamenávejte čas u pracovních položek.",
+      "projects": "Projekty",
+      "members": "Členové",
+      "work_items": "Pracovní položky",
+      "completed": "Dokončeno",
+      "pending": "Čekající"
+    },
+    "axis": {
+      "state_name": "Název stavu",
+      "state_group": "Skupina stavů",
+      "priority": "Priorita",
+      "label": "Štítek",
+      "assignee": "Přiřazený",
+      "project": "Projekt",
+      "estimate_point": "Bod odhadu",
+      "cycle": "Cyklus",
+      "module": "Modul",
+      "completed_date": "Datum dokončení",
+      "due_date": "Termín",
+      "start_date": "Datum začátku",
+      "created_date": "Datum vytvoření",
+      "work_item": "Pracovní položka",
+      "estimate": "Odhad",
+      "epic": "Epika",
+      "no_value": "Bez hodnoty",
+      "add_metric": "Přidat metriku",
+      "add_property": "Přidat vlastnost",
+      "group_by": "Seskupit podle"
+    },
+    "hours_value": "{value} h"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Projekt} few {Projekty} other {Projektů}}",

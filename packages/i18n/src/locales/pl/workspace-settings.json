@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Przestrzenie zespołów",
+        "heading": "Przestrzenie zespołów",
+        "description": "Grupuj członków i projekty w przestrzenie zespołów, aby śledzić, jak praca jest rozłożona w Twojej organizacji.",
+        "add_teamspace": "Dodaj przestrzeń zespołu",
+        "create_teamspace": "Utwórz przestrzeń zespołu",
+        "edit_teamspace": "Edytuj przestrzeń zespołu",
+        "name_placeholder": "Nazwa przestrzeni zespołu",
+        "description_placeholder": "Nad czym pracuje ten zespół?",
+        "lead": "Lider",
+        "members": "Członkowie",
+        "projects": "Projekty",
+        "no_lead": "Brak lidera",
+        "members_count": "{count, plural, one {# członek} few {# członkowie} many {# członków} other {# członka}}",
+        "projects_count": "{count, plural, one {# projekt} few {# projekty} many {# projektów} other {# projektu}}",
+        "only_admins_can_manage": "Tylko administratorzy przestrzeni roboczej mogą tworzyć i edytować przestrzenie zespołów.",
+        "empty_state": {
+          "title": "Brak przestrzeni zespołów",
+          "description": "Utwórz przestrzeń zespołu, aby grupować członków i projekty, a następnie filtrować analizy według zespołu."
+        },
+        "delete": {
+          "title": "Usuń przestrzeń zespołu",
+          "content": "Czy na pewno chcesz usunąć {name}? Członkowie i projekty nie zostaną naruszeni; usunięte zostanie tylko grupowanie."
+        },
+        "toast": {
+          "created": "Przestrzeń zespołu została pomyślnie utworzona.",
+          "updated": "Przestrzeń zespołu została pomyślnie zaktualizowana.",
+          "deleted": "Przestrzeń zespołu została pomyślnie usunięta.",
+          "error": "Coś poszło nie tak. Spróbuj ponownie."
+        }
+      },
       "billing_and_plans": {
         "heading": "Rozliczenia i plany",
         "description": "Wybierz plan, zarządzaj subskrypcjami i łatwo dokonaj uaktualnienia w miarę rozwoju Twoich potrzeb.",

@@ -428,5 +428,28 @@
       "label": "Titre de l’Epic",
       "required": "Le titre de l’Epic est requis."
     }
+  },
+  "work_item_worklog": {
+    "title": "Temps enregistré",
+    "log_time": "Enregistrer du temps",
+    "edit_time_log": "Modifier l’entrée de temps",
+    "no_time_logged": "Aucun temps enregistré",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "date": "Date",
+    "description_placeholder": "Sur quoi avez-vous travaillé ?",
+    "duration_required": "Saisissez une durée supérieure à zéro.",
+    "total": "Total",
+    "entries": "Entrées",
+    "delete": {
+      "title": "Supprimer l’entrée de temps",
+      "content": "Voulez-vous vraiment supprimer cette entrée de temps ? Cette action est irréversible."
+    },
+    "toast": {
+      "logged": "Temps enregistré avec succès.",
+      "updated": "Entrée de temps mise à jour avec succès.",
+      "deleted": "Entrée de temps supprimée avec succès.",
+      "error": "Une erreur s’est produite. Veuillez réessayer."
+    }
   }
 }

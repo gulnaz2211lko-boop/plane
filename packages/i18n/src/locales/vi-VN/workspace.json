@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Mục công việc đã giải quyết vs đang chờ",
     "projects_by_status": "Dự án theo trạng thái",
     "active_users": "Người dùng hoạt động",
-    "intake_trends": "Xu hướng tiếp nhận"
+    "intake_trends": "Xu hướng tiếp nhận",
+    "overdue_work_items": "{entity} quá hạn",
+    "granularity": {
+      "day": "Hàng ngày",
+      "week": "Hàng tuần",
+      "month": "Hàng tháng"
+    },
+    "teamspaces": {
+      "all": "Tất cả không gian nhóm",
+      "selected_count": "{count} không gian nhóm"
+    },
+    "progress": {
+      "daily_title": "Cập nhật hàng ngày",
+      "weekly_title": "Báo cáo hàng tuần",
+      "created_work_items": "Mục công việc đã tạo",
+      "completed_work_items": "Mục công việc đã hoàn thành",
+      "time_logged": "Thời gian đã ghi",
+      "active_contributors": "Người đóng góp tích cực",
+      "vs_yesterday": "so với hôm qua",
+      "vs_last_week": "so với tuần trước"
+    },
+    "projects": {
+      "distribution": "Phân bổ công việc giữa các dự án",
+      "breakdown": "Chi tiết theo dự án",
+      "pending": "Đang chờ",
+      "overdue": "Quá hạn",
+      "columns": {
+        "total": "Tổng số mục công việc",
+        "completion": "Mức độ hoàn thành",
+        "estimates": "Ước tính"
+      }
+    },
+    "time_tracking": {
+      "title": "Theo dõi thời gian",
+      "total_time_logged": "Số giờ đã dùng",
+      "time_logged_this_week": "Thời gian đã ghi tuần này",
+      "time_logged_last_week": "Thời gian đã ghi tuần trước",
+      "total_estimated_time": "Số giờ được phân bổ",
+      "utilization_percentage": "Mức sử dụng",
+      "utilization": "Mức sử dụng",
+      "allocated": "Phân bổ (giờ)",
+      "allocated_hours": "Số giờ được phân bổ",
+      "spent_hours": "Số giờ đã dùng",
+      "allocated_vs_spent": "Giờ phân bổ so với giờ đã dùng",
+      "allocated_vs_spent_empty_state": "Không có thời gian được phân bổ hoặc đã dùng trong khoảng thời gian này. Hãy dùng ước tính thời gian cho các mục công việc và ghi thời gian để so sánh.",
+      "by_teamspace": "Phân bổ nguồn lực theo không gian nhóm",
+      "teamspace": "Không gian nhóm",
+      "teamspaces": "Không gian nhóm",
+      "contributors": "Người đóng góp",
+      "time_logged": "Thời gian đã ghi",
+      "time_logged_hours": "Thời gian đã ghi (giờ)",
+      "time_logged_over_time": "Thời gian đã ghi theo thời gian",
+      "work_items_logged": "Mục công việc đã ghi thời gian",
+      "by_member": "Thời gian đã ghi theo thành viên",
+      "hours": "Giờ",
+      "empty_state": "Chưa ghi thời gian nào. Hãy bật theo dõi thời gian trong cài đặt dự án và ghi thời gian cho các mục công việc.",
+      "projects": "Dự án",
+      "members": "Thành viên",
+      "work_items": "Mục công việc",
+      "completed": "Đã hoàn thành",
+      "pending": "Đang chờ"
+    },
+    "axis": {
+      "state_name": "Tên trạng thái",
+      "state_group": "Nhóm trạng thái",
+      "priority": "Ưu tiên",
+      "label": "Nhãn",
+      "assignee": "Người phụ trách",
+      "project": "Dự án",
+      "estimate_point": "Điểm ước tính",
+      "cycle": "Chu kỳ",
+      "module": "Mô-đun",
+      "completed_date": "Ngày hoàn thành",
+      "due_date": "Ngày đến hạn",
+      "start_date": "Ngày bắt đầu",
+      "created_date": "Ngày tạo",
+      "work_item": "Mục công việc",
+      "estimate": "Ước tính",
+      "epic": "Sử thi",
+      "no_value": "Không có giá trị",
+      "add_metric": "Thêm chỉ số",
+      "add_property": "Thêm thuộc tính",
+      "group_by": "Nhóm theo"
+    },
+    "hours_value": "{value} giờ"
   },
   "workspace_projects": {
     "label": "{count, plural, one {dự án} other {dự án}}",

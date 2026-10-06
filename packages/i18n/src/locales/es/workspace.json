@@ -148,7 +148,91 @@
     "workitem_resolved_vs_pending": "Elementos de trabajo resueltos vs pendientes",
     "projects_by_status": "Proyectos por estado",
     "active_users": "Usuarios activos",
-    "intake_trends": "Tendencias de admisión"
+    "intake_trends": "Tendencias de admisión",
+    "overdue_work_items": "{entity} vencidos",
+    "granularity": {
+      "day": "Diario",
+      "week": "Semanal",
+      "month": "Mensual"
+    },
+    "teamspaces": {
+      "all": "Todos los espacios de equipo",
+      "selected_count": "{count} espacios de equipo"
+    },
+    "progress": {
+      "daily_title": "Actualización diaria",
+      "weekly_title": "Informe semanal",
+      "created_work_items": "Elementos de trabajo creados",
+      "completed_work_items": "Elementos de trabajo completados",
+      "time_logged": "Tiempo registrado",
+      "active_contributors": "Colaboradores activos",
+      "vs_yesterday": "vs ayer",
+      "vs_last_week": "vs la semana pasada"
+    },
+    "projects": {
+      "distribution": "Distribución del trabajo entre proyectos",
+      "breakdown": "Desglose por proyecto",
+      "pending": "Pendientes",
+      "overdue": "Vencidos",
+      "columns": {
+        "total": "Total de elementos de trabajo",
+        "completion": "Finalización",
+        "estimates": "Estimaciones"
+      }
+    },
+    "time_tracking": {
+      "title": "Seguimiento del tiempo",
+      "total_time_logged": "Horas invertidas",
+      "time_logged_this_week": "Tiempo registrado esta semana",
+      "time_logged_last_week": "Tiempo registrado la semana pasada",
+      "total_estimated_time": "Horas asignadas",
+      "utilization_percentage": "Utilización",
+      "utilization": "Utilización",
+      "allocated": "Asignado (h)",
+      "allocated_hours": "Horas asignadas",
+      "spent_hours": "Horas invertidas",
+      "allocated_vs_spent": "Horas asignadas vs invertidas",
+      "allocated_vs_spent_empty_state": "No hay tiempo asignado ni invertido en este período. Usa estimaciones de tiempo en los elementos de trabajo y registra tiempo para compararlos.",
+      "by_teamspace": "Distribución de recursos por espacio de equipo",
+      "teamspace": "Espacio de equipo",
+      "teamspaces": "Espacios de equipo",
+      "contributors": "Colaboradores",
+      "time_logged": "Tiempo registrado",
+      "time_logged_hours": "Tiempo registrado (horas)",
+      "time_logged_over_time": "Tiempo registrado a lo largo del tiempo",
+      "work_items_logged": "Elementos de trabajo con tiempo registrado",
+      "by_member": "Tiempo registrado por miembro",
+      "hours": "Horas",
+      "empty_state": "Aún no hay tiempo registrado. Habilita el seguimiento del tiempo en la configuración del proyecto y registra tiempo en los elementos de trabajo.",
+      "projects": "Proyectos",
+      "members": "Miembros",
+      "work_items": "Elementos de trabajo",
+      "completed": "Completados",
+      "pending": "Pendientes"
+    },
+    "axis": {
+      "state_name": "Nombre del estado",
+      "state_group": "Grupo de estados",
+      "priority": "Prioridad",
+      "label": "Etiqueta",
+      "assignee": "Asignado",
+      "project": "Proyecto",
+      "estimate_point": "Punto de estimación",
+      "cycle": "Ciclo",
+      "module": "Módulo",
+      "completed_date": "Fecha de finalización",
+      "due_date": "Fecha de vencimiento",
+      "start_date": "Fecha de inicio",
+      "created_date": "Fecha de creación",
+      "work_item": "Elemento de trabajo",
+      "estimate": "Estimación",
+      "epic": "Epic",
+      "no_value": "Sin valor",
+      "add_metric": "Añadir métrica",
+      "add_property": "Añadir propiedad",
+      "group_by": "Agrupar por"
+    },
+    "hours_value": "{value} h"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Proyecto} other {Proyectos}}",

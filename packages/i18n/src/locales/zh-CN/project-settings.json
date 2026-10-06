@@ -70,7 +70,11 @@
         "choose_estimate_system": "选择估算系统",
         "enter_estimate_point": "输入估算点数",
         "step": "步骤 {step} 共 {total}",
-        "label": "创建估算"
+        "label": "创建估算",
+        "hours": "小时",
+        "minutes": "分钟",
+        "hours_short": "小时",
+        "minutes_short": "分钟"
       },
       "toasts": {
         "created": {

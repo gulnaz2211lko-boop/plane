@@ -65,6 +65,37 @@
           }
         }
       },
+      "teamspaces": {
+        "title": "Không gian nhóm",
+        "heading": "Không gian nhóm",
+        "description": "Nhóm các thành viên và dự án vào không gian nhóm để theo dõi cách công việc được phân bổ trong tổ chức của bạn.",
+        "add_teamspace": "Thêm không gian nhóm",
+        "create_teamspace": "Tạo không gian nhóm",
+        "edit_teamspace": "Chỉnh sửa không gian nhóm",
+        "name_placeholder": "Tên không gian nhóm",
+        "description_placeholder": "Nhóm này làm việc về gì?",
+        "lead": "Trưởng nhóm",
+        "members": "Thành viên",
+        "projects": "Dự án",
+        "no_lead": "Không có trưởng nhóm",
+        "members_count": "{count, plural, other {# thành viên}}",
+        "projects_count": "{count, plural, other {# dự án}}",
+        "only_admins_can_manage": "Chỉ quản trị viên không gian làm việc mới có thể tạo hoặc chỉnh sửa không gian nhóm.",
+        "empty_state": {
+          "title": "Chưa có không gian nhóm nào",
+          "description": "Tạo không gian nhóm để nhóm các thành viên và dự án, sau đó lọc phân tích theo nhóm."
+        },
+        "delete": {
+          "title": "Xóa không gian nhóm",
+          "content": "Bạn có chắc chắn muốn xóa {name} không? Thành viên và dự án không bị ảnh hưởng; chỉ việc nhóm bị xóa."
+        },
+        "toast": {
+          "created": "Đã tạo không gian nhóm thành công.",
+          "updated": "Đã cập nhật không gian nhóm thành công.",
+          "deleted": "Đã xóa không gian nhóm thành công.",
+          "error": "Đã xảy ra lỗi. Vui lòng thử lại."
+        }
+      },
       "billing_and_plans": {
         "heading": "Thanh toán và Kế hoạch",
         "description": "Chọn gói của bạn, quản lý đăng ký và dễ dàng nâng cấp khi nhu cầu của bạn phát triển.",
