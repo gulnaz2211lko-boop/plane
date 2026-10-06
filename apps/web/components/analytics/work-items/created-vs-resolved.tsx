@@ -56,6 +56,7 @@ const CreatedVsResolved = observer(function CreatedVsResolved() {
     }));
   }, [createdVsResolvedData]);
 
+  // Created and resolved are independent counts (resolved is bucketed by completion date), so they are not stacked.
   const areas = useMemo(
     () => [
       {
@@ -63,7 +64,7 @@ const CreatedVsResolved = observer(function CreatedVsResolved() {
         label: "Resolved",
         fill: "#19803833",
         fillOpacity: 1,
-        stackId: "bar-one",
+        stackId: "resolved",
         showDot: false,
         smoothCurves: true,
         strokeColor: "#198038",
@@ -74,7 +75,7 @@ const CreatedVsResolved = observer(function CreatedVsResolved() {
         label: "Created",
         fill: "#1192E833",
         fillOpacity: 1,
-        stackId: "bar-one",
+        stackId: "created",
         showDot: false,
         smoothCurves: true,
         strokeColor: "#1192E8",

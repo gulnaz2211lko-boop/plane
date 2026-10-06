@@ -30,6 +30,8 @@ function InsightCard(props: InsightCardProps) {
   const count = data?.count ?? 0;
   const previousCount = data?.previous_count;
   const change = getPeriodChange(count, previousCount);
+  // A change that rounds to 0% is shown as neutral rather than as growth.
+  const roundedChange = change === null ? null : Math.round(change);
 
   return (
     <div className="flex flex-col gap-3">
@@ -39,15 +41,17 @@ function InsightCard(props: InsightCardProps) {
           <div className="text-20 font-bold text-primary">{formatInsightValue(count, t, format)}</div>
           {previousCount !== undefined && (
             <div className="flex items-center gap-1 text-11 text-tertiary">
-              {change !== null && (
+              {roundedChange !== null && (
                 <span
                   className={cn(
                     "flex items-center gap-0.5 font-medium",
-                    change >= 0 ? "text-success-primary" : "text-danger-primary"
+                    roundedChange > 0 && "text-success-primary",
+                    roundedChange < 0 && "text-danger-primary"
                   )}
                 >
-                  {change >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
-                  {Math.round(Math.abs(change))}%
+                  {roundedChange > 0 && <TrendingUp className="size-3" />}
+                  {roundedChange < 0 && <TrendingDown className="size-3" />}
+                  {Math.abs(roundedChange)}%
                 </span>
               )}
               <span>
