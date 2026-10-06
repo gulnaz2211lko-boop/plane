@@ -96,7 +96,7 @@ const TimeTrackingInsightTable = observer(function TimeTrackingInsightTable() {
       {
         accessorKey: "estimated_time",
         header: () => <div className="text-right">{t("workspace_analytics.time_tracking.allocated")}</div>,
-        cell: ({ row }) => <div className="text-right">{formatHours(row.original.estimated_time)}</div>,
+        cell: ({ row }) => <div className="text-right">{formatHours(row.original.estimated_time, t)}</div>,
         meta: {
           export: {
             key: t("workspace_analytics.time_tracking.allocated"),
@@ -107,7 +107,7 @@ const TimeTrackingInsightTable = observer(function TimeTrackingInsightTable() {
       {
         accessorKey: "time_logged",
         header: () => <div className="text-right">{t("workspace_analytics.time_tracking.time_logged")}</div>,
-        cell: ({ row }) => <div className="text-right">{formatHours(row.original.time_logged)}</div>,
+        cell: ({ row }) => <div className="text-right">{formatHours(row.original.time_logged, t)}</div>,
         meta: {
           export: {
             key: t("workspace_analytics.time_tracking.time_logged_hours"),

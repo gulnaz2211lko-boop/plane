@@ -8,6 +8,7 @@
 import React from "react";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import type { IInsightField } from "@plane/constants";
+import { useTranslation } from "@plane/i18n";
 import type { IAnalyticsResponseFields } from "@plane/types";
 import { Loader } from "@plane/blocks/skeleton";
 import { cn } from "@plane/utils";
@@ -25,6 +26,7 @@ export type InsightCardProps = {
 
 function InsightCard(props: InsightCardProps) {
   const { data, label, isLoading = false, format, comparisonLabel } = props;
+  const { t } = useTranslation();
   const count = data?.count ?? 0;
   const previousCount = data?.previous_count;
   const change = getPeriodChange(count, previousCount);
@@ -34,7 +36,7 @@ function InsightCard(props: InsightCardProps) {
       <div className="text-13 text-tertiary">{label}</div>
       {!isLoading ? (
         <div className="flex flex-col gap-1">
-          <div className="text-20 font-bold text-primary">{formatInsightValue(count, format)}</div>
+          <div className="text-20 font-bold text-primary">{formatInsightValue(count, t, format)}</div>
           {previousCount !== undefined && (
             <div className="flex items-center gap-1 text-11 text-tertiary">
               {change !== null && (
@@ -49,7 +51,7 @@ function InsightCard(props: InsightCardProps) {
                 </span>
               )}
               <span>
-                {comparisonLabel} ({formatInsightValue(previousCount, format)})
+                {comparisonLabel} ({formatInsightValue(previousCount, t, format)})
               </span>
             </div>
           )}

@@ -4,7 +4,7 @@
  * See the LICENSE file for details.
  */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import { Controller, useForm } from "react-hook-form";
 // plane imports
@@ -21,16 +21,20 @@ import {
 } from "@makeplane/propel/components/dialog";
 import { InputField } from "@makeplane/propel/components/input-field";
 import { TextAreaField } from "@makeplane/propel/components/text-area-field";
+import { EmojiPicker } from "@plane/blocks/emoji-icon-picker";
 import { setToast } from "@plane/blocks/toast";
 import { useTranslation } from "@plane/i18n";
-import type { TTeamspace, TTeamspacePayload } from "@plane/types";
+import type { TLogoProps, TTeamspace, TTeamspacePayload } from "@plane/types";
 // components
 import { MemberSelect } from "@/components/dropdowns/member/member-select";
 import { ProjectSelect } from "@/components/dropdowns/project/project-select";
 // hooks
 import { useTeamspace } from "@/hooks/store/use-teamspace";
+// local imports
+import { TeamspaceLogo } from "./logo";
 
 type TTeamspaceFormValues = {
+  logo_props: TLogoProps | undefined;
   name: string;
   description: string;
   lead_id: string | null;
@@ -47,6 +51,8 @@ type Props = {
 };
 
 const getDefaultValues = (data?: TTeamspace): TTeamspaceFormValues => ({
+  // the API stores `{}` when no logo has been picked
+  logo_props: data?.logo_props?.in_use ? data.logo_props : undefined,
   name: data?.name ?? "",
   description: data?.description ?? "",
   lead_id: data?.lead_id ?? null,
@@ -61,6 +67,8 @@ export const TeamspaceFormModal = observer(function TeamspaceFormModal(props: Pr
   const { workspaceSlug, isOpen, onClose, data } = props;
   // plane hooks
   const { t } = useTranslation();
+  // states
+  const [isLogoPickerOpen, setIsLogoPickerOpen] = useState(false);
   // store hooks
   const { createTeamspace, updateTeamspace } = useTeamspace();
   // form
@@ -79,6 +87,7 @@ export const TeamspaceFormModal = observer(function TeamspaceFormModal(props: Pr
     const payload: TTeamspacePayload = {
       name: values.name.trim(),
       description: values.description,
+      ...(values.logo_props ? { logo_props: values.logo_props } : {}),
       lead_id: values.lead_id || null,
       member_ids: values.member_ids,
       project_ids: values.project_ids,
@@ -123,28 +132,55 @@ export const TeamspaceFormModal = observer(function TeamspaceFormModal(props: Pr
             </DialogHeader>
             <DialogBody tabIndex={0}>
               <div className="space-y-3">
-                <Controller
-                  control={control}
-                  name="name"
-                  rules={{
-                    required: t("title_is_required"),
-                    maxLength: { value: 255, message: t("title_should_be_less_than_255_characters") },
-                    validate: (val) => val.trim() !== "" || t("title_is_required"),
-                  }}
-                  render={({ field: { value, onChange, ref } }) => (
-                    <InputField
-                      type="text"
-                      size="2xl"
-                      orientation="vertical"
-                      value={value}
-                      onChange={onChange}
-                      ref={ref}
-                      error={errors.name?.message}
-                      placeholder={t("workspace_settings.settings.teamspaces.name_placeholder")}
-                      aria-label={t("name")}
+                <div className="flex items-start gap-2">
+                  <Controller
+                    control={control}
+                    name="logo_props"
+                    render={({ field: { value, onChange } }) => (
+                      <EmojiPicker
+                        iconType="material"
+                        closeOnSelect={false}
+                        isOpen={isLogoPickerOpen}
+                        handleToggle={setIsLogoPickerOpen}
+                        className="flex flex-shrink-0 items-center justify-center"
+                        buttonClassName="flex size-11 items-center justify-center rounded-md border border-subtle bg-layer-1"
+                        label={<TeamspaceLogo logo={value} size={20} />}
+                        // the picker's change payload is not typed
+                        onChange={(val: any) => {
+                          const logoValue = val?.type === "emoji" ? { value: val.value } : val?.value;
+                          onChange({ in_use: val?.type, [val?.type]: logoValue });
+                          setIsLogoPickerOpen(false);
+                        }}
+                        defaultIconColor={value?.in_use === "icon" ? value?.icon?.color : undefined}
+                        defaultOpen={value?.in_use === "emoji" ? "emoji" : "icon"}
+                      />
+                    )}
+                  />
+                  <div className="min-w-0 flex-1">
+                    <Controller
+                      control={control}
+                      name="name"
+                      rules={{
+                        required: t("title_is_required"),
+                        maxLength: { value: 255, message: t("title_should_be_less_than_255_characters") },
+                        validate: (val) => val.trim() !== "" || t("title_is_required"),
+                      }}
+                      render={({ field: { value, onChange, ref } }) => (
+                        <InputField
+                          type="text"
+                          size="2xl"
+                          orientation="vertical"
+                          value={value}
+                          onChange={onChange}
+                          ref={ref}
+                          error={errors.name?.message}
+                          placeholder={t("workspace_settings.settings.teamspaces.name_placeholder")}
+                          aria-label={t("name")}
+                        />
+                      )}
                     />
-                  )}
-                />
+                  </div>
+                </div>
                 <Controller
                   control={control}
                   name="description"

@@ -10,9 +10,9 @@ import { observer } from "mobx-react";
 import { MembersOutline } from "@makeplane/propel/icons";
 import { useTranslation } from "@plane/i18n";
 import { Select } from "@plane/blocks/select";
-import { Logo } from "@plane/blocks/emoji-icon-picker";
 import type { TLogoProps } from "@plane/types";
 // hooks
+import { TeamspaceLogo } from "@/components/teamspaces/logo";
 import { useTeamspace } from "@/hooks/store/use-teamspace";
 
 type TeamspaceOption = {
@@ -52,13 +52,7 @@ export const TeamspaceSelect = observer(function TeamspaceSelect(props: Props) {
       onChange={(val) => onChange(val)}
       getOptionValue={(option) => option.id}
       getOptionLabel={(option) => option.name}
-      getOptionIcon={(option) =>
-        option.logo_props?.in_use ? (
-          <Logo logo={option.logo_props} size={16} />
-        ) : (
-          <MembersOutline className="size-4 shrink-0" />
-        )
-      }
+      getOptionIcon={(option) => <TeamspaceLogo logo={option.logo_props} size={16} />}
     >
       <Select.Trigger<TeamspaceOption>
         variant="select-md"

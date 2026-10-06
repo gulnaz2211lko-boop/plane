@@ -47,7 +47,7 @@ export function EstimateTimeInput(props: TEstimateTimeInputProps) {
         placeholder="0"
         aria-label={t("project_settings.estimates.create.hours")}
       />
-      <span>h</span>
+      <span>{t("project_settings.estimates.create.hours_short")}</span>
       <input
         type="number"
         min={0}
@@ -58,7 +58,7 @@ export function EstimateTimeInput(props: TEstimateTimeInputProps) {
         placeholder="0"
         aria-label={t("project_settings.estimates.create.minutes")}
       />
-      <span>m</span>
+      <span>{t("project_settings.estimates.create.minutes_short")}</span>
     </div>
   );
 }

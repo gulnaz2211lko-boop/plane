@@ -209,7 +209,30 @@
       "work_items": "Work items",
       "completed": "Completed",
       "pending": "Pending"
-    }
+    },
+    "axis": {
+      "state_name": "State name",
+      "state_group": "State group",
+      "priority": "Priority",
+      "label": "Label",
+      "assignee": "Assignee",
+      "project": "Project",
+      "estimate_point": "Estimate point",
+      "cycle": "Cycle",
+      "module": "Module",
+      "completed_date": "Completed date",
+      "due_date": "Due date",
+      "start_date": "Start date",
+      "created_date": "Created date",
+      "work_item": "Work item",
+      "estimate": "Estimate",
+      "epic": "Epic",
+      "no_value": "No value",
+      "add_metric": "Add metric",
+      "add_property": "Add property",
+      "group_by": "Group by"
+    },
+    "hours_value": "{value} h"
   },
   "workspace_projects": {
     "label": "{count, plural, one {Project} other {Projects}}",

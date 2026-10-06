@@ -72,7 +72,9 @@
         "step": "Step {step} of {total}",
         "label": "Create estimate",
         "hours": "Hours",
-        "minutes": "Minutes"
+        "minutes": "Minutes",
+        "hours_short": "h",
+        "minutes_short": "m"
       },
       "toasts": {
         "created": {

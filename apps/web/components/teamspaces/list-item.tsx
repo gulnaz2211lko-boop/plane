@@ -11,7 +11,7 @@ import { AvatarGroup } from "@makeplane/propel/components/avatar-group";
 import { Icon } from "@makeplane/propel/components/icon";
 import { IconButton } from "@makeplane/propel/components/icon-button";
 import { Tooltip } from "@makeplane/propel/components/tooltip";
-import { DeleteOutline, EditOutline, MembersOutline } from "@makeplane/propel/icons";
+import { DeleteOutline, EditOutline } from "@makeplane/propel/icons";
 import { Logo } from "@plane/blocks/emoji-icon-picker";
 import { useTranslation } from "@plane/i18n";
 import { getFileURL } from "@plane/utils";
@@ -19,6 +19,8 @@ import { getFileURL } from "@plane/utils";
 import { useMember } from "@/hooks/store/use-member";
 import { useProject } from "@/hooks/store/use-project";
 import { useTeamspace } from "@/hooks/store/use-teamspace";
+// local imports
+import { TeamspaceLogo } from "./logo";
 
 type Props = {
   teamspaceId: string;
@@ -46,7 +48,7 @@ export const TeamspaceListItem = observer(function TeamspaceListItem(props: Prop
     <div className="flex flex-wrap items-center justify-between gap-4 border-b border-subtle px-4 py-3 last:border-b-0">
       <div className="flex min-w-0 flex-1 items-center gap-3">
         <div className="flex size-8 flex-shrink-0 items-center justify-center rounded-md bg-layer-1">
-          <MembersOutline className="size-4 text-tertiary" />
+          <TeamspaceLogo logo={teamspace.logo_props} size={16} />
         </div>
         <div className="min-w-0">
           <p className="truncate text-13 font-medium text-primary">{teamspace.name}</p>

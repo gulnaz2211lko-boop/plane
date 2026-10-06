@@ -7,3 +7,4 @@
 export * from "./delete-modal";
 export * from "./form-modal";
 export * from "./list-item";
+export * from "./logo";

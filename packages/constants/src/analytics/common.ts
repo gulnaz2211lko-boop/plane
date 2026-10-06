@@ -200,73 +200,89 @@ export const ANALYTICS_DURATION_FILTER_OPTIONS = [
   },
 ];
 
-export const ANALYTICS_X_AXIS_VALUES: { value: ChartXAxisProperty; label: string }[] = [
+export const ANALYTICS_X_AXIS_VALUES: { value: ChartXAxisProperty; label: string; i18n_label: string }[] = [
   {
     value: ChartXAxisProperty.STATES,
     label: "State name",
+    i18n_label: "workspace_analytics.axis.state_name",
   },
   {
     value: ChartXAxisProperty.STATE_GROUPS,
     label: "State group",
+    i18n_label: "workspace_analytics.axis.state_group",
   },
   {
     value: ChartXAxisProperty.PRIORITY,
     label: "Priority",
+    i18n_label: "workspace_analytics.axis.priority",
   },
   {
     value: ChartXAxisProperty.LABELS,
     label: "Label",
+    i18n_label: "workspace_analytics.axis.label",
   },
   {
     value: ChartXAxisProperty.ASSIGNEES,
     label: "Assignee",
+    i18n_label: "workspace_analytics.axis.assignee",
   },
   {
     value: ChartXAxisProperty.PROJECTS,
     label: "Project",
+    i18n_label: "workspace_analytics.axis.project",
   },
   {
     value: ChartXAxisProperty.ESTIMATE_POINTS,
     label: "Estimate point",
+    i18n_label: "workspace_analytics.axis.estimate_point",
   },
   {
     value: ChartXAxisProperty.CYCLES,
     label: "Cycle",
+    i18n_label: "workspace_analytics.axis.cycle",
   },
   {
     value: ChartXAxisProperty.MODULES,
     label: "Module",
+    i18n_label: "workspace_analytics.axis.module",
   },
   {
     value: ChartXAxisProperty.COMPLETED_AT,
     label: "Completed date",
+    i18n_label: "workspace_analytics.axis.completed_date",
   },
   {
     value: ChartXAxisProperty.TARGET_DATE,
     label: "Due date",
+    i18n_label: "workspace_analytics.axis.due_date",
   },
   {
     value: ChartXAxisProperty.START_DATE,
     label: "Start date",
+    i18n_label: "workspace_analytics.axis.start_date",
   },
   {
     value: ChartXAxisProperty.CREATED_AT,
     label: "Created date",
+    i18n_label: "workspace_analytics.axis.created_date",
   },
 ];
 
-export const ANALYTICS_Y_AXIS_VALUES: { value: ChartYAxisMetric; label: string }[] = [
+export const ANALYTICS_Y_AXIS_VALUES: { value: ChartYAxisMetric; label: string; i18n_label: string }[] = [
   {
     value: ChartYAxisMetric.WORK_ITEM_COUNT,
     label: "Work item",
+    i18n_label: "workspace_analytics.axis.work_item",
   },
   {
     value: ChartYAxisMetric.ESTIMATE_POINT_COUNT,
     label: "Estimate",
+    i18n_label: "workspace_analytics.axis.estimate",
   },
   {
     value: ChartYAxisMetric.EPIC_WORK_ITEM_COUNT,
     label: "Epic",
+    i18n_label: "workspace_analytics.axis.epic",
   },
 ];
 

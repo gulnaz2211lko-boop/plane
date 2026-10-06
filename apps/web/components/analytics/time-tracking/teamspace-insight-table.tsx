@@ -92,13 +92,13 @@ const TeamspaceInsightTable = observer(function TeamspaceInsightTable() {
       numericColumn(
         "estimated_time",
         t("workspace_analytics.time_tracking.allocated"),
-        (row) => formatHours(row.estimated_time),
+        (row) => formatHours(row.estimated_time, t),
         (row) => row.estimated_time
       ),
       numericColumn(
         "time_logged",
         t("workspace_analytics.time_tracking.time_logged"),
-        (row) => formatHours(row.time_logged),
+        (row) => formatHours(row.time_logged, t),
         (row) => row.time_logged
       ),
       numericColumn(
