@@ -184,6 +184,12 @@ class Issue(ChangeTrackerMixin, ProjectBaseModel):
                 name="issue_project_completed_at_idx",
                 condition=models.Q(completed_at__isnull=False),
             ),
+            # Soft-deleted work items per project; small, and lets analytics exclude their worklogs cheaply.
+            models.Index(
+                fields=["project"],
+                name="issue_project_deleted_idx",
+                condition=models.Q(deleted_at__isnull=False),
+            ),
         ]
 
     def save(self, *args, **kwargs):

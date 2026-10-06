@@ -127,10 +127,12 @@ class AdvanceAnalyticsBaseView(BaseAPIView):
         return Issue.issue_objects.filter(project_id__in=self.get_project_ids())
 
     def get_worklog_queryset(self) -> QuerySet:
-        return IssueWorklog.objects.filter(
-            project_id__in=self.get_project_ids(),
-            issue__deleted_at__isnull=True,
-        )
+        # Time logged on a deleted work item must not count. Worklogs are soft-deleted with their work
+        # item, but asynchronously, so exclude them here as well. An anti-join against the (few) deleted
+        # work items is far cheaper than joining every worklog to the whole issues table.
+        project_ids = self.get_project_ids()
+        deleted_issues = Issue.all_objects.filter(project_id__in=project_ids, deleted_at__isnull=False)
+        return IssueWorklog.objects.filter(project_id__in=project_ids).exclude(issue_id__in=deleted_issues.values("id"))
 
     def get_analytics_range(self) -> Optional[Tuple[date, date]]:
         """Inclusive date range of the ``date_filter`` (analytics or chart flavour), if any."""
@@ -240,7 +242,8 @@ class AdvanceAnalyticsEndpoint(AdvanceAnalyticsBaseView):
             total=Sum("duration"),
             contributors=Count("logged_by_id", distinct=True),
         )
-        week_totals = worklogs.aggregate(
+        # Only the two weeks being compared are needed, which lets this use the (project, logged_at) index.
+        week_totals = worklogs.filter(logged_at__range=(weeks["previous"][0], weeks["current"][1])).aggregate(
             this_week=Sum("duration", filter=Q(logged_at__range=weeks["current"])),
             last_week=Sum("duration", filter=Q(logged_at__range=weeks["previous"])),
         )
